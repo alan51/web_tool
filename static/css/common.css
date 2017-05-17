@@ -1,0 +1,115 @@
+.list-group-item a {
+    padding-right: 20px
+}
+
+#links a {
+    font-size: 13px
+}
+
+#desc1 {
+    font-size: 13px;
+}
+
+.newFeatureTip {
+    width: 13px;
+    height: 13px;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 5px;
+    color: red;
+    right: 10px;
+}
+
+.newItem {
+    float: left;
+    color: red;
+    position: absolute;
+    margin-top: 2px;
+    margin-left: 8px;
+}
+
+.announce {
+    color: red;
+}
+
+.nav > {
+    z-index: 99999999;
+}
+
+.nav > li:hover .dropdown-menu {
+    display: block;
+    z-index: 99999999;
+}
+
+.navbar {
+    margin-bottom: 4px;
+    min-height: 0px;
+}
+
+.navbar-nav > li > a {
+    padding-top: 10px;
+}
+
+#nav_div ul > li > span {
+    color: blue;
+}
+
+#nav_div ul > li {
+    list-style: none;
+    float: left;
+    margin-left: 10px;
+}
+
+#nav_div ul {
+    height: 20px;
+}
+
+#nav_div ul:hover {
+    background: gainsboro;
+}
+
+nav_div #nav_div ul > li > span {
+    font-family: "微软雅黑";
+    color: blue;
+    width: 72px;
+}
+
+#nav_div ul > li > a {
+    color: #666;
+}
+
+#nav_div ul > li > a:hover {
+    color: red;
+}
+
+.xie {
+    -webkit-transform: rotate(-3deg);
+    -moz-transform: rotate(-3deg);
+    -o-transform: rotate(-3deg);
+}
+
+li.hide1 {
+    display: block;
+}
+
+* {
+    font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu
+}
+.a2016 {
+    color: white;
+    font-family: "Microsoft YaHei", 微软雅黑, "MicrosoftJhengHei", 华文细黑, STHeiti, MingLiu;
+    text-align: center;
+    background: red;
+    border-radius: 2px;
+}
+#basic-addon2{width:64px!important;text-align:left;}.input-group .form-control{width:320px}
+.abdiv {
+    width: 284px;
+    height: 34px;
+    font-family: 华文细黑;
+    color: white;
+    font-size: 17px;
+    line-height: 40px;
+    margin-left: 30%;
+    text-align: center;
+}

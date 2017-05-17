@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>在线网络计算器 | TCP/IP子网掩码计算换算 - 小蓝工具</title>
+<meta name="keywords" content="小蓝工具,小蓝博客,子网,子网掩码,子网划分,A类,B类,C类子网区别,网络计算,网络地址分配,掩码计算"/>
+<meta name="description" content="小蓝工具,小蓝博客,局域网规划工具,子网计算划分,子网掩码各个进制表示换算,IP地址进制表示换算">
+
+ 
+<script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+<link href="/static/css/bootstrap.min.css" rel="stylesheet"><link rel="icon" href="/static/image/浓云.png" sizes="32x32" />
+
+ 
+
+</head>
+<body>
+<div class="aw-container-wrap">
+<div class="container">
+<div class="row">
+<div class="aw-content-wrap clearfix">
+<div class=" aw-main-content" style="min-height:700px;max-height:2000px">
+<nav class="navbar navbar-default" id='top_menu'>
+<div class="container-fluid">
+<ul class="nav navbar-nav" style="width: 100%;">
+ 
+<li>
+<a href="../../index.html">首页</a>
+</li>
+<li class="dropdown hide1">
+<a href="index.html#" class="dropdown-toggle" id="jsontools" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">JSON相关<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="../../index.html">格式化校验</a>
+</li>
+<li><a href="../../jsonviewernew/index.html" target="_blank" red>JSON视图</a>
+</li>
+<li><a href="../../zhuanyi/index.html" red>JSON压缩转义</a>
+</li>
+<li><a href="../../json2javapojo/new/index.html" red>JSON生成Java实体类</a>
+</li>
+<li><a href="../json2csharp/index.html" id="json2csharp">JSON生成C#实体类</a>
+</li>
+<li><a href="../../jsoneditoronline/index.html" red>JSON在线编辑器</a>
+</li>
+<li><a href="../../color/index.html">JSON着色</a></li>
+<li><a href="../../xml2json/index.html" red>XML-JSON互转</a></li>
+<li><a href="../../jsontools/json2get/index.html" id="json2get">JSON和GET请求字符串互转</a></li>
+<li><a href="../../json/col2json/index.html" id="excel2json">Excel转Json</a></li>
+</ul>
+</li>
+<li class="dropdown hide1">
+<a href="index.html#" id="encTools" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+编码/加密<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="../../enc/base64/index.html">Base64编码、解码</a></li>
+<li><a href="../../enc/md5/index.html">MD5加密</a></li>
+<li><a href="../../enc/aesdes/index.html" id="aes">DES,AES等对称加密解密</a></li>
+<li><a href="../../enc/sha/index.html">SHA加密</a></li>
+<li><a href="../../enc/escape/index.html">Escape编码</a></li>
+<li><a href="../../enc/urlencode/index.html" id="urlEncode">URL编码</a></li>
+<li><a href="../../enc/eval_package/index.html">Javascript Eval加密解密</a></li>
+<li><a href="../../enc/morse/index.html">摩斯密码加密解密</a></li>
+</ul>
+</li>
+<li class="dropdown hide1">
+<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">格式化<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="../../jshtml_format/index.html">Javascript/HTML压缩、格式化</a></li>
+<li><a href="../../otherformat/css/index.html">CSS压缩、格式化</a></li>
+<li><a href="../../otherformat/xml/index.html">XML压缩、格式化</a></li>
+<li><a href="../../otherformat/sql/index.html">SQL压缩、格式化</a></li>
+</ul>
+</li>
+<li class="dropdown hide1">
+<a href="index.html#" id="httputil" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+网络<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="../../httppost/index.html" target="_blank" red>在线模拟发送HTTP请求</a></li>
+<li><a id="http3" href="../../httputil/httppost3/index.html">支持返回结果的HTTP请求</a></li>
+<li><a href="../../httputil/getip/index.html">获取你的IP</a></li>
+<li><a href="../../httputil/queryip/index.html" id="queryip">获取IP信息</a></li>
+<li><a href="../../httputil/ip2addr/index.html" id="ip2addr">IP定位周边信息</a></li>
+<li><a href="../../httputil/clientinfo/index.html" id="clientinfo">获取您的浏览器信息</a></li>
+<li><a href="../../httputil/useragent/index.html" id="useragent">常用USER_AGENT</a></li>
+<li><a href="index.html" id="subnetmask">TCP/IP子网掩码计算换算</a></li>
+</ul>
+</li>
+<li class="dropdown hide1">
+<a href="index.html#" id="uitools" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+前端<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="../../ui/tinypic/index.html" id="tinypic">图片在线压缩工具</a></li>
+<li><a href="../../pages/cooleditor/index.html" id="simpleeidtor">在线代码编辑器</a></li>
+<li><a href="../../ui/photoshop/index.html" target="_blank">在线photoshop</a></li>
+<li><a href="http://h5.baidu.com/store" target="_blank" rel="external nofollow" id="h5maker">H5模板在线制作</a></li>
+<li><a href="../../ui/borderradius/index.html" id="borderradius">在线生成圆角图片</a></li>
+<li><a id="logocreate" href="../../ui/create_logo/index.html" id="borderradius" title="IOS安卓手机开发logo图标生成工具">IOS安卓手机开发logo生成工具</a></li>
+<li><a href="../../ui/icomaker/index.html" id="icomaker">ICO图标在线转换工具</a></li>
+<li><a href="http://runjs.cn/code" target="_blank" rel="external nofollow" id="runjs">RunJS在线编辑器</a></li>
+<li><a href="../../ui/ueditor/index.html" id="ueditor">ueditor在线代码编辑器</a></li>
+<li><a href="../../ui/getcolor/index.html">在线调色板</a></li>
+<li><a href="../../ui/safecolor/index.html" id="safecolor">WEB安全色</a></li>
+<li><a href="../../ui/image2base64/index.html" id="img2base64">在线图片转Base64编码</a></li>
+<li><a href="../../ui/imagehandler/index.html" id="imghandler">在线图片大小格式(支持webp)转换</a></li>
+<li><a href="../../ui/phonesize/index.html" id="phonesize">iPhone/iPad/Android UI尺寸规范</a></li>
+<li><a href="http://www.iconfont.cn/plus/collections/index" target="_blank" rel="external nofollow">阿里巴巴矢量图标库</a></li>
+<li><a href="http://fontawesome.io/icons/" target="_blank" rel="external nofollow">fontawesome矢量图标库</a></li>
+<li><a href="../../ui/svg_editor/index.html" id="svgedit">SVG代码编辑预览</a></li>
+<li><a href="../../othertools/libcdn/index.html" id="libcdn">常用JS资源库</a></li>
+<li><a href="../../ui/openweb/index.html" id="openweb">弹出窗口生成器</a></li>
+<li><a href="../../ui/texteditor/index.html" id="texteditor">自动排版工具</a></li>
+</ul>
+</li>
+<li class="dropdown hide1">
+<a href="index.html#" id="convertTools" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+转换<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="../../ui/imagehandler/index.html" id="imghandler">在线图片大小格式(支持webp)转换</a></li>
+<li><a href="../image_to_svg/index.html" id="tosvg">jpg,png图片在线转svg</a></li>
+<li><a href="../map/index.html" id="mapdw">在线地图经纬度定位换算</a></li>
+<li><a href="../../ui/px2em/index.html" id="px2em">px转em,em转px</a></li>
+<li><a href="../../ui/image2base64/index.html" id="img2base64">在线图片转Base64编码</a></li>
+<li><a id="unicodechinese" href="../unicode_chinese/index.html">unicode中文互转</a></li>
+<li><a href="../shorturl/index.html" id="shorturl">在线短地址转换</a></li>
+<li><a href="../unix/index.html">Unix时间转换</a></li>
+<li><a href="../jinzhi/index.html">进制转换</a></li>
+<li><a href="../ox2str/index.html">16进制到文本字符串</a></li>
+<li><a href="../uplowercase/index.html" id="uplowercase">字母大小写转换</a></li>
+<li><a href="../rgbhex/index.html" id="rgbhex">RGB颜色和HEX互转</a></li>
+<li><a href="../file2pdf/index.html" id="file2pdf">在线文档转PDF</a></li>
+<li><a href="../qrcode/index.html" id="qrtools">二维码生成与解码</a></li>
+<li><a href="../numtohz/index.html" id="numtohz">数字转中文(人民币)</a></li>
+<li><a href="../filesize/index.html" id="filesizehs">在线文件大小换算</a></li>
+<li><a href="../nativeascii/index.html" id="navasc">NATIVE/ASCII编码互转工具</a></li>
+<li><a href="../../othertools/sql2pojo/index.html" id="sql2pojo">数据库转实体类</a></li>
+<li><a href="../htmlubb/index.html" id="htmlubb">Html与UBB代码互相转换工具</a></li>
+<li><a href="../topinying/index.html" id="topinying">汉字转换拼音</a></li>
+<li><a href="../fullhalf/index.html" id="fullhalf">全角半角转换</a></li>
+<li><a href="../j2f/index.html" id="j2f">简繁体火星文互转</a></li>
+<li><a href="../html2markdown/index.html" id="html2markdown">Html转换为MarkDown工具</a></li>
+</ul>
+</li>
+<li class="dropdown hide1">
+<a href="index.html#" class="dropdown-toggle" id="otherTools" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+其他<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="../../tempfile/index.html">临时网盘</a></li>
+<li><a href="../../othertools/findelement/index.html" id="findbyxpath">寻找图片、链接或xpath寻找元素</a></li>
+<li><a href="../../othertools/finddif/index.html">文字对比找不同处</a></li>
+<li><a href="../../othertools/regex/index.html">正则表达式</a></li>
+<li><a href="../../othertools/regex_create/index.html">正则表达式代码生成工具</a></li>
+<li><a href="../../othertools/sqlAppend/index.html">SQL追加或去除双引号</a></li>
+<li><a href="../../othertools/removeDuplicate/index.html">去除重复字符串</a></li>
+<li><a href="../../othertools/sortwords/index.html" id="sortWords">在线根据首字母排序</a></li>
+<li><a href="../../chargeservice/ocr/index.html">在线文字识别</a></li>
+<li><a href="../../other/qqskey/index.html">获取QQ的SKEY</a></li>
+<li><a href="../../othertools/wordpress/index.html">在线查询wordpress主题模版出处</a></li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="index.html#" class="dropdown-toggle" id="jsonapi" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+API<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="../../knownjson/webInterface/index.html" id="findbyxpath">免费JSON接口</a></li>
+<li><a id="chargeapi" target="_blank" href="http://apistore.baidu.com/" rel="external nofollow">收费JSON接口</a></li>
+</ul>
+</li>
+<li class="dropdown hide1">
+<a href="index.html#" class="dropdown-toggle" id="docs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+文档<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a id="jqapi" href="../../apidoc/jquery/index.html" target="_blank" rel="external nofollow">jQuery文档</a></li>
+<li><a id="bootcssapi" href="http://v3.bootcss.com/components/" target="_blank" rel="external nofollow">Bootstrap文档</a></li>
+<li><a id="vueapi" href="https://cn.vuejs.org/v2/api/" target="_blank" rel="external nofollow">VueJs文档</a></li>
+<li role="separator" class="divider"></li>
+<li><a id="apliayapi" href="http://wiki.open.qq.com/wiki/%E9%A6%96%E9%A1%B5" target="_blank" rel="external nofollow">腾讯开发平台</a></li>
+<li><a id="wxapi" href="http://mp.weixin.qq.com/wiki/home/index.html" target="_blank" rel="external nofollow">微信公众平台开发文档</a></li>
+<li><a id="wxapi" href="http://mp.weixin.qq.com/wiki/11/74ad127cc054f6b80759c40f77ec03db.html" target="_blank" rel="external nofollow">微信JSSDK开发文档</a></li>
+<li><a id="wxapi" href="https://pay.weixin.qq.com/wiki/doc/api/index.html" target="_blank" rel="external nofollow">微信支付开发文档</a></li>
+<li role="separator" class="divider"></li>
+<li><a id="tbapi" href="http://open.taobao.com/api/api_list.htm?spm=a219a.7386789.1.27.Lf4YRD" target="_blank" rel="external nofollow">淘宝开发文档</a></li>
+<li><a id="apliayapi" href="https://open.alipay.com/platform/document.htm" target="_blank" rel="external nofollow">支付宝开发文档</a></li>
+<li role="separator" class="divider"></li>
+ 
+<li><a href="../../doc/AndroidManifest/index.html" id="androidManifest">Android权限大全</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="../../knownjson/aboutjson/index.html">什么是JSON</a></li>
+<li><a href="../../knownjson/demo/index.html">举个栗子</a></li>
+<li><a href="../../knownjson/webInterface/index.html">JSON API免费接口</a></li>
+<li><a href="../../knownjson/regexJiaocheng/index.html">正则表达式30分钟入门教程</a></li>
+<li><a href="../../knownjson/httpstate/index.html">HTTP状态码查询</a></li>
+</ul>
+</li>
+<li class="dropdown hide1">
+<a href="index.html#" class="dropdown-toggle" id="testtools" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">平台工具<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a rel="external nofollow" target="_blank" href="http://mp.weixin.qq.com/debug">微信公众平台调试工具</a></li>
+<li><a id="coupon" rel="external nofollow" target="_blank" href="http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=cardsign">微信卡券JSAPI签名校验工具</a></li>
+<li><a id="wxsign" rel="external nofollow" target="_blank" href="http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign">微信 JS 接口签名校验工具</a></li>
+<li><a rel="external nofollow" target="_blank" href="http://qy.weixin.qq.com/debug">微信企业号调试工具</a></li>
+<li><a rel="external nofollow" target="_blank" href="http://connect.qq.com/sdk/webtools/">QQ互联API调试工具</a></li>
+<li role="separator" class="divider"></li>
+<li><a rel="external nofollow" target="_blank" href="http://t.cn/R4617Pf">淘宝oauth2.0测试工具</a></li>
+<li><a rel="external nofollow" target="_blank" href="http://t.cn/R461ZZu">淘宝API测试工具</a></li>
+<li><a rel="external nofollow" target="_blank" href="http://t.cn/R461Zm2">淘宝错误码查询工具</a></li>
+<li><a rel="external nofollow" target="_blank" href="http://t.cn/R461wa7">淘宝商品属性工具</a></li>
+<li role="separator" class="divider"></li>
+<li><a rel="external nofollow" target="_blank" href="http://sandbox.alipaydev.com/home/apiTestTools.htm?method=alipay.security.risk.detect">支付宝API工具</a></li>
+<li role="separator" class="divider"></li>
+<li><a rel="external nofollow" target="_blank" href="http://open.weibo.com/tools/console">新浪微博API工具</a></li>
+</ul>
+</li>
+<li>
+<a href="http://www.hellojava.com/" style="color: red;" target="_blank">Java菜鸟社区</a>
+</li>
+<li class="dropdown">
+<a href="index.html#" class="dropdown-toggle" id="moret" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+更多<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li>
+<a href="../../soft/index.html">常用软件下载</a>
+</li>
+<li>
+<a href="../../robot/index.html" id="td" style="color: green;">我是泰迪</a>
+</li>
+<li>
+<a href="../../other/blogs/index.html">Blogs</a>
+</li>
+<li>
+<a href="../../knownjson/msg/index.html">留言</a>
+</li>
+<li>
+<a href="../../other/ads/index.html">广告招租</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+<script>
+							var showaban = true;
+								var storageKey = "newtools20170322";
+								if(window.localStorage.getItem(storageKey)==null){
+									$("#convertTools").after('<span class="newFeatureTip">●</span>');
+									
+									$("#tosvg").before('<span class="newItem">●</span>');
+									document.getElementById("tosvg").onmouseover = function(){
+										window.localStorage.setItem(storageKey,"has");
+										$(".newFeatureTip").text('');
+									}
+									
+								}
+								
+							</script>
+<div style="clear:both"></div>
+
+ 
+ 
+ 
+<blockquote class="layui-elem-quote layui-quote-nm" style='margin-bottom: 5px;display:none;padding: 4px 20px;font-size:13px;    text-align: left;'>
+您最近使用了：<span id="history"></span>
+</blockquote> <script>
+		var showaban = false;
+	</script>
+<link href="http://www.newjson.com/Css/math/toolstyle.css" rel="stylesheet"/>
+<script src="http://www.bejson.com/static/bejson/convert/ipcalc.js"></script>
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="media">
+<div class="media-body">
+<h4 class="media-heading">在线网络计算器 | TCP/IP子网掩码计算换算</h4>
+<div id="desc1">局域网规划工具,子网计算划分,子网掩码各个进制表示换算,IP地址进制表示换算</div>
+</div>
+</div>
+</div>
+<div class="panel-body">
+ 
+<div class="NetWorkWrap pb10 clearfix Tool-MainWrap">
+ 
+<div class="NetWork-left fl">
+<form lpformnum="1">
+<div class="NetWork-main01 bor-a1s">
+<h3 class="MainHead bb-blue" style="margin-top: 0px; height: 34px;">网络和IP地址计算器</h3>
+<div class="MainCent">
+<div class="MCentlist clearfix ptb10 bb-blue bg-blue02 ipgroup">
+<label class="w60 tr">输入IP</label>
+<input type="text" n="ip1" name="ip_1" value="192" maxlength="15" size="3" class="Intxt">
+<input type="text" n="ip2" name="ip_2" value="168" maxlength="15" size="3" class="Intxt">
+<input type="text" n="ip3" name="ip_3" value="0" maxlength="15" size="3" class="Intxt">
+<input type="text" n="ip4" name="ip_4" value="1" maxlength="15" size="3" class="Intxt">
+<label class="w50 tr">掩码位</label>
+<input type="text" name="bits" value="24" size="2" class="Intxt">
+<input type="button" onclick="calNBFL(this.form)" value="计算" class="Inbtn">
+<input type="button" onclick="resetform4(this.form)" value="清空" class="Inbtn">
+</div>
+<div class="MCentlist clearfix pt10">
+<label class="w60 tr">可用IP</label>
+<input type="text" name="numofaddr" size="10" readonly="" class="Intxt">
+</div>
+<div class="MCentlist clearfix pt10">
+<label class="w60 tr">掩码</label>
+<input type="text" name="snm_1" size="3" maxlength="3" readonly="" class="Intxt">
+<input type="text" name="snm_2" size="3" maxlength="3" readonly="" class="Intxt">
+<input type="text" name="snm_3" size="3" maxlength="3" readonly="" class="Intxt">
+<input type="text" name="snm_4" size="3" maxlength="3" readonly="" class="Intxt">
+</div>
+<div class="MCentlist clearfix pt10">
+<label class="w60 tr">网络</label>
+<input type="text" name="nwadr_1" size="3" maxlength="3" readonly="" class="Intxt">
+<input type="text" name="nwadr_2" size="3" maxlength="3" readonly="" class="Intxt">
+<input type="text" name="nwadr_3" size="3" maxlength="3" readonly="" class="Intxt">
+<input type="text" name="nwadr_4" size="3" maxlength="3" readonly="" class="Intxt">
+</div>
+<div class="MCentlist clearfix pt10">
+<label class="w60 tr">第一可用</label>
+<input type="text" name="firstadr_1" size="3" maxlength="3" readonly="" class="Intxt">
+<input type="text" name="firstadr_2" size="3" maxlength="3" readonly="" class="Intxt">
+<input type="text" name="firstadr_3" size="3" maxlength="3" readonly="" class="Intxt">
+<input type="text" name="firstadr_4" size="3" maxlength="3" readonly="" class="Intxt">
+</div>
+<div class="MCentlist clearfix pt10">
+<label class="w60 tr">最后可用</label>
+<input type="text" name="lastadr_1" size="3" maxlength="3" readonly="" class="Intxt">
+<input type="text" name="lastadr_2" size="3" maxlength="3" readonly="" class="Intxt">
+<input type="text" name="lastadr_3" size="3" maxlength="3" readonly="" class="Intxt">
+<input type="text" name="lastadr_4" size="3" maxlength="3" readonly="" class="Intxt">
+</div>
+<div class="MCentlist clearfix pt10">
+<label class="w60 tr">广播</label>
+<input type="text" name="bcast_1" size="3" maxlength="3" readonly="" class="Intxt">
+<input type="text" name="bcast_2" size="3" maxlength="3" readonly="" class="Intxt">
+<input type="text" name="bcast_3" size="3" maxlength="3" readonly="" class="Intxt">
+<input type="text" name="bcast_4" size="3" maxlength="3" readonly="" class="Intxt">
+</div>
+<div class="MCentlist ptb10 col-gray04 bor-t1s mt10"><p>显示网络，广播，第一次和最后一个给定的网络地址</p><p>在网络掩码“位格式”也被称为CIDR格式（CIDR=无类别域间路由选择）。</p></div>
+</div>
+</div>
+</form>
+<form lpformnum="2">
+<div class="NetWork-main01 bor-a1s mt20">
+<h3 class="MainHead bb-blue">子网掩码转换器（位点分十进制格式) </h3>
+<div class="MainCent">
+<div class="MCentlist clearfix ptb10 bb-blue bg-blue02">
+<label class="w82 tr">掩码</label>
+<input type="text" name="bits" value="24" size="4" class="Intxt">
+<input type="button" onclick="calcNWmaskForm2(this.form)" value="计算" class="Inbtn">
+<input type="button" onclick="resetform2(this.form)" value="清空" class="Inbtn">
+</div>
+<div class="MCentlist clearfix pt10">
+<label class="w82 tr">Dec 十进制</label>
+<input type="text" name="snm_1" size="3" readonly="" class="Intxt">
+<input type="text" name="snm_2" size="3" readonly="" class="Intxt">
+<input type="text" name="snm_3" size="3" readonly="" class="Intxt">
+<input type="text" name="snm_4" size="3" readonly="" class="Intxt">
+</div>
+<div class="MCentlist clearfix ptb10">
+<label class="w82 tr">Hex十六进制</label>
+<input type="text" name="hex_1" size="2" readonly="" class="Intxt">
+<input type="text" name="hex_2" size="2" readonly="" class="Intxt">
+<input type="text" name="hex_3" size="2" readonly="" class="Intxt">
+<input type="text" name="hex_4" size="2" readonly="" class="Intxt">
+</div>
+</div>
+</div>
+</form>
+<form lpformnum="3">
+<div class="NetWork-main01 bor-a1s mt20">
+<h3 class="MainHead bb-blue">网络/节点计算器</h3>
+<div class="MainCent">
+<div class="MCentlist clearfix pt10 bg-blue02 ipgroup">
+<label class="w60 tr">子网掩码</label>
+<input type="text" n="ip1" value="255" maxlength="15" size="3" name="snm1a" class="Intxt">
+<input type="text" n="ip2" value="255" maxlength="15" size="3" name="snm2a" class="Intxt">
+<input type="text" n="ip3" value="255" maxlength="15" size="3" name="snm3a" class="Intxt">
+<input type="text" n="ip4" value="0" maxlength="15" size="3" name="snm4a" class="Intxt">
+</div>
+<div class="MCentlist clearfix ptb10 bb-blue bg-blue02 ipgroup">
+<label class="w60 tr">TCP/IP</label>
+<input type="text" n="ip1" value="192" maxlength="15" size="3" name="oct1a" class="Intxt">
+<input type="text" n="ip2" value="168" maxlength="15" size="3" name="oct2a" class="Intxt">
+<input type="text" n="ip3" value="0" maxlength="15" size="3" name="oct3a" class="Intxt">
+<input type="text" n="ip4" value="1" maxlength="15" size="3" name="oct4a" class="Intxt">
+<input type="button" onclick="compute(this.form)" value="计算" class="Inbtn">
+<input type="button" onclick="nnclear(this.form)" value="清空" class="Inbtn"></div>
+<div class="MCentlist clearfix pt10">
+<label class="w60 tr">网络</label>
+<input type="text" maxlength="3" size="3" name="nw1a" readonly="" class="Intxt">
+<input type="text" maxlength="3" size="3" name="nw2a" readonly="" class="Intxt">
+<input type="text" maxlength="3" size="3" name="nw3a" readonly="" class="Intxt">
+<input type="text" maxlength="3" size="3" name="nw4a" readonly="" class="Intxt">
+</div>
+<div class="MCentlist clearfix pt10">
+<label class="w60 tr">节点/主机</label>
+<input type="text" maxlength="3" size="3" name="node1a" readonly="" class="Intxt">
+<input type="text" maxlength="3" size="3" name="node2a" readonly="" class="Intxt">
+<input type="text" maxlength="3" size="3" name="node3a" readonly="" class="Intxt">
+<input type="text" maxlength="3" size="3" name="node4a" readonly="" class="Intxt">
+</div>
+<div class="MCentlist clearfix ptb10">
+<label class="w60 tr">广播地址</label>
+<input type="text" maxlength="3" size="3" name="broad1a" readonly="" class="Intxt">
+<input type="text" maxlength="3" size="3" name="broad2a" readonly="" class="Intxt">
+<input type="text" maxlength="3" size="3" name="broad3a" readonly="" class="Intxt">
+<input type="text" maxlength="3" size="3" name="broad4a" readonly="" class="Intxt">
+</div>
+</div>
+</div>
+</form>
+<form lpformnum="4">
+<div class="NetWork-main01 bor-a1s mt20">
+<h3 class="MainHead bb-blue">十进制子网掩码逆算器</h3>
+<div class="MainCent">
+<div class="MCentlist clearfix pt10 ipgroup">
+<label class="w70 tr">点格式掩码</label>
+<input type="text" n="ip1" value="255" maxlength="15" size="3" name="snm1d" class="Intxt">
+<input type="text" n="ip2" value="255" maxlength="15" size="3" name="snm2d" class="Intxt">
+<input type="text" n="ip3" value="255" maxlength="15" size="3" name="snm3d" class="Intxt">
+<input type="text" n="ip4" value="0" maxlength="15" size="3" name="snm4d" class="Intxt">
+<input type="button" onclick="computeINV1(this.form);" value="计算" class="Inbtn">
+<input type="button" onclick="sjzclear(this.form);" value="清空" class="Inbtn"></div>
+<div class="MCentlist clearfix ptb10">
+<label class="w70 tr">逆算掩码</label>
+<input type="text" maxlength="3" size="3" name="snm1e" readonly="" class="Intxt">
+<input type="text" maxlength="3" size="3" name="snm2e" readonly="" class="Intxt">
+<input type="text" maxlength="3" size="3" name="snm3e" readonly="" class="Intxt">
+<input type="text" maxlength="3" size="3" name="snm4e" readonly="" class="Intxt">
+</div>
+</div>
+</div>
+</form>
+<form lpformnum="5">
+<div class="NetWork-main01 bor-a1s mt20">
+<h3 class="MainHead bb-blue">十进制子网掩码换算器</h3>
+<div class="MainCent">
+<div class="MCentlist clearfix pt10 ipgroup">
+<label class="w70 tr">点格式掩码</label>
+<input type="text" n="ip1" maxlength="15" size="3" name="snm1c" class="Intxt">
+<input type="text" n="ip2" maxlength="15" size="3" name="snm2c" class="Intxt">
+<input type="text" n="ip3" maxlength="15" size="3" name="snm3c" class="Intxt">
+<input type="text" n="ip4" maxlength="15" size="3" name="snm4c" class="Intxt">
+<input type="button" onclick="computeSNMA(this.form);" value="计算" class="Inbtn">
+<input type="button" onclick="dgsclear(this.form);" value="清空" class="Inbtn">
+</div>
+<div class="MCentlist clearfix ptb10">
+<label class="w70 tr">掩码位元数</label>
+<input type="text" value="24" maxlength="2" size="2" name="snmbitsc" class="Intxt">
+<input type="button" onclick="computeSNMB(this.form);" value="计算" class="Inbtn">
+<input type="button" onclick="ymwclear(this.form);" value="清空" class="Inbtn">
+</div>
+</div>
+</div>
+</form>
+<form lpformnum="6">
+<div class="NetWork-main01 bor-a1s mt20">
+<h3 class="MainHead bb-blue">计算位补一个IP地址（逆）</h3>
+<div class="MainCent">
+<div class="MCentlist clearfix pt10 ipgroup">
+<input type="text" n="ip1" name="ip_1" value="255" maxlength="15" size="3" class="Intxt">
+<input type="text" n="ip2" name="ip_2" value="255" maxlength="15" size="3" class="Intxt">
+<input type="text" n="ip3" name="ip_3" value="255" maxlength="15" size="3" class="Intxt">
+<input type="text" n="ip4" name="ip_4" value="255" maxlength="15" size="3" class="Intxt">
+<input type="button" onclick="calcIpInvert(this.form)" value="计算" class="Inbtn">
+<input type="button" onclick="resetform8(this.form)" value="清空" class="Inbtn">
+</div>
+<div class="MCentlist clearfix ptb10">
+<input type="text" name="invert_1" size="3" readonly="" class="Intxt">
+<input type="text" name="invert_2" size="3" readonly="" class="Intxt">
+<input type="text" name="invert_3" size="3" readonly="" class="Intxt">
+<input type="text" name="invert_4" size="3" readonly="" class="Intxt">
+</div>
+</div>
+</div>
+</form>
+</div>
+ 
+ 
+<div class="NetWork-right fr">
+<form lpformnum="7">
+<div class="NetWork-main01 bor-a1s">
+<h3 class="MainHead bb-blue">网络和IP地址计算器</h3>
+<div class="MainCent pr">
+<div class="MCentlist clearfix pt10 ipgroup">
+<label class="w70 tr">输入IP/TCP</label>
+<input type="text" n="ip1" value="192" maxlength="15" size="3" name="oct1" class="Intxt">
+<input type="text" n="ip2" value="168" maxlength="15" size="3" name="oct2" class="Intxt">
+<input type="text" n="ip3" value="0" maxlength="15" size="3" name="oct3" class="Intxt">
+<input type="text" n="ip4" value="1" maxlength="15" size="3" name="oct4" class="Intxt">
+<label class="w60 tr pr5">网络类型</label>
+<div class="NetWork-choese ToolChoese mr15">
+<div class="NetWorkW-choese pr w60">
+<div class="NetWorkW-cont SearChoese w50" id="nettype">默认</div>
+<input type="hidden" value="1" name="cf">
+<span class="NWicon-drop-down SearChoese"></span>
+<ul class="NetWorkC-down SearChoese-show w60">
+<li><a val="1" href="javascript:">默认</a></li>
+<li><a val="2" href="javascript:">A类网</a></li>
+<li><a val="3" href="javascript:">B类网</a></li>
+<li><a val="4" href="javascript:">C类网</a></li>
+</ul>
+</div>
+</div>
+ 
+</div>
+<div class="MCentlist clearfix pt10">
+<label class="w70 tr pr10" style="width: 80px;">子网ip量</label>
+<div class="NetWork-choese ToolChoese">
+<div class="NetWorkW-choese pr w70">
+<div class="NetWorkW-cont SearChoese " id="netnum"></div>
+<input type="hidden" value="0" name="network">
+<span class="NWicon-drop-down SearChoese"></span>
+<ul class="NetWorkC-down SearChoese-show w70" style="margin-top: -5px; width: 72px;">
+<li><a val="0" href="javascript:">&nbsp;</a></li>
+<li><a val="1" href="javascript:">1</a></li>
+<li><a val="2" href="javascript:">2</a></li>
+<li><a val="4" href="javascript:">4</a></li>
+<li><a val="8" href="javascript:">8</a></li>
+<li><a val="16" href="javascript:">16</a></li>
+<li><a val="32" href="javascript:">32</a></li>
+<li><a val="64" href="javascript:">64</a></li>
+<li><a val="128" href="javascript:">128</a></li>
+<li><a val="256" href="javascript:">256</a></li>
+<li><a val="512" href="javascript:">512</a></li>
+<li><a val="1024" href="javascript:">1024</a></li>
+<li><a val="2048" href="javascript:">2048</a></li>
+<li><a val="4096" href="javascript:">4096</a></li>
+<li><a val="8192" href="javascript:">8192</a></li>
+<li><a val="16384" href="javascript:">16384</a></li>
+<li><a val="32768" href="javascript:">32768</a></li>
+<li><a val="65536" href="javascript:">65536</a></li>
+<li><a val="131072" href="javascript:">131072</a></li>
+<li><a val="262144" href="javascript:">262144</a></li>
+<li><a val="524288" href="javascript:">524288</a></li>
+<li><a val="1048576" href="javascript:">1048576</a></li>
+<li><a val="2097152" href="javascript:">2097152</a></li>
+<li><a val="4194304" href="javascript:">4194304</a></li>
+<li><a val="8388608" href="javascript:">8388608</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="MCentlist clearfix pt10">
+<label class="w70 tr">节点/主机</label>
+<div class="NetWork-choese ToolChoese fl ml10">
+<div class="NetWorkW-choese pr w100">
+<div class="NetWorkW-cont SearChoese w90" id="nodenum"></div>
+<input type="hidden" value="0" name="node">
+<span class="NWicon-drop-down SearChoese"></span>
+<ul class="NetWorkC-down SearChoese-show w100">
+<li><a val="0" href="javascript:">&nbsp;</a></li>
+<li><a val="1" href="javascript:">1</a></li>
+<li><a val="2" href="javascript:">2</a></li>
+<li><a val="4" href="javascript:">4</a></li>
+<li><a val="8" href="javascript:">8</a></li>
+<li><a val="16" href="javascript:">16</a></li>
+<li><a val="32" href="javascript:">32</a></li>
+<li><a val="64" href="javascript:">64</a></li>
+<li><a val="128" href="javascript:">128</a></li>
+<li><a val="256" href="javascript:">256</a></li>
+<li><a val="512" href="javascript:">512</a></li>
+<li><a val="1024" href="javascript:">1024</a></li>
+<li><a val="2048" href="javascript:">2048</a></li>
+<li><a val="4096" href="javascript:">4096</a></li>
+<li><a val="8192" href="javascript:">8192</a></li>
+<li><a val="16384" href="javascript:">16384</a></li>
+<li><a val="32768" href="javascript:">32768</a></li>
+<li><a val="65536" href="javascript:">65536</a></li>
+<li><a val="131072" href="javascript:">131072</a></li>
+<li><a val="262144" href="javascript:">262144</a></li>
+<li><a val="524288" href="javascript:">524288</a></li>
+<li><a val="1048576" href="javascript:">1048576</a></li>
+<li><a val="2097152" href="javascript:">2097152</a></li>
+<li><a val="4194304" href="javascript:">4194304</a></li>
+<li><a val="8388608" href="javascript:">8388608</a></li>
+<li><a val="16777216" href="javascript:">16777216</a></li>
+<li><a val="33554432" href="javascript:">33554432</a></li>
+<li><a val="67108864" href="javascript:">67108864</a></li>
+<li><a val="134217728" href="javascript:">134217728</a></li>
+<li><a val="268435456" href="javascript:">268435456</a></li>
+<li><a val="536870912" href="javascript:">536870912</a></li>
+<li><a val="1073741824" href="javascript:">1073741824</a></li>
+<li><a val="2147483648" href="javascript:">2147483648</a></li>
+</ul>
+</div>
+</div>
+<input type="button" onclick="compute2(this.form);" value="计算" class="Inbtn">
+<input type="button" onclick="wlclear(this.form);" value="清空" class="Inbtn">
+</div>
+<div class="MCentlist clearfix pt10">
+<label class="w70 tr">网络类型</label>
+<input type="text" maxlength="7" size="7" name="nwclass" class="Intxt">
+<input type="text" maxlength="14" size="14" name="subsuper" class="Intxt">
+<input type="text" maxlength="7" size="7" name="nwclass1" class="Intxt">
+</div>
+<div class="MCentlist clearfix pt10">
+<label class="w70 tr">子网掩码</label>
+<input type="text" maxlength="3" size="3" name="snm1" class="Intxt">
+<input type="text" maxlength="3" size="3" name="snm2" class="Intxt">
+<input type="text" maxlength="3" size="3" name="snm3" class="Intxt">
+<input type="text" maxlength="3" size="3" name="snm4" class="Intxt">
+<label class="w70 tr">或</label>
+<input type="text" maxlength="3" size="3" name="snmbits" class="Intxt">
+</div>
+<div class="MCentlist clearfix pt10">
+<label class="w70 tr">子网</label>
+<input type="text" maxlength="8" size="10" name="nwquant" class="Intxt w100">
+<input type="button" onclick="listsubnets(this.form);" class="Inbtn w100 tc ObtLBtN" value="获取网络列表">
+</div>
+<div class="MCentlist clearfix ptb10">
+<label class="w70 tr">节点/主机</label>
+<input type="text" maxlength="8" size="10" name="nodequant" class="Intxt w100">
+</div>
+<div id="netlist" class="ObtainList autohide" style="display: none">
+<h4 class="lh30 col-blue02 pr">网络列表<span class="col-gray02 lh24 fwnone pl10">网络 0.0.0.0 ，掩码0.0.0.0"</span><a class="ObtLClose" href="javascript:">×</a></h4>
+<table width="100%" cellspacing="0" cellpadding="0" border="0">
+<tbody>
+<tr>
+<th rowspan="2">网络</th>
+<th colspan="2">主机</th>
+<th rowspan="2">广播地址</th>
+</tr>
+<tr>
+<th>起始</th>
+<th>结束</th>
+</tr>
+<tr>
+<td>0.0.0.0</td>
+<td>0.0.0.0</td>
+<td>0.0.0.0</td>
+<td>0.0.0.0</td>
+</tr>
+<tr>
+<td>0.0.0.0</td>
+<td>0.0.0.0</td>
+<td>0.0.0.0</td>
+<td>0.0.0.0</td>
+</tr>
+<tr>
+<td>0.0.0.0</td>
+<td>0.0.0.0</td>
+<td>0.0.0.0</td>
+<td>0.0.0.0</td>
+</tr>
+<tr>
+<td>0.0.0.0</td>
+<td>0.0.0.0</td>
+<td>0.0.0.0</td>
+<td>0.0.0.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</form>
+<form lpformnum="8">
+<div class="NetWork-main01 bor-a1s mt20">
+<h3 class="MainHead bb-blue">通过主机数量计算掩码地址转换器</h3>
+<div class="MainCent">
+<div class="MCentlist clearfix ptb10 bb-blue bg-blue02">
+<label class="w60">需要数量</label>
+<input type="text" name="numofaddr" value="5" size="4" class="Intxt">
+<input type="button" onclick="calcNeeded(this.form)" value="计算" class="Inbtn">
+<input type="button" onclick="resetform6(this.form)" value="清空" class="Inbtn">
+</div>
+<div class="MCentlist clearfix pt10">
+<label class="w50 pr10 tr">掩码</label>
+<input type="text" name="bits" size="4" readonly="" class="Intxt">
+<label class="w110 tr"> dotted dec. 掩码</label>
+<input type="text" name="snm_1" size="3" readonly="" class="Intxt">
+<input type="text" name="snm_2" size="3" readonly="" class="Intxt">
+<input type="text" name="snm_3" size="3" readonly="" class="Intxt">
+<input type="text" name="snm_4" size="3" readonly="" class="Intxt">
+</div>
+<div class="MCentlist clearfix ptb10">
+<label class="w60">可用数量</label>
+<input type="text" name="maxaddr" size="10" readonly="" class="Intxt w100">
+</div>
+</div>
+</div>
+</form>
+<form lpformnum="9">
+<div class="NetWork-main01 bor-a1s mt20">
+<h3 class="MainHead bb-blue">TCP/IP 进制转换器</h3>
+<div class="MainCent">
+<div class="MCentlist clearfix pt10 ipgroup">
+<label class="w80 tr">点格式十进制</label>
+<input type="text" n="ip1" value="192" maxlength="15" size="3" name="oct1b" class="Intxt">
+<input type="text" n="ip2" value="168" maxlength="15" size="3" name="oct2b" class="Intxt">
+<input type="text" n="ip3" value="0" maxlength="15" size="3" name="oct3b" class="Intxt">
+<input type="text" n="ip4" value="1" maxlength="15" size="3" name="oct4b" class="Intxt">
+<input type="button" onclick="compute3(this.form);" value="计算" class="Inbtn">
+</div>
+<div class="MCentlist clearfix pt10">
+<label class="w80 tr">或 二进制</label>
+<input type="text" maxlength="8" size="8" name="bin1b" class="Intxt w60">
+<input type="text" maxlength="8" size="8" name="bin2b" class="Intxt w60">
+<input type="text" maxlength="8" size="8" name="bin3b" class="Intxt w60">
+<input type="text" maxlength="8" size="8" name="bin4b" class="Intxt w60">
+<input type="button" onclick="compute4(this.form);" value="计算" class="Inbtn">
+</div>
+<div class="MCentlist clearfix pt10">
+<label class="w80 tr">或 十六进制</label>
+<input type="text" maxlength="2" size="2" name="hex1b" class="Intxt">
+<input type="text" maxlength="2" size="2" name="hex2b" class="Intxt">
+<input type="text" maxlength="2" size="2" name="hex3b" class="Intxt">
+<input type="text" maxlength="2" size="2" name="hex4b" class="Intxt">
+<input type="button" onclick="compute5(this.form);" value="计算" class="Inbtn">
+</div>
+<div class="MCentlist clearfix ptb10">
+<label class="w80 tr">或 十进制</label>
+<input type="text" maxlength="10" size="10" name="dec1b" class="Intxt w100">
+<input type="button" onclick="compute6(this.form);" value="计算" class="Inbtn">
+</div>
+</div>
+</div>
+</form>
+<form lpformnum="10">
+<div class="NetWork-main01 bor-a1s mt20">
+<h3 class="MainHead bb-blue">掩码转换到网络可用地址的数量</h3>
+<div class="MainCent">
+<div class="MCentlist clearfix ptb10 bb-blue bg-blue02">
+<label class="w70 tr">掩码</label>
+<input type="text" name="bits" value="27" size="2" class="Intxt">
+<input type="button" onclick="calcAmount(this.form)" value="计算" class="Inbtn">
+<input type="button" onclick="resetform7(this.form)" value="清空" class="Inbtn">
+</div>
+<div class="MCentlist clearfix pt10">
+<label class="w70 tr">可用地址量</label>
+<input type="text" name="numofaddr" size="10" readonly="" class="Intxt w100">
+<label class="w70 tr">可用总量</label>
+<input type="text" name="maxaddr" size="10" readonly="" class="Intxt w100">
+</div>
+<div class="MCentlist clearfix pt10">
+<label class="w70 tr">点分十进制</label>
+<input type="text" name="snm_1" size="3" readonly="" class="Intxt">
+<input type="text" name="snm_2" size="3" readonly="" class="Intxt">
+<input type="text" name="snm_3" size="3" readonly="" class="Intxt">
+<input type="text" name="snm_4" size="3" readonly="" class="Intxt">
+</div>
+<div class="MCentlist ptb10 col-gray04 bor-t1s mt10">
+<p>IP组播地址范围</p>
+<p>所有的多播地址可以很容易被认出，因为同位模式“1110”开始。</p>
+<p>224.0.0.0 - 224.0.0.255知名多播地址，控制通道</p>
+<p>224.0.1.0 - 238.255.255.255全球范围的（互联网宽）组播地址</p>
+<p>239.0.0.0 - 239.255.255.255本地多播地址</p>
+</div>
+</div>
+</div>
+</form>
+</div>
+ 
+</div>
+ 
+</div>
+<div class="panel-footer"></div>
+</div>
+ 
+</div></div></div></div></div>
+
+
+<script>
+		$(function(){
+			$("#top_menu a").click(function(){
+			
+				
+				if($(this).attr("href")!='javascript:;'){
+				
+					var history = localStorage.getItem('history');
+					var arr = new Array();
+					arr.push($(this).text()+"-"+$(this).attr("href"))	
+					console.log( localStorage.getItem('history'))
+					//alert(history)
+					if( localStorage.getItem('history')){
+						var history_arr = localStorage.getItem('history').split("|");
+						var nst = $(this).text()+"-"+$(this).attr("href");
+						var len = history_arr.length; 
+						if(len>4){
+							len = 4;	
+						}
+						for(var i=0;i<len;i++){
+							if(history_arr[i]!=nst){
+								arr.push(history_arr[i])
+							}
+						}
+						localStorage.setItem('history',arr.join("|")); 
+					}
+				
+					localStorage.setItem('history',arr.join("|")); 
+				}
+			
+			})
+			var str = '';
+		
+			var history_arr = localStorage.getItem('history').split("|");	
+			for (var i in history_arr) {
+			  var data = history_arr[i].split("-");
+			 // console.log(data)
+			  //var value = localStorage.getItem(key);
+			  str+='<a class="btn btn-success btn-xs" style="margin-left:5px" href="'+data[1]+'">'+ data[0]+'</a>';
+			}
+			if(str){
+				$("#history").parent().show();
+				$("#history").html(str)
+			}
+		
+		
+			
+		
+	})
+		
+	
+		
+	</script>
+ 
+</body></html>

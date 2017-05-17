@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <title>小蓝工具箱 - 在线JSON校验格式化工具</title>
+    <meta name="keywords"
+          content="小蓝工具,小蓝博客,在线,JSON,JSON 校验,格式化,xml转json 工具,在线工具,json视图,可视化,程序,服务器,域名注册,正则表达式,测试,在线json格式化工具,json 格式化,json格式化工具,json字符串格式化,json 在线查看器,json在线,json 在线验证,json tools online,在线文字对比工具"/>
+    <meta name="description"
+          content="小蓝工具,小蓝博客,在线,JSON,JSON 校验,格式化,xml转json 工具,在线工具,json视图,可视化,程序,服务器,域名注册,正则表达式,测试,在线json格式化工具,json 格式化,json格式化工具,json字符串格式化,json 在线查看器,json在线,json 在线验证,json tools online,在线文字对比工具">
+    <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet"><link rel="icon" href="/static/image/浓云.png" sizes="32x32" />
+
+
+    <link rel="stylesheet" type="text/css" href="./static/css/common.css?v=2">
+    <script src="./static/common/common.js?v=1"></script>
+</head>
+<body>
+<div class="aw-container-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="aw-content-wrap clearfix">
+                <div class=" aw-main-content" style="min-height:700px;max-height:2000px">
+                    <nav class="navbar navbar-default" id='top_menu'>
+                        <div class="container-fluid">
+                            <ul class="nav navbar-nav" style="width: 100%;">
+                                <li>
+                                    <a href="index.html">首页</a>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" class="dropdown-toggle" id="jsontools" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">JSON相关<span
+                                                class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="index.html">格式化校验</a>
+                                        </li>
+                                        <li><a href="zhuanyi/index.html" red>JSON压缩转义</a>
+                                        </li>
+                                        <li><a href="json2javapojo/new/index.html" red>JSON生成Java实体类</a>
+                                        </li>
+                                        <li><a href="convert/json2csharp/index.html" id="json2csharp">JSON生成C#实体类</a>
+                                        </li>
+                                        <li><a href="jsoneditoronline/index.html" red>JSON在线编辑器</a>
+                                        </li>
+                                        <li><a href="color/index.html">JSON着色</a></li>
+                                        <li><a href="xml2json/index.html" red>XML-JSON互转</a></li>
+                                        <li><a href="jsontools/json2get/index.html" id="json2get">JSON和GET请求字符串互转</a>
+                                        </li>
+                                        <li><a href="json/col2json/index.html" id="excel2json">Excel转Json</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" id="encTools" class="dropdown-toggle" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        编码/加密<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="enc/base64/index.html">Base64编码、解码</a></li>
+                                        <li><a href="enc/md5/index.html">MD5加密</a></li>
+                                        <li><a href="enc/aesdes/index.html" id="aes">DES,AES等对称加密解密</a></li>
+                                        <li><a href="enc/sha/index.html">SHA加密</a></li>
+                                        <li><a href="enc/escape/index.html">Escape编码</a></li>
+                                        <li><a href="enc/urlencode/index.html" id="urlEncode">URL编码</a></li>
+                                        <li><a href="enc/eval_package/index.html">Javascript Eval加密解密</a></li>
+                                        <li><a href="enc/morse/index.html">摩斯密码加密解密</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                       aria-haspopup="true" aria-expanded="false">格式化<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="jshtml_format/index.html">Javascript/HTML压缩、格式化</a></li>
+                                        <li><a href="otherformat/css/index.html">CSS压缩、格式化</a></li>
+                                        <li><a href="otherformat/xml/index.html">XML压缩、格式化</a></li>
+                                        <li><a href="otherformat/sql/index.html">SQL压缩、格式化</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" id="uitools" class="dropdown-toggle" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        前端<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="ui/tinypic/index.html" id="tinypic">图片在线压缩工具</a></li>
+                                        <li><a href="pages/cooleditor/index.html" id="simpleeidtor">在线代码编辑器</a></li>
+                                        <li><a href="ui/photoshop/index.html" target="_blank">在线photoshop</a></li>
+                                        <li><a href="http://h5.baidu.com/store" target="_blank" rel="external nofollow"
+                                               id="h5maker">H5模板在线制作</a></li>
+                                        <li><a href="http://runjs.cn/code" target="_blank" rel="external nofollow"
+                                               id="runjs">RunJS在线编辑器</a></li>
+                                        <li><a href="ui/ueditor/index.html" id="ueditor">ueditor在线代码编辑器</a></li>
+                                        <li><a href="ui/getcolor/index.html">在线调色板</a></li>
+                                        <li><a href="ui/safecolor/index.html" id="safecolor">WEB安全色</a></li>
+                                        <li><a href="ui/image2base64/index.html" id="img2base64">在线图片转Base64编码</a></li>
+                                        <li><a href="http://www.iconfont.cn/plus/collections/index" target="_blank"
+                                               rel="external nofollow">阿里巴巴矢量图标库</a></li>
+                                        <li><a href="http://fontawesome.io/icons/" target="_blank"
+                                               rel="external nofollow">fontawesome矢量图标库</a></li>
+                                        <li><a href="ui/svg_editor/index.html" id="svgedit">SVG代码编辑预览</a></li>
+                                        <li><a href="othertools/libcdn/index.html" id="libcdn">常用JS资源库</a></li>
+                                        <li><a href="ui/openweb/index.html" id="openweb">弹出窗口生成器</a></li>
+                                        <li><a href="ui/texteditor/index.html" id="texteditor">自动排版工具</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" id="convertTools" class="dropdown-toggle"
+                                       data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        转换<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="convert/map/index.html" id="mapdw">在线地图经纬度定位换算</a></li>
+                                        <li><a href="ui/px2em/index.html" id="px2em">px转em,em转px</a></li>
+                                        <li><a href="ui/image2base64/index.html" id="img2base64">在线图片转Base64编码</a></li>
+                                        <li><a id="unicodechinese"
+                                               href="convert/unicode_chinese/index.html">unicode中文互转</a></li>
+                                        <li><a href="convert/unix/index.html">Unix时间转换</a></li>
+                                        <li><a href="convert/jinzhi/index.html">进制转换</a></li>
+                                        <li><a href="convert/ox2str/index.html">16进制到文本字符串</a></li>
+                                        <li><a href="convert/uplowercase/index.html" id="uplowercase">字母大小写转换</a></li>
+                                        <li><a href="convert/rgbhex/index.html" id="rgbhex">RGB颜色和HEX互转</a></li>
+                                        <li><a href="convert/qrcode/index.html" id="qrtools">二维码生成与解码</a></li>
+                                        <li><a href="convert/numtohz/index.html" id="numtohz">数字转中文(人民币)</a></li>
+                                        <li><a href="convert/filesize/index.html" id="filesizehs">在线文件大小换算</a></li>
+                                        <li><a href="convert/nativeascii/index.html" id="navasc">NATIVE/ASCII编码互转工具</a>
+                                        </li>
+                                        <li><a href="othertools/sql2pojo/index.html" id="sql2pojo">数据库转实体类</a></li>
+                                        <li><a href="convert/htmlubb/index.html" id="htmlubb">Html与UBB代码互相转换工具</a></li>
+                                        <li><a href="convert/topinying/index.html" id="topinying">汉字转换拼音</a></li>
+                                        <li><a href="convert/fullhalf/index.html" id="fullhalf">全角半角转换</a></li>
+                                        <li><a href="convert/j2f/index.html" id="j2f">简繁体火星文互转</a></li>
+                                        <li><a href="convert/html2markdown/index.html" id="html2markdown">Html转换为MarkDown工具</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" class="dropdown-toggle" id="otherTools" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        其他<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="othertools/findelement/index.html" id="findbyxpath">寻找图片、链接或xpath寻找元素</a>
+                                        </li>
+                                        <li><a href="othertools/finddif/index.html">文字对比找不同处</a></li>
+                                        <li><a href="othertools/regex/index.html">正则表达式</a></li>
+                                        <li><a href="othertools/regex_create/index.html">正则表达式代码生成工具</a></li>
+                                        <li><a href="othertools/sqlAppend/index.html">SQL追加或去除双引号</a></li>
+                                        <li><a href="othertools/removeDuplicate/index.html">去除重复字符串</a></li>
+                                        <li><a href="chargeservice/ocr/index.html">在线文字识别</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="index.html#" class="dropdown-toggle" id="jsonapi" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        API<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="knownjson/webInterface/index.html" id="findbyxpath">免费JSON接口</a>
+                                        </li>
+                                        <li><a id="chargeapi" target="_blank" href="http://apistore.baidu.com/"
+                                               rel="external nofollow">收费JSON接口</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" class="dropdown-toggle" id="docs" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        文档<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a id="bootcssapi" href="http://v3.bootcss.com/components/" target="_blank"
+                                               rel="external nofollow">Bootstrap文档</a></li>
+                                        <li><a id="vueapi" href="https://cn.vuejs.org/v2/api/" target="_blank"
+                                               rel="external nofollow">VueJs文档</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a id="apliayapi" href="http://wiki.open.qq.com/wiki/%E9%A6%96%E9%A1%B5"
+                                               target="_blank" rel="external nofollow">腾讯开发平台</a></li>
+                                        <li><a id="wxapi" href="http://mp.weixin.qq.com/wiki/home/index.html"
+                                               target="_blank" rel="external nofollow">微信公众平台开发文档</a></li>
+                                        <li><a id="wxapi"
+                                               href="http://mp.weixin.qq.com/wiki/11/74ad127cc054f6b80759c40f77ec03db.html"
+                                               target="_blank" rel="external nofollow">微信JSSDK开发文档</a></li>
+                                        <li><a id="wxapi" href="https://pay.weixin.qq.com/wiki/doc/api/index.html"
+                                               target="_blank" rel="external nofollow">微信支付开发文档</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a id="tbapi"
+                                               href="http://open.taobao.com/api/api_list.htm?spm=a219a.7386789.1.27.Lf4YRD"
+                                               target="_blank" rel="external nofollow">淘宝开发文档</a></li>
+                                        <li><a id="apliayapi" href="https://open.alipay.com/platform/document.htm"
+                                               target="_blank" rel="external nofollow">支付宝开发文档</a></li>
+                                        <li role="separator" class="divider"></li>
+
+                                        <li><a href="doc/AndroidManifest/index.html"
+                                               id="androidManifest">Android权限大全</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="knownjson/webInterface/index.html">JSON API免费接口</a></li>
+                                        <li><a href="knownjson/regexJiaocheng/index.html">正则表达式30分钟入门教程</a></li>
+                                        <li><a href="knownjson/httpstate/index.html">HTTP状态码查询</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" class="dropdown-toggle" id="testtools" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">平台工具<span
+                                                class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a rel="external nofollow" target="_blank"
+                                               href="http://mp.weixin.qq.com/debug">微信公众平台调试工具</a></li>
+                                        <li><a id="coupon" rel="external nofollow" target="_blank"
+                                               href="http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=cardsign">微信卡券JSAPI签名校验工具</a>
+                                        </li>
+                                        <li><a id="wxsign" rel="external nofollow" target="_blank"
+                                               href="http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign">微信 JS
+                                                接口签名校验工具</a></li>
+                                        <li><a rel="external nofollow" target="_blank"
+                                               href="http://qy.weixin.qq.com/debug">微信企业号调试工具</a></li>
+                                        <li><a rel="external nofollow" target="_blank"
+                                               href="http://connect.qq.com/sdk/webtools/">QQ互联API调试工具</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a rel="external nofollow" target="_blank" href="http://t.cn/R4617Pf">淘宝oauth2.0测试工具</a>
+                                        </li>
+                                        <li><a rel="external nofollow" target="_blank" href="http://t.cn/R461ZZu">淘宝API测试工具</a>
+                                        </li>
+                                        <li><a rel="external nofollow" target="_blank" href="http://t.cn/R461Zm2">淘宝错误码查询工具</a>
+                                        </li>
+                                        <li><a rel="external nofollow" target="_blank" href="http://t.cn/R461wa7">淘宝商品属性工具</a>
+                                        </li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a rel="external nofollow" target="_blank"
+                                               href="http://sandbox.alipaydev.com/home/apiTestTools.htm?method=alipay.security.risk.detect">支付宝API工具</a>
+                                        </li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a rel="external nofollow" target="_blank"
+                                               href="http://open.weibo.com/tools/console">新浪微博API工具</a></li>
+                                    </ul>
+                                </li>
+                                <!--占位置-->
+                            </ul>
+                        </div>
+                    </nav>
+                    <script>
+                        var showaban = true;
+                        var storageKey = "newtools20170322";
+                        if (window.localStorage.getItem(storageKey) == null) {
+                            $("#convertTools").after('<span class="newFeatureTip">●</span>');
+
+                            $("#tosvg").before('<span class="newItem">●</span>');
+                            document.getElementById("tosvg").onmouseover = function () {
+                                window.localStorage.setItem(storageKey, "has");
+                                $(".newFeatureTip").text('');
+                            }
+
+                        }
+
+                    </script>
+                    <div style="clear:both"></div>
+                    <blockquote class="layui-elem-quote layui-quote-nm"
+                                style='margin-bottom: 5px;display:none;padding: 4px 20px;font-size:13px;    text-align: left;'>
+                        您最近使用了：<span id="history"></span>
+                    </blockquote>
+
+                    <link href="./static/index/index2.css" rel="stylesheet">
+                    <script type="text/javascript">
+
+                        if (typeof JSON === 'undefined') {
+                            document.write('<sc' + 'ript type="text/javascript" src="c/js/json2.js"></sc' + 'ript>');
+                        }
+                    </script>
+                    <script src="http://www.bejson.com/static/js/c/js/jquery-linedtextarea/jquery-linedtextarea.js"
+                            type="text/javascript"></script>
+                    <link href="http://www.bejson.com/static/js/c/js/jquery-linedtextarea/jquery-linedtextarea.css"
+                          type="text/css" rel="stylesheet">
+                    <script type="text/javascript" src="http://www.bejson.com/static/js/c/js/inone.js"></script>
+                    <!--[if IE]>
+                    <link rel="stylesheet" href="/static/js/c/css/blueprint/lib/ie.css" type="text/css"
+                          media="screen, projection"><![endif]-->
+                    <link rel="stylesheet" href="http://www.bejson.com/static/js/c/css/screen.css" type="text/css"
+                          media="screen, projection">
+                    <script>
+                        function Click() {
+                            window.event.returnValue = false;
+                        }
+                        //document.oncontextmenu=Click;
+                    </script>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h4 class="media-heading">小蓝工具集合<span id="loca" style="font-size: 13px;"></span>
+                                    </h4>
+                                    <a href="knownjson/demo/index.html" style="font-size: 12px;color:black;">JSON的各种语言的用法</a>
+                                    <!-- <button data-toggle="modal" data-target="#mod" onclick="showAlipayQr()" class="btn btn-default btn-sm">赞助我让我走的更远</button> -->
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body" style="padding-top: 0px;">
+
+                            <p style="margin-top:10px">
+                            <div style="clear: both;"></div>
+                            </p>
+                            <form id="JSONValidate" method="post" name="JSONValidate">
+                                <input type="hidden" id="reformat" value="1"/>
+                                <input type="hidden" id="compress" value="0"/>
+                                <div>
+                                    <textarea id="json_input" name="json_input" class="json_input"
+                                              style="font-size: 11px !important;" rows="32" spellcheck="false"
+                                              placeholder="请输入需要检验的json字符串或URL"></textarea>
+                                </div>
+                            </form>
+                            <div class="validateButtons1 clear">
+                                <div class="left" style="float:left">
+                                    <div class="btn-group" role="group" aria-label="...">
+                                        <button name="validate" id="validate" value="Validate" class="btn btn-primary">
+                                            校验
+                                        </button>
+                                        <button id="copy" data-clipboard-target="json_input" class="btn btn-success">
+                                            复制
+                                        </button>
+                                        <input name="validate" class="btn btn-danger"
+                                               onclick="javascript:json_input.value='';$('#json_input').focus(); "
+                                               type="reset" value="清空"/>
+                                    </div>
+                                </div>
+                                <div>
+
+                                    <div style="float:left;margin-left:20px;width:281px;height:34px;overflow: hidden;">
+                                        <script type="text/javascript">
+                                            /*bejson编辑器下方小*/
+                                            var cpro_id = "u2373301";
+                                        </script>
+                                    </div>
+                                    <div style="clear:both;"></div>
+                                    <pre id="results" style="display: none;margin-top: 10px;"></pre>
+                                    <div id="attention">
+                                        <p>如下原因会造成JSON校验失败,而且会让你不知道为什么失败</p>
+                                        <ol>
+                                            <li>
+                                                JSON字符串里的非数字型键值没有双引号
+                                            </li>
+                                            <li>JSON中存在\t这样的制表符,看起来和空格一样,但是就是因为它的存在校验不通过。去掉就能过了。
+                                            </li>
+                                            <li>编辑器有bom头也会造成</li>
+                                        </ol>
+                                    </div>
+                                </div>
+
+                                <div class="panel-footer">
+
+                                    <div style="clear: both;"></div>
+                                    <div style="float: left;">
+                                        [<a href='http://www.cyun.site' target='_blank' title='小蓝博客'>小蓝博客 </a>]
+                                        <p>
+                                            Copyright © 2011-2017 小蓝工具 All rights reserved.<a
+                                                    href="http://www.miibeian.gov.cn/" rel="external nofollow"
+                                                    target="blank" class="beian">粤ICP备14043993号-1</a>
+                                        </p>
+                                    </div>
+                                    <div style="clear: both;"></div>
+                                    <p>本站申明:本网站部分工具是站长整合网上已有工具、开源包等，并全部遵循原有协议发布，著作权归属原作者或是团队。特别鸣谢
+                                        站点:http://www.bejson.com/提供</p>
+                                </div>
+                            </div>
+                            <script>
+
+                                $("#validate").click(function () {
+                                    var jv = $("#json_input").val();
+                                    var regex = /^(https?:\/\/)+[^\\s]*/i;
+                                    if (jv.match(regex)) {
+                                        jQuery.ajax({
+                                            type: "get",
+                                            async: false,
+                                            url: 'http://2.mshouban.applinzi.com/bejson/fetchJSON.php?u=' + encodeURIComponent(jv),
+                                            // dataType: "json",
+                                            cache: false,
+                                            success: function (j) {
+                                                $("#json_input").val(j);
+                                                /* if(j.code!=1){
+                                                 alert(j.msg);
+                                                 }else{
+                                                 $("#json_input").val(j.msg);
+                                                 }*/
+                                            },
+                                            error: function (err) {
+                                                alert(err);
+                                            }
+                                        });
+
+                                    }
+                                });
+                                jQuery(document).keypress(function (e) {
+                                    if (e.ctrlKey && e.which == 13 || e.which == 10) {
+                                        //console.log("Ctrl + Enter");
+                                        $(".btn-primary").click();
+                                    }
+                                })
+
+
+                                /*$.getJSON("/api/bejson/getLocationJson.php",function(j){
+                                 if(j.code==0){
+                                 $("#loca").text("【"+j.message+'】附近的朋友您好a');
+                                 }
+                                 });*/
+                                var abannt = '<p style="height: 38px;line-height: 38px;background-color: #fff07b;border-bottom: 1px solid #d9cda7;color: #988328;font-size: 13px;" id="aban">建议各位在本站关闭广告屏蔽插件,因为他可能会导致部分功能js无法正常加载,比如【<a style="color: black;" href="jshtml_format/index.html" target="_blank">JavaScript/HTML格式化</a>】的<a href="http://ww2.sinaimg.cn/large/7fa0b485jw1ew33qr3qtmj20za02l3zk.jpg"  style="color: black;" target="_blank">点击查看被错误屏蔽的截图</a></p>';
+                                function stop() {
+                                    return false;
+                                }
+                                setTimeout(function () {
+                                    if (typeof(window._ssp_global) == "undefined") {
+
+                                        //$("#aban").show();
+                                        //$("#desc1").after(abannt)
+                                        document.oncontextmenu = stop;
+
+                                        document.onkeydown = function (e) {
+                                            var currKey = 0, evt = e || window.event;
+                                            currKey = evt.keyCode || evt.which || evt.charCode;
+                                            if (currKey == 123) {
+                                                window.event.cancelBubble = true;
+                                                window.event.returnValue = false;
+                                            }
+                                        }
+                                    }
+                                    //alert("广告屏蔽测试");
+                                }, 200);
+
+
+                            </script>
+                            <script src="http://cdn.bootcss.com/zeroclipboard/2.1.6/ZeroClipboard.min.js"></script>
+                            <script type="text/javascript">
+                                var clip = new ZeroClipboard(document.getElementById("copy"));
+                            </script>
+                            <!-- content ed -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $(function () {
+                $("#top_menu a").click(function () {
+
+
+                    if ($(this).attr("href") != 'javascript:;') {
+
+                        var history = localStorage.getItem('history');
+                        var arr = new Array();
+                        arr.push($(this).text() + "-" + $(this).attr("href"))
+                        console.log(localStorage.getItem('history'))
+                        //alert(history)
+                        if (localStorage.getItem('history')) {
+                            var history_arr = localStorage.getItem('history').split("|");
+                            var nst = $(this).text() + "-" + $(this).attr("href");
+                            var len = history_arr.length;
+                            if (len > 4) {
+                                len = 4;
+                            }
+                            for (var i = 0; i < len; i++) {
+                                if (history_arr[i] != nst) {
+                                    arr.push(history_arr[i])
+                                }
+                            }
+                            localStorage.setItem('history', arr.join("|"));
+                        }
+
+                        localStorage.setItem('history', arr.join("|"));
+                    }
+
+                })
+                var str = '';
+
+                var history_arr = localStorage.getItem('history').split("|");
+                for (var i in history_arr) {
+                    var data = history_arr[i].split("-");
+                    // console.log(data)
+                    //var value = localStorage.getItem(key);
+                    str += '<a class="btn btn-success btn-xs" style="margin-left:5px" href="' + data[1] + '">' + data[0] + '</a>';
+                }
+                if (str) {
+                    $("#history").parent().show();
+                    $("#history").html(str)
+                }
+
+
+            })
+        </script>
+</body>
+</html>

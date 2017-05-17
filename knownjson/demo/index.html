@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <title>举个栗子 - 小蓝工具</title>
+    <meta name="keywords" content="小蓝工具,小蓝博客,java中如何使用json,C#中如何使用json,php中如何使用json,javascript如何使用json"/>
+    <meta name="description" content="小蓝工具,小蓝博客,java中如何使用json,C#中如何使用json,php中如何使用json,javascript如何使用json">
+    <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet"><link rel="icon" href="/static/image/浓云.png" sizes="32x32" />
+
+    <link rel="stylesheet" type="text/css" href="/static/css/common.css?v=1">
+    <script src="../../static/common/common.js"></script>
+</head>
+<body>
+<div class="aw-container-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="aw-content-wrap clearfix">
+                <div class=" aw-main-content" style="min-height:700px;max-height:2000px">
+                    <nav class="navbar navbar-default" id='top_menu'>
+                        <div class="container-fluid">
+                            <ul class="nav navbar-nav" style="width: 100%;">
+                                <li>
+                                    <a href="../../index.html">首页</a>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" class="dropdown-toggle" id="jsontools" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">JSON相关<span
+                                            class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../index.html">格式化校验</a>
+                                        </li>
+                                        <li><a href="../../zhuanyi/index.html" red>JSON压缩转义</a>
+                                        </li>
+                                        <li><a href="../../json2javapojo/new/index.html" red>JSON生成Java实体类</a>
+                                        </li>
+                                        <li><a href="../../convert/json2csharp/index.html" id="json2csharp">JSON生成C#实体类</a>
+                                        </li>
+                                        <li><a href="../../jsoneditoronline/index.html" red>JSON在线编辑器</a>
+                                        </li>
+                                        <li><a href="../../color/index.html">JSON着色</a></li>
+                                        <li><a href="../../xml2json/index.html" red>XML-JSON互转</a></li>
+                                        <li><a href="../../jsontools/json2get/index.html" id="json2get">JSON和GET请求字符串互转</a>
+                                        </li>
+                                        <li><a href="../../json/col2json/index.html" id="excel2json">Excel转Json</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" id="encTools" class="dropdown-toggle" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        编码/加密<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../enc/base64/index.html">Base64编码、解码</a></li>
+                                        <li><a href="../../enc/md5/index.html">MD5加密</a></li>
+                                        <li><a href="../../enc/aesdes/index.html" id="aes">DES,AES等对称加密解密</a></li>
+                                        <li><a href="../../enc/sha/index.html">SHA加密</a></li>
+                                        <li><a href="../../enc/escape/index.html">Escape编码</a></li>
+                                        <li><a href="../../enc/urlencode/index.html" id="urlEncode">URL编码</a></li>
+                                        <li><a href="../../enc/eval_package/index.html">Javascript Eval加密解密</a></li>
+                                        <li><a href="../../enc/morse/index.html">摩斯密码加密解密</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                       aria-haspopup="true" aria-expanded="false">格式化<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../jshtml_format/index.html">Javascript/HTML压缩、格式化</a></li>
+                                        <li><a href="../../otherformat/css/index.html">CSS压缩、格式化</a></li>
+                                        <li><a href="../../otherformat/xml/index.html">XML压缩、格式化</a></li>
+                                        <li><a href="../../otherformat/sql/index.html">SQL压缩、格式化</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" id="uitools" class="dropdown-toggle" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        前端<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../ui/tinypic/index.html" id="tinypic">图片在线压缩工具</a></li>
+                                        <li><a href="../../pages/cooleditor/index.html" id="simpleeidtor">在线代码编辑器</a></li>
+                                        <li><a href="../../ui/photoshop/index.html" target="_blank">在线photoshop</a></li>
+                                        <li><a href="http://h5.baidu.com/store" target="_blank" rel="external nofollow"
+                                               id="h5maker">H5模板在线制作</a></li>
+                                        <li><a href="http://runjs.cn/code" target="_blank" rel="external nofollow"
+                                               id="runjs">RunJS在线编辑器</a></li>
+                                        <li><a href="../../ui/ueditor/index.html" id="ueditor">ueditor在线代码编辑器</a></li>
+                                        <li><a href="../../ui/getcolor/index.html">在线调色板</a></li>
+                                        <li><a href="../../ui/safecolor/index.html" id="safecolor">WEB安全色</a></li>
+                                        <li><a href="../../ui/image2base64/index.html" id="img2base64">在线图片转Base64编码</a></li>
+                                        <li><a href="http://www.iconfont.cn/plus/collections/index" target="_blank"
+                                               rel="external nofollow">阿里巴巴矢量图标库</a></li>
+                                        <li><a href="http://fontawesome.io/icons/" target="_blank"
+                                               rel="external nofollow">fontawesome矢量图标库</a></li>
+                                        <li><a href="../../ui/svg_editor/index.html" id="svgedit">SVG代码编辑预览</a></li>
+                                        <li><a href="../../othertools/libcdn/index.html" id="libcdn">常用JS资源库</a></li>
+                                        <li><a href="../../ui/openweb/index.html" id="openweb">弹出窗口生成器</a></li>
+                                        <li><a href="../../ui/texteditor/index.html" id="texteditor">自动排版工具</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" id="convertTools" class="dropdown-toggle"
+                                       data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        转换<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../convert/map/index.html" id="mapdw">在线地图经纬度定位换算</a></li>
+                                        <li><a href="../../ui/px2em/index.html" id="px2em">px转em,em转px</a></li>
+                                        <li><a href="../../ui/image2base64/index.html" id="img2base64">在线图片转Base64编码</a></li>
+                                        <li><a id="unicodechinese"
+                                               href="convert/unicode_chinese/index.html">unicode中文互转</a></li>
+                                        <li><a href="../../convert/unix/index.html">Unix时间转换</a></li>
+                                        <li><a href="../../convert/jinzhi/index.html">进制转换</a></li>
+                                        <li><a href="../../convert/ox2str/index.html">16进制到文本字符串</a></li>
+                                        <li><a href="../../convert/uplowercase/index.html" id="uplowercase">字母大小写转换</a></li>
+                                        <li><a href="../../convert/rgbhex/index.html" id="rgbhex">RGB颜色和HEX互转</a></li>
+                                        <li><a href="../../convert/qrcode/index.html" id="qrtools">二维码生成与解码</a></li>
+                                        <li><a href="../../convert/numtohz/index.html" id="numtohz">数字转中文(人民币)</a></li>
+                                        <li><a href="../../convert/filesize/index.html" id="filesizehs">在线文件大小换算</a></li>
+                                        <li><a href="../../convert/nativeascii/index.html" id="navasc">NATIVE/ASCII编码互转工具</a>
+                                        </li>
+                                        <li><a href="../../othertools/sql2pojo/index.html" id="sql2pojo">数据库转实体类</a></li>
+                                        <li><a href="../../convert/htmlubb/index.html" id="htmlubb">Html与UBB代码互相转换工具</a></li>
+                                        <li><a href="../../convert/topinying/index.html" id="topinying">汉字转换拼音</a></li>
+                                        <li><a href="../../convert/fullhalf/index.html" id="fullhalf">全角半角转换</a></li>
+                                        <li><a href="../../convert/j2f/index.html" id="j2f">简繁体火星文互转</a></li>
+                                        <li><a href="../../convert/html2markdown/index.html" id="html2markdown">Html转换为MarkDown工具</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" class="dropdown-toggle" id="otherTools" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        其他<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../othertools/findelement/index.html" id="findbyxpath">寻找图片、链接或xpath寻找元素</a>
+                                        </li>
+                                        <li><a href="../../othertools/finddif/index.html">文字对比找不同处</a></li>
+                                        <li><a href="../../othertools/regex/index.html">正则表达式</a></li>
+                                        <li><a href="../../othertools/regex_create/index.html">正则表达式代码生成工具</a></li>
+                                        <li><a href="../../othertools/sqlAppend/index.html">SQL追加或去除双引号</a></li>
+                                        <li><a href="../../othertools/removeDuplicate/index.html">去除重复字符串</a></li>
+                                        <li><a href="../../chargeservice/ocr/index.html">在线文字识别</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="index.html#" class="dropdown-toggle" id="jsonapi" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        API<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../knownjson/webInterface/index.html" id="findbyxpath">免费JSON接口</a>
+                                        </li>
+                                        <li><a id="chargeapi" target="_blank" href="http://apistore.baidu.com/"
+                                               rel="external nofollow">收费JSON接口</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" class="dropdown-toggle" id="docs" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        文档<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a id="bootcssapi" href="http://v3.bootcss.com/components/" target="_blank"
+                                               rel="external nofollow">Bootstrap文档</a></li>
+                                        <li><a id="vueapi" href="https://cn.vuejs.org/v2/api/" target="_blank"
+                                               rel="external nofollow">VueJs文档</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a id="apliayapi" href="http://wiki.open.qq.com/wiki/%E9%A6%96%E9%A1%B5"
+                                               target="_blank" rel="external nofollow">腾讯开发平台</a></li>
+                                        <li><a id="wxapi" href="http://mp.weixin.qq.com/wiki/home/index.html"
+                                               target="_blank" rel="external nofollow">微信公众平台开发文档</a></li>
+                                        <li><a id="wxapi"
+                                               href="http://mp.weixin.qq.com/wiki/11/74ad127cc054f6b80759c40f77ec03db.html"
+                                               target="_blank" rel="external nofollow">微信JSSDK开发文档</a></li>
+                                        <li><a id="wxapi" href="https://pay.weixin.qq.com/wiki/doc/api/index.html"
+                                               target="_blank" rel="external nofollow">微信支付开发文档</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a id="tbapi"
+                                               href="http://open.taobao.com/api/api_list.htm?spm=a219a.7386789.1.27.Lf4YRD"
+                                               target="_blank" rel="external nofollow">淘宝开发文档</a></li>
+                                        <li><a id="apliayapi" href="https://open.alipay.com/platform/document.htm"
+                                               target="_blank" rel="external nofollow">支付宝开发文档</a></li>
+                                        <li role="separator" class="divider"></li>
+
+                                        <li><a href="../../doc/AndroidManifest/index.html"
+                                               id="androidManifest">Android权限大全</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="../../knownjson/webInterface/index.html">JSON API免费接口</a></li>
+                                        <li><a href="../../knownjson/regexJiaocheng/index.html">正则表达式30分钟入门教程</a></li>
+                                        <li><a href="../../knownjson/httpstate/index.html">HTTP状态码查询</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" class="dropdown-toggle" id="testtools" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">平台工具<span
+                                            class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a rel="external nofollow" target="_blank"
+                                               href="http://mp.weixin.qq.com/debug">微信公众平台调试工具</a></li>
+                                        <li><a id="coupon" rel="external nofollow" target="_blank"
+                                               href="http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=cardsign">微信卡券JSAPI签名校验工具</a>
+                                        </li>
+                                        <li><a id="wxsign" rel="external nofollow" target="_blank"
+                                               href="http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign">微信 JS
+                                            接口签名校验工具</a></li>
+                                        <li><a rel="external nofollow" target="_blank"
+                                               href="http://qy.weixin.qq.com/debug">微信企业号调试工具</a></li>
+                                        <li><a rel="external nofollow" target="_blank"
+                                               href="http://connect.qq.com/sdk/webtools/">QQ互联API调试工具</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a rel="external nofollow" target="_blank" href="http://t.cn/R4617Pf">淘宝oauth2.0测试工具</a>
+                                        </li>
+                                        <li><a rel="external nofollow" target="_blank" href="http://t.cn/R461ZZu">淘宝API测试工具</a>
+                                        </li>
+                                        <li><a rel="external nofollow" target="_blank" href="http://t.cn/R461Zm2">淘宝错误码查询工具</a>
+                                        </li>
+                                        <li><a rel="external nofollow" target="_blank" href="http://t.cn/R461wa7">淘宝商品属性工具</a>
+                                        </li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a rel="external nofollow" target="_blank"
+                                               href="http://sandbox.alipaydev.com/home/apiTestTools.htm?method=alipay.security.risk.detect">支付宝API工具</a>
+                                        </li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a rel="external nofollow" target="_blank"
+                                               href="http://open.weibo.com/tools/console">新浪微博API工具</a></li>
+                                    </ul>
+                                </li>
+                                <!--占位置-->
+                            </ul>
+                        </div>
+                    </nav>
+                    <script>
+                        var showaban = true;
+                        var storageKey = "newtools20170322";
+                        if (window.localStorage.getItem(storageKey) == null) {
+                            $("#convertTools").after('<span class="newFeatureTip">●</span>');
+
+                            $("#tosvg").before('<span class="newItem">●</span>');
+                            document.getElementById("tosvg").onmouseover = function () {
+                                window.localStorage.setItem(storageKey, "has");
+                                $(".newFeatureTip").text('');
+                            }
+
+                        }
+
+                    </script>
+                    <div style="clear:both"></div>
+
+
+                    <blockquote class="layui-elem-quote layui-quote-nm"
+                                style='margin-bottom: 5px;display:none;padding: 4px 20px;font-size:13px;    text-align: left;'>
+                        您最近使用了：<span id="history"></span>
+                    </blockquote>
+                    <style>#main {
+                        width: 100%;
+                        font-size: 13px;
+                        margin-bottom: 100px;
+                        margin-top: 40px
+                    }
+
+                    #main h2 {
+                        clear: both;
+                        font-size: 1.0em;
+                        height: 2em;
+                        margin-bottom: 10px;
+                        line-height: 2em;
+                        text-align: center;
+                        color: white;
+                        background: #030;
+                        font-weight: bold;
+                        -moz-border-radius: 5px;
+                        -webkit-border-radius: 5px;
+                        border-radius: 5px
+                    }
+
+                    #nav {
+                        -moz-border-radius: 2px;
+                        -webkit-border-radius: 2px;
+                        border-radius: 2px;
+                        z-index: 999;
+                        top: 0px
+                    }
+
+                    #nav a {
+                        clear: both;
+                        font-size: 0.8em;
+                        height: 2em;
+                        margin-bottom: 10px;
+                        line-height: 2em;
+                        text-align: center;
+                        text-decoration: none;
+                        color: white;
+                        background: #030;
+                        font-weight: bold;
+                        -moz-border-radius: 2px;
+                        -webkit-border-radius: 2px;
+                        border-radius: 2px;
+                        margin-left: 10px;
+                        padding-left: 10;
+                        padding-right: 10
+                    }
+
+                    .code {
+                        background-color: whiteSmoke;
+                        font-family: Courier New;
+                        font-size: 12px;
+                        border: 1px solid #CCC;
+                        padding: 5px;
+                        word-break: break-all;
+                        overflow: auto;
+                        width: 98%;
+                        margin: 5px 0px
+                    }
+
+                    .warn {
+                        border: 1px dashed red
+                    }
+
+                    #totop {
+                        margin-left: 5px;
+                        position: fixed;
+                        cursor: pointer;
+                        right: 1px;
+                        bottom: 1px
+                    }
+
+                    table {
+                        font-family: Arial, Helvetica, sans-serif;
+                        margin-top: 10px;
+                        border-collapse: collapse;
+                        border: 1px solid #aaa;
+                        width: 100%
+                    }
+
+                    tr {
+                        display: table-row;
+                        vertical-align: inherit;
+                        border-color: inherit
+                    }
+
+                    table td {
+                        vertical-align: text-top;
+                        padding: 5px 15px 5px 5px;
+                        background-color: #efefef;
+                        border: 1px solid #aaa;
+                        font-size: 13px
+                    }
+
+                    #nav22 {
+                        position: fixed;
+                        right: 4px;
+                        top: 200px;
+                    }
+
+                    #nav22 span {
+                        margin-left: 0px;
+                        cursor: pointer;
+                    }
+
+                    #nav22 a {
+                        color: #333;
+                    }</style>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h4 class="media-heading">举个栗子</h4>
+                                    <div id="desc1">
+                                        java中如何使用json,C#中如何使用json,php中如何使用json,javascript如何使用json
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div id="nav">
+                                <a href="index.html#js">Javascript</a><a href="index.html#jq">JQuery</a><a
+                                    href="index.html#json">Json.js</a><a href="index.html#java">Java</a><a
+                                    href="index.html#php">Php</a><a href="index.html#cshape">C#</a><a
+                                    href="index.html#python">Python</a><a href="index.html#other">其他语言</a>
+                            </div>
+                            <div id="main">
+                                <div>
+                                    <p>JSON是一种取代XML的数据结构,和xml相比,它更小巧但描述能力却不差,由于它的小巧所以网络传输数据将减少更多流量从而加快速度,</p>
+                                    <p>
+                                        那么,JSON到底是什么?<a href="javascript:;" id="aboutJson">关于JSON</a><a
+                                            href="javascript:;" id="aboutJsonp">关于JSONP</a>
+                                    </p>
+                                </div>
+                                <a name="js"></a>
+                                <h2>Javascrip操作json方法</h2>
+                                <div>
+                                    <div class="code">
+<pre><span style="color: #0000ff;">var</span> str1 = '{ "name": "cxh", "sex": "man" }'<span style="color: #000000;">;
+
+</span><span style="color: #0000ff;">var</span> data=eval("("+str1+")");<span style="color: #008000;">//</span><span
+        style="color: #008000;">转换为json对象//data =(new</span>
+
+alert (data.name);<span style="color: #008000;">//</span><span style="color: #008000;">会显示出cxh</span></pre>
+                                    </div>
+                                    <div class="warn">
+                                        <p>不过eval解析json有安全隐患！ </p>
+                                        <p>
+                                            现在大多数浏览器（IE8及以上，Chrome和Firefox差不多全部）自带原生JSON对象，提供JSON.parse()方法解析JSON，提供JSON.stringify()方法生成JSON，请使用这两个方法！</p>
+                                        <p>
+                                            如果担心parse()对对象抛异常，可以加一个封装函数：
+                                        </p>
+                                        <p>
+                                        <pre class="code">JSON.pParse = function( tar ) {
+
+    if( typeof( tar ) === 'string' ) {
+
+        return JSON.parse( tar );
+
+    } else {
+
+        return tar;
+
+    }
+
+};</pre>
+                                        </p>
+                                        <p>感谢oschina的 我土鳖 提供修改方法。</p>
+                                    </div>
+                                </div>
+                                <a name="json"><a>
+                                    <h2>json.js操作json方法</h2>
+                                    <div>
+
+                                        <p>&nbsp;&nbsp;&nbsp; 为了方便地处理JSON数据，JSON提供了json.js包，下载地址：<a target="_blank"
+                                                                                                    href="http://lib.sinaapp.com/js/json2/json2.js">http://lib.sinaapp.com/js/json2/json2.js</a>
+                                        </p>
+                                        <p>&nbsp;&nbsp;&nbsp;
+                                            在数据传输流程中，json是以文本，即字符串的形式传递的，而JS操作的是JSON对象，所以，JSON对象和JSON字符串之间的相互转换是关键。例如：</p>
+                                        <p>&nbsp;&nbsp;&nbsp; JSON字符串:</p>
+                                        <div class="code"><p>&nbsp;&nbsp;&nbsp; var str1 = '{ "name": "cxh", "sex":
+                                            "man" }';</p></div>
+                                        <p>&nbsp;&nbsp;&nbsp; JSON对象:</p>
+                                        <div class="code"><p>&nbsp;&nbsp;&nbsp; var str2 = { "name": "cxh", "sex": "man"
+                                            };</p></div>
+                                        <p>&nbsp;&nbsp;&nbsp; 一、JSON字符串转换为JSON对象</p>
+                                        <p>&nbsp;&nbsp;&nbsp; 要运用上面的str1，必须运用下面的要领先转化为JSON对象：</p>
+                                        <p>&nbsp;&nbsp;&nbsp; //由JSON字符串转换为JSON对象</p>
+                                        <div class="code"><p>&nbsp;&nbsp;&nbsp; var obj = eval('(' + str + ')');</p>
+                                        </div>
+                                        <p>或者 </p>
+                                        <div class="code"><p>&nbsp;&nbsp;&nbsp; var obj = str.parseJSON();
+                                            //由JSON字符串转换为JSON对象</p></div>
+                                        <p>&nbsp;&nbsp;&nbsp; 或者</p>
+                                        <div class="code"><p>&nbsp;&nbsp;&nbsp; var obj = JSON.parse(str);
+                                            //由JSON字符串转换为JSON对象</p></div>
+                                        <p>&nbsp;&nbsp;&nbsp; 然后，就可以这样读取：</p>
+                                        <div class="code"><p>&nbsp;&nbsp;&nbsp; Alert(obj.name);</p>
+                                            <p>&nbsp;&nbsp;&nbsp; Alert(obj.sex);</p></div>
+                                        <p>&nbsp;&nbsp;&nbsp; 特别留心：如果obj本来就是一个JSON对象，那么运用
+                                            eval（）函数转换后（哪怕是多次转换）还是JSON对象，但是运用 parseJSON（）函数处理后会有疑问（抛出语法异常）。</p>
+                                        <p>&nbsp;&nbsp;&nbsp; 二、可以运用 toJSONString()或者全局要领
+                                            JSON.stringify()将JSON对象转化为JSON字符串。</p>
+                                        <p>&nbsp;&nbsp;&nbsp; 例如：</p>
+                                        <p>&nbsp;&nbsp;&nbsp; var last=obj.toJSONString(); //将JSON对象转化为JSON字符</p>
+                                        <p>&nbsp;&nbsp;&nbsp; 或者</p>
+                                        <p>&nbsp;&nbsp;&nbsp; var last=JSON.stringify(obj); //将JSON对象转化为JSON字符</p>
+                                        <p>&nbsp;&nbsp;&nbsp; alert(last);</p>
+                                        <p>&nbsp;&nbsp;&nbsp; 留心：</p>
+                                        <p>&nbsp;&nbsp;&nbsp; 上面的多个要领中，除了eval()函数是js自带的之外，其他的多个要领都来自json.js包。新版本的 JSON
+                                            修改了
+                                            API，将 JSON.stringify() 和 JSON.parse() 两个要领都注入到了 Javascript 的内建对象里面，前者变成了
+                                            Object.toJSONString()，而后者变成了
+                                            String.parseJSON()。如果提示找不到toJSONString()和parseJSON()要领，则说明您的json包版本太低。</p>
+
+                                    </div>
+                                    <a name="jq"></a>
+                                    <h2>JQuery获取json方法</h2>
+                                    <div>
+                                        <p>语法</p>
+                                        <div class="code">
+                                            jQuery.getJSON(url,data,success(data,status,xhr))
+                                        </div>
+                                        <p>参数</p>
+                                        <div>
+                                            <table class="dataintable">
+                                                <tbody>
+                                                <tr>
+                                                    <th style="width:30%;">参数</th>
+                                                    <th>描述</th>
+                                                </tr>
+                                                <tr>
+                                                    <td><i>url</i></td>
+                                                    <td>必需。规定将请求发送的哪个 URL。</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><i>data</i></td>
+                                                    <td>可选。规定连同请求发送到服务器的数据。</td>
+                                                </tr>
+                                                <tr>
+                                                    <td><i>success(data,status,xhr)</i></td>
+                                                    <td>
+                                                        <p>可选。规定当请求成功时运行的函数。</p>
+                                                        <p>额外的参数：</p>
+                                                        <ul class="listintable">
+                                                            <li><i>response</i> - 包含来自请求的结果数据</li>
+                                                            <li><i>status</i> - 包含请求的状态</li>
+                                                            <li><i>xhr</i> - 包含 XMLHttpRequest 对象</li>
+                                                        </ul>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <p>用例</p>
+                                        <div class="code">
+                                            $.getJSON("test.js", function(json){
+                                            alert("JSON Data: " + json.users[3].name);
+                                            });
+                                        </div>
+                                    </div>
+                                    <a name="java"></a>
+                                    <h2>Java操作json方法</h2>
+                                    <div>
+
+                                        <p>这个需要json-lib.jar包支持 该jar下载地址:<a
+                                                href="http://pan.baidu.com/share/link?shareid=270594&amp;uk=3758401226"
+                                                target="_blank">点击下载</a></p>
+                                        <p>
+                                        <div class="code">
+<pre><span style="color: #008000;">//</span><span style="color: #008000;">JSON对象 JSONObject的使用</span>
+
+        String str1 = "{ 'name': 'cxh', 'sex': '1' }"<span style="color: #000000;">;
+
+        JSONObject obj </span>=<span style="color: #000000;"> JSONObject.fromObject(str1);
+
+        String name </span>= obj.getString("name"); <span style="color: #008000;">//</span><span
+            style="color: #008000;">直接返回字符串型 cxh</span>
+
+        Object nameo = obj.get("name"); <span style="color: #008000;">//</span><span
+            style="color: #008000;">直接返回对象型的cxh</span>
+
+        <span style="color: #0000ff;">int</span> age = obj.getInt("sex"); <span style="color: #008000;">//</span><span
+            style="color: #008000;">直接返回int型的sex
+
+        
+
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">JSON数组对象 JSONArray的运用</span>
+
+        String jsonArrStr = "[{ 'name': 'cxh', 'sex': '1','website':'http://www.bejson.com' },{ 'name': '三少', 'sex': '1','website':'http://www.ij2ee.com' }]"<span
+            style="color: #000000;">;
+
+        JSONArray array </span>=<span style="color: #000000;"> JSONArray.fromObject(jsonArrStr);
+
+        </span><span style="color: #0000ff;">int</span> size = array.size(); <span
+            style="color: #008000;">//</span><span style="color: #008000;">获取JSON数组大小</span>
+
+        JSONObject jo = array.getJSONObject(0);<span style="color: #008000;">//</span><span style="color: #008000;">取第一个JSON对象</span>
+
+        <span style="color: #0000ff;">for</span>(<span style="color: #0000ff;">int</span> i=0;i&lt;size;i++<span
+            style="color: #000000;">){
+
+            JSONObject jo1 </span>=<span style="color: #000000;"> array.getJSONObject(i);
+
+            System.out.println(jo1.getString(</span>"website")); <span style="color: #008000;">//</span><span
+            style="color: #008000;">循环返回网址</span>
+
+<span style="color: #000000;">        }
+
+        
+
+        </span><span style="color: #008000;">//</span><span style="color: #008000;">序列化Bean对象为JSON对象</span>
+
+        User user = <span style="color: #0000ff;">new</span><span style="color: #000000;"> User();
+
+        user.setName(</span>"cxh"<span style="color: #000000;">);
+
+        user.setSex(</span>1<span style="color: #000000;">);
+
+        user.setWebsite(</span>"http://www.bejson.com"<span style="color: #000000;">);
+
+        JSONObject jo2 </span>=<span style="color: #000000;">  JSONObject.fromObject(user);
+
+        System.out.println(jo2.toString()); </span><span style="color: #008000;">//</span><span style="color: #008000;">则会输出 { 'name': 'cxh', 'sex': '1','website':'</span><span
+            style="color: #008000; text-decoration: underline;">http://www.bejson.com</span><span
+            style="color: #008000;">' }</span></pre>
+                                        </div>
+                                        <p>&nbsp;</p>
+                                        </p>
+
+                                    </div>
+                                    <a name="php"></a>
+                                    <h2>Php</h2>
+                                    <div>
+                                        <div id="cnblogs_post_body">
+                                            <p>　<strong>一、json_encode()</strong></p>
+                                            <p>　　该函数主要用来将数组和对象，转换为json格式。先看一个数组转换的例子：</p>
+                                            <div class="code">
+                                                <p>$arr = array ('a'=&gt;1,'b'=&gt;2,'c'=&gt;3,'d'=&gt;4,'e'=&gt;5);</p>
+                                                <p>echo json_encode($arr);</p></div>
+                                            <p>　　结果为</p>
+                                            <div class="code">
+                                                <p>{"a":1,"b":2,"c":3,"d":4,"e":5}</p></div>
+                                            <p>　　再看一个对象转换的例子：</p>
+                                            <div class="code">
+                                                <p>$obj-&gt;body = 'another post';</p>
+                                                <p>$obj-&gt;id = 21;</p>
+                                                <p>$obj-&gt;approved = true;</p>
+                                                <p>$obj-&gt;favorite_count = 1;</p>
+                                                <p>$obj-&gt;status = NULL;</p>
+                                                <p>echo json_encode($obj);</p></div>
+                                            <p>　　结果为</p>
+                                            <div class="code">
+                                                <p>{<br>　　　　"body":"another post",</p>
+                                                <p>"id":21,</p>
+                                                <p>"approved":true,</p>
+                                                <p>"favorite_count":1,</p>
+                                                <p>"status":null<br>　　}</p></div>
+                                            <p>
+                                                　　由于json只接受utf-8编码的字符，所以json_encode()的参数必须是utf-8编码，否则会得到空字符或者null。当中文使用GB2312编码，或者外文使用ISO-8859-1编码的时候，这一点要特别注意。</p>
+                                            <p>　　<strong>二、索引数组和关联数组</strong></p>
+                                            <p>　　PHP支持两种数组，一种是只保存"值"（value）的索引数组（indexed
+                                                array），另一种是保存"名值对"（name/value）的关联数组（associative array）。</p>
+                                            <p>　　由于javascript不支持关联数组，所以json_encode()只将索引数组（indexed
+                                                array）转为数组格式，而将关联数组（associative array）转为对象格式。</p>
+                                            <p>　　比如，现在有一个索引数组</p>
+                                            <div class="code">
+                                                <p>$arr = Array('one'， 'two'， 'three');</p>
+                                                <p>echo json_encode($arr);</p></div>
+                                            <p>　　结果为：</p>
+                                            <div class="code">
+                                                <p>["one"，"two"，"three"]</p></div>
+                                            <p>　　如果将它改为关联数组：</p>
+                                            <div class="code">
+                                                <p>$arr = Array('1'=&gt;'one'， '2'=&gt;'two'， '3'=&gt;'three');</p>
+                                                <p>echo json_encode($arr);</p></div>
+                                            <p>　　结果就变了：</p>
+                                            <div class="code">
+                                                <p>{"1":"one"，"2":"two"，"3":"three"}</p></div>
+                                            <p>　　注意，数据格式从"[]"（数组）变成了"{}"（对象）。</p>
+                                            <p>　　如果你需要将"索引数组"强制转化成"对象"，可以这样写</p>
+                                            <div class="code">
+                                                <p>json_encode( (object)$arr );</p></div>
+                                            <p>　　或者</p>
+                                            <div class="code">
+                                                <p>json_encode ( $arr, JSON_FORCE_OBJECT );</p></div>
+                                            <p>　　<strong>三、类（class）的转换</strong></p>
+                                            <p>　　下面是一个PHP的类：</p>
+                                            <div class="code">
+                                                <p>class Foo {</p>
+                                                <p>const ERROR_CODE = '404';</p>
+                                                <p>public $public_ex = 'this is public';</p>
+                                                <p>private $private_ex = 'this is private!';</p>
+                                                <p>protected $protected_ex = 'this should be protected';</p>
+                                                <p>public function getErrorCode() {</p>
+                                                <p>return self::ERROR_CODE;</p>
+                                                <p>}</p>
+                                                <p>}</p></div>
+                                            <p>　　现在，对这个类的实例进行json转换：</p>
+                                            <div class="code">
+                                                <p>$foo = new Foo;</p>
+                                                <p>$foo_json = json_encode($foo);</p>
+                                                <p>echo $foo_json;</p></div>
+                                            <p>　　输出结果是</p>
+                                            <div class="code">
+                                                <p>{"public_ex":"this is public"}</p></div>
+                                            <p>　　可以看到，除了公开变量（public），其他东西（常量、私有变量、方法等等）都遗失了。</p>
+                                            <p>　　<strong>四、json_decode()</strong></p>
+                                            <p>　　该函数用于将json文本转换为相应的PHP数据结构。下面是一个例子：</p>
+                                            <div class="code">
+                                                <p>$json = '{"foo": 12345}';</p>
+                                                <p>$obj = json_decode($json);</p>
+                                                <p>print $obj-&gt;{'foo'}; // 12345</p></div>
+                                            <p>　　通常情况下，json_decode()总是返回一个PHP对象，而不是数组。比如：</p>
+                                            <div class="code">
+                                                <p>$json = '{"a":1,"b":2,"c":3,"d":4,"e":5}';</p>
+                                                <p>var_dump(json_decode($json));</p></div>
+                                            <p>　　结果就是生成一个PHP对象：</p>
+                                            <div class="code">
+                                                <p>object(stdClass)#1 (5) {</p>
+                                                <p>["a"] =&gt; int(1)<br>　　　　["b"] =&gt; int(2)<br>　　　　["c"] =&gt;
+                                                    int(3)<br>　　　　["d"] =&gt; int(4)<br>　　　　["e"] =&gt; int(5)</p>
+                                                <p>}</p></div>
+                                            <p>　　如果想要强制生成PHP关联数组，json_decode()需要加一个参数true：</p>
+                                            <div class="code">
+                                                <p>$json = '{"a":1,"b":2,"c":3,"d":4,"e":5}';</p>
+                                                <p>var_dump(json_decode($json,true));</p></div>
+                                            <p>　　结果就生成了一个关联数组：</p>
+                                            <div class="code">
+                                                <p>array(5) {</p>
+                                                <p>["a"] =&gt; int(1)<br>　　 　　["b"] =&gt; int(2)<br>　　 　　["c"] =&gt;
+                                                    int(3)<br>　　 　　["d"] =&gt; int(4)<br>　　 　　["e"] =&gt; int(5)</p>
+                                                <p>}</p></div>
+                                            <p>　　<strong>五、json_decode()的常见错误</strong></p>
+                                            <p>　　下面三种json写法都是错的，你能看出错在哪里吗？</p>
+                                            <div class="code">
+                                                <p>$bad_json = "{ 'bar': 'baz' }";</p>
+                                                <p>$bad_json = '{ bar: "baz" }';</p>
+                                                <p>$bad_json = '{ "bar": "baz"， }';</p></div>
+                                            <p>　　对这三个字符串执行json_decode()都将返回null，并且报错。</p>
+                                            <p>
+                                                　　第一个的错误是，json的分隔符（delimiter）只允许使用双引号，不能使用单引号。第二个的错误是，json名值对的"名"（冒号左边的部分），任何情况下都必须使用双引号。第三个的错误是，最后一个值之后不能添加逗号（trailing
+                                                comma）。</p>
+                                            <p>
+                                                　　另外，json只能用来表示对象（object）和数组（array），如果对一个字符串或数值使用json_decode()，将会返回null。</p>
+                                            <div class="code">
+                                                <p>var_dump(json_decode("Hello World")); //null</p></div>
+                                        </div>
+                                    </div>
+                                    <a name="other"></a>
+                                    <h2>其他</h2>
+                                    <div>
+                                        <p>其他的 由于我不会,所以只能是带补充,如果会的 请把代码和所需要的支持库发送到我的邮箱 <a class="__cf_email__"
+                                                                                          href="http://www.bejson.com/cdn-cgi/l/email-protection"
+                                                                                          data-cfemail="a4cdce96c1c1e495979d8ac7cbc9">[email&#160;protected]</a>
+                                            <script data-cfhash='f9e31' type="text/javascript">/* <![CDATA[ */
+                                            !function (t, e, r, n, c, a, p) {
+                                                try {
+                                                    t = document.currentScript || function () {
+                                                            for (t = document.getElementsByTagName('script'), e = t.length; e--;)if (t[e].getAttribute('data-cfhash'))return t[e]
+                                                        }();
+                                                    if (t && (c = t.previousSibling)) {
+                                                        p = t.parentNode;
+                                                        if (a = c.getAttribute('data-cfemail')) {
+                                                            for (e = '', r = '0x' + a.substr(0, 2) | 0, n = 2; a.length - n; n += 2)e += '%' + ('0' + ('0x' + a.substr(n, 2) ^ r).toString(16)).slice(-2);
+                                                            p.replaceChild(document.createTextNode(decodeURIComponent(e)), c)
+                                                        }
+                                                        p.removeChild(t)
+                                                    }
+                                                } catch (u) {
+                                                }
+                                            }()
+                                            /* ]]> */</script>
+                                            ,被采用的可以加上您的网站外链哦。
+                                        </p>
+
+                                        <ul>
+                                            <li><a href='http://www.cnblogs.com/sbxwylt/archive/2008/12/31/1366199.html'
+                                                   target='_blank'>JSON in C#</a></li>
+                                            <li><a href='http://www.cnblogs.com/coderzh/archive/2008/11/25/1340862.html'
+                                                   target='_blank'>JSON in C#( >=.NetFramework 3.5)</a></li>
+                                            <li>
+                                                <a href='http://www.cnblogs.com/ppboy_dxh/archive/2011/02/17/1957218.html'
+                                                   target='_blank'>JSON in C++</a></li>
+                                        </ul>
+
+                                    </div>
+                                    <a name="python"></a>
+                                    <h2>Python(谢谢【张东桂】提供的代码)</h2>
+                                    <div>
+<pre>
+import json
+
+str1 = '{ "name": "cxh", "sex": "1" }'
+# 或者
+# str1 = """{ "name": "cxh", "sex": "1" }"""
+# 或者
+# str1 = "{ \"name\": \"cxh\", \"sex\": \"1\" }"
+
+obj = json.loads(str1)
+print(obj["name"])
+print(obj["sex"])
+
+# 由于出现中文，记得文件头加入 # coding:utf8
+json_arr_str = """[{ "name": "cxh", "sex": "1","website":"http://www.bejson.com" },{ "name": "我的", "sex": "1","website":"http://www.bejson.com" }]"""
+
+arr = json.loads(json_arr_str)
+
+for o in arr:
+    print(o["name"])
+    print(o["sex"])
+    print(o["website"])
+
+				</pre>
+                                    </div>
+                                    <a name="cshape"></a>
+                                    <h2>C#(谢谢【黄明辉】提供的代码)</h2>
+                                    <div>
+                                        需要的dll:Newtonsoft.Json.dll,<a href="http://www.newtonsoft.com/json"
+                                                                      target="_blank">dll官网下载</a>
+                                        <pre>
+	//读取简单的json
+string json="{\"username\":\"张三\"}";
+string username = string.Empty;
+JObject jObj=JObject.Parse(json); //进行格式化
+username = jObj["username"].ToString();
+Console.WriteLine(username);
+
+
+//读取嵌套对象的json
+json = "{\"username\":\"张三\",data:{\"address\":\"福建厦门\"}}";
+jObj = JObject.Parse(json);
+string address = string.Empty;
+address = jObj["data"]["address"].ToString();
+Console.WriteLine(address);
+
+//读取数组,操作方式与数组类似
+json = "{\"username\":\"张三\",data:[{\"address\":\"福建厦门\"},{\"address\":\"福建福州\"}]}";
+jObj = JObject.Parse(json);
+ address = string.Empty;
+address = jObj["data"][0]["address"].ToString()+","+ jObj["data"][1]["address"].ToString();
+Console.WriteLine(address);
+
+Console.ReadLine();
+				</pre>
+                                    </div>
+                                    <div id="totop">
+                                        <img style="width:31px; height:31px;    margin-right: 20px;margin-bottom: 20px;"
+                                             src="http://ww4.sinaimg.cn/bmiddle/7a09523bjw1f0cqt7oxijg200v00vgle.gif">
+                                    </div>
+                                    <script type="text/javascript">
+                                        $("#aboutJsonp").click(function () {
+                                            window.open("http://baike.baidu.com/link?url=NQE8FoRwbfJeqoQLfenWF14pkkCHKGiVI-77SLVAbEPJPVIaGzO_ZeSWhIOO-I9LbC2boghuRjooTSpJC-RyNa", {
+                                                title: '关于JSON',
+                                                width: 740,
+                                                height: 400
+                                            });
+                                            return false;
+                                        });
+
+                                        $.fn.scrollToTop = function () {
+
+                                            $(this).click(function () {
+
+                                                $("html, body").animate({
+
+                                                    scrollTop: 0
+
+                                                }, "slow")
+
+                                            })
+
+                                        }
+
+
+                                        $("#totop").scrollToTop();
+
+                                    </script>
+
+                            </div>
+                            <input type="hidden" id="encode" value="1"/>
+                            <div class="panel-footer"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        $(function () {
+            $("#top_menu a").click(function () {
+
+
+                if ($(this).attr("href") != 'javascript:;') {
+
+                    var history = localStorage.getItem('history');
+                    var arr = new Array();
+                    arr.push($(this).text() + "-" + $(this).attr("href"))
+                    console.log(localStorage.getItem('history'))
+                    //alert(history)
+                    if (localStorage.getItem('history')) {
+                        var history_arr = localStorage.getItem('history').split("|");
+                        var nst = $(this).text() + "-" + $(this).attr("href");
+                        var len = history_arr.length;
+                        if (len > 4) {
+                            len = 4;
+                        }
+                        for (var i = 0; i < len; i++) {
+                            if (history_arr[i] != nst) {
+                                arr.push(history_arr[i])
+                            }
+                        }
+                        localStorage.setItem('history', arr.join("|"));
+                    }
+
+                    localStorage.setItem('history', arr.join("|"));
+                }
+
+            })
+            var str = '';
+
+            var history_arr = localStorage.getItem('history').split("|");
+            for (var i in history_arr) {
+                var data = history_arr[i].split("-");
+                // console.log(data)
+                //var value = localStorage.getItem(key);
+                str += '<a class="btn btn-success btn-xs" style="margin-left:5px" href="' + data[1] + '">' + data[0] + '</a>';
+            }
+            if (str) {
+                $("#history").parent().show();
+                $("#history").html(str)
+            }
+
+
+        })
+
+
+    </script>
+
+</body>
+</html>

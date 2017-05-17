@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Android Manifest 权限描述大全 - 小蓝工具</title>
+<meta name="keywords" content="小蓝工具,小蓝博客,Android Manifest,安卓权限描述大全"/>
+<meta name="description" content="小蓝工具,小蓝博客,安卓猿可以方便的查看安卓权限描述功能">
+
+ 
+<script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+<link href="/static/css/bootstrap.min.css" rel="stylesheet"><link rel="icon" href="/static/image/浓云.png" sizes="32x32" />
+
+ 
+
+</head>
+<body>
+<div class="aw-container-wrap">
+<div class="container">
+<div class="row">
+<div class="aw-content-wrap clearfix">
+<div class=" aw-main-content" style="min-height:700px;max-height:2000px">
+<nav class="navbar navbar-default" id='top_menu'>
+<div class="container-fluid">
+<ul class="nav navbar-nav" style="width: 100%;">
+ 
+<li>
+<a href="../../index.html">首页</a>
+</li>
+<li class="dropdown hide1">
+<a href="index.html#" class="dropdown-toggle" id="jsontools" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">JSON相关<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="../../index.html">格式化校验</a>
+</li>
+<li><a href="../../jsonviewernew/index.html" target="_blank" red>JSON视图</a>
+</li>
+<li><a href="../../zhuanyi/index.html" red>JSON压缩转义</a>
+</li>
+<li><a href="../../json2javapojo/new/index.html" red>JSON生成Java实体类</a>
+</li>
+<li><a href="../../convert/json2csharp/index.html" id="json2csharp">JSON生成C#实体类</a>
+</li>
+<li><a href="../../jsoneditoronline/index.html" red>JSON在线编辑器</a>
+</li>
+<li><a href="../../color/index.html">JSON着色</a></li>
+<li><a href="../../xml2json/index.html" red>XML-JSON互转</a></li>
+<li><a href="../../jsontools/json2get/index.html" id="json2get">JSON和GET请求字符串互转</a></li>
+<li><a href="../../json/col2json/index.html" id="excel2json">Excel转Json</a></li>
+</ul>
+</li>
+<li class="dropdown hide1">
+<a href="index.html#" id="encTools" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+编码/加密<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="../../enc/base64/index.html">Base64编码、解码</a></li>
+<li><a href="../../enc/md5/index.html">MD5加密</a></li>
+<li><a href="../../enc/aesdes/index.html" id="aes">DES,AES等对称加密解密</a></li>
+<li><a href="../../enc/sha/index.html">SHA加密</a></li>
+<li><a href="../../enc/escape/index.html">Escape编码</a></li>
+<li><a href="../../enc/urlencode/index.html" id="urlEncode">URL编码</a></li>
+<li><a href="../../enc/eval_package/index.html">Javascript Eval加密解密</a></li>
+<li><a href="../../enc/morse/index.html">摩斯密码加密解密</a></li>
+</ul>
+</li>
+<li class="dropdown hide1">
+<a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">格式化<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="../../jshtml_format/index.html">Javascript/HTML压缩、格式化</a></li>
+<li><a href="../../otherformat/css/index.html">CSS压缩、格式化</a></li>
+<li><a href="../../otherformat/xml/index.html">XML压缩、格式化</a></li>
+<li><a href="../../otherformat/sql/index.html">SQL压缩、格式化</a></li>
+</ul>
+</li>
+<li class="dropdown hide1">
+<a href="index.html#" id="httputil" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+网络<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="../../httppost/index.html" target="_blank" red>在线模拟发送HTTP请求</a></li>
+<li><a id="http3" href="../../httputil/httppost3/index.html">支持返回结果的HTTP请求</a></li>
+<li><a href="../../httputil/getip/index.html">获取你的IP</a></li>
+<li><a href="../../httputil/queryip/index.html" id="queryip">获取IP信息</a></li>
+<li><a href="../../httputil/ip2addr/index.html" id="ip2addr">IP定位周边信息</a></li>
+<li><a href="../../httputil/clientinfo/index.html" id="clientinfo">获取您的浏览器信息</a></li>
+<li><a href="../../httputil/useragent/index.html" id="useragent">常用USER_AGENT</a></li>
+<li><a href="../../convert/subnetmask/index.html" id="subnetmask">TCP/IP子网掩码计算换算</a></li>
+</ul>
+</li>
+<li class="dropdown hide1">
+<a href="index.html#" id="uitools" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+前端<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="../../ui/tinypic/index.html" id="tinypic">图片在线压缩工具</a></li>
+<li><a href="../../pages/cooleditor/index.html" id="simpleeidtor">在线代码编辑器</a></li>
+<li><a href="../../ui/photoshop/index.html" target="_blank">在线photoshop</a></li>
+<li><a href="http://h5.baidu.com/store" target="_blank" rel="external nofollow" id="h5maker">H5模板在线制作</a></li>
+<li><a href="../../ui/borderradius/index.html" id="borderradius">在线生成圆角图片</a></li>
+<li><a id="logocreate" href="../../ui/create_logo/index.html" id="borderradius" title="IOS安卓手机开发logo图标生成工具">IOS安卓手机开发logo生成工具</a></li>
+<li><a href="../../ui/icomaker/index.html" id="icomaker">ICO图标在线转换工具</a></li>
+<li><a href="http://runjs.cn/code" target="_blank" rel="external nofollow" id="runjs">RunJS在线编辑器</a></li>
+<li><a href="../../ui/ueditor/index.html" id="ueditor">ueditor在线代码编辑器</a></li>
+<li><a href="../../ui/getcolor/index.html">在线调色板</a></li>
+<li><a href="../../ui/safecolor/index.html" id="safecolor">WEB安全色</a></li>
+<li><a href="../../ui/image2base64/index.html" id="img2base64">在线图片转Base64编码</a></li>
+<li><a href="../../ui/imagehandler/index.html" id="imghandler">在线图片大小格式(支持webp)转换</a></li>
+<li><a href="../../ui/phonesize/index.html" id="phonesize">iPhone/iPad/Android UI尺寸规范</a></li>
+<li><a href="http://www.iconfont.cn/plus/collections/index" target="_blank" rel="external nofollow">阿里巴巴矢量图标库</a></li>
+<li><a href="http://fontawesome.io/icons/" target="_blank" rel="external nofollow">fontawesome矢量图标库</a></li>
+<li><a href="../../ui/svg_editor/index.html" id="svgedit">SVG代码编辑预览</a></li>
+<li><a href="../../othertools/libcdn/index.html" id="libcdn">常用JS资源库</a></li>
+<li><a href="../../ui/openweb/index.html" id="openweb">弹出窗口生成器</a></li>
+<li><a href="../../ui/texteditor/index.html" id="texteditor">自动排版工具</a></li>
+</ul>
+</li>
+<li class="dropdown hide1">
+<a href="index.html#" id="convertTools" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+转换<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="../../ui/imagehandler/index.html" id="imghandler">在线图片大小格式(支持webp)转换</a></li>
+<li><a href="../../convert/image_to_svg/index.html" id="tosvg">jpg,png图片在线转svg</a></li>
+<li><a href="../../convert/map/index.html" id="mapdw">在线地图经纬度定位换算</a></li>
+<li><a href="../../ui/px2em/index.html" id="px2em">px转em,em转px</a></li>
+<li><a href="../../ui/image2base64/index.html" id="img2base64">在线图片转Base64编码</a></li>
+<li><a id="unicodechinese" href="../../convert/unicode_chinese/index.html">unicode中文互转</a></li>
+<li><a href="../../convert/shorturl/index.html" id="shorturl">在线短地址转换</a></li>
+<li><a href="../../convert/unix/index.html">Unix时间转换</a></li>
+<li><a href="../../convert/jinzhi/index.html">进制转换</a></li>
+<li><a href="../../convert/ox2str/index.html">16进制到文本字符串</a></li>
+<li><a href="../../convert/uplowercase/index.html" id="uplowercase">字母大小写转换</a></li>
+<li><a href="../../convert/rgbhex/index.html" id="rgbhex">RGB颜色和HEX互转</a></li>
+<li><a href="../../convert/file2pdf/index.html" id="file2pdf">在线文档转PDF</a></li>
+<li><a href="../../convert/qrcode/index.html" id="qrtools">二维码生成与解码</a></li>
+<li><a href="../../convert/numtohz/index.html" id="numtohz">数字转中文(人民币)</a></li>
+<li><a href="../../convert/filesize/index.html" id="filesizehs">在线文件大小换算</a></li>
+<li><a href="../../convert/nativeascii/index.html" id="navasc">NATIVE/ASCII编码互转工具</a></li>
+<li><a href="../../othertools/sql2pojo/index.html" id="sql2pojo">数据库转实体类</a></li>
+<li><a href="../../convert/htmlubb/index.html" id="htmlubb">Html与UBB代码互相转换工具</a></li>
+<li><a href="../../convert/topinying/index.html" id="topinying">汉字转换拼音</a></li>
+<li><a href="../../convert/fullhalf/index.html" id="fullhalf">全角半角转换</a></li>
+<li><a href="../../convert/j2f/index.html" id="j2f">简繁体火星文互转</a></li>
+<li><a href="../../convert/html2markdown/index.html" id="html2markdown">Html转换为MarkDown工具</a></li>
+</ul>
+</li>
+<li class="dropdown hide1">
+<a href="index.html#" class="dropdown-toggle" id="otherTools" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+其他<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="../../tempfile/index.html">临时网盘</a></li>
+<li><a href="../../othertools/findelement/index.html" id="findbyxpath">寻找图片、链接或xpath寻找元素</a></li>
+<li><a href="../../othertools/finddif/index.html">文字对比找不同处</a></li>
+<li><a href="../../othertools/regex/index.html">正则表达式</a></li>
+<li><a href="../../othertools/regex_create/index.html">正则表达式代码生成工具</a></li>
+<li><a href="../../othertools/sqlAppend/index.html">SQL追加或去除双引号</a></li>
+<li><a href="../../othertools/removeDuplicate/index.html">去除重复字符串</a></li>
+<li><a href="../../othertools/sortwords/index.html" id="sortWords">在线根据首字母排序</a></li>
+<li><a href="../../chargeservice/ocr/index.html">在线文字识别</a></li>
+<li><a href="../../other/qqskey/index.html">获取QQ的SKEY</a></li>
+<li><a href="../../othertools/wordpress/index.html">在线查询wordpress主题模版出处</a></li>
+</ul>
+</li>
+<li class="dropdown">
+<a href="index.html#" class="dropdown-toggle" id="jsonapi" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+API<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="../../knownjson/webInterface/index.html" id="findbyxpath">免费JSON接口</a></li>
+<li><a id="chargeapi" target="_blank" href="http://apistore.baidu.com/" rel="external nofollow">收费JSON接口</a></li>
+</ul>
+</li>
+<li class="dropdown hide1">
+<a href="index.html#" class="dropdown-toggle" id="docs" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+文档<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a id="jqapi" href="../../apidoc/jquery/index.html" target="_blank" rel="external nofollow">jQuery文档</a></li>
+<li><a id="bootcssapi" href="http://v3.bootcss.com/components/" target="_blank" rel="external nofollow">Bootstrap文档</a></li>
+<li><a id="vueapi" href="https://cn.vuejs.org/v2/api/" target="_blank" rel="external nofollow">VueJs文档</a></li>
+<li role="separator" class="divider"></li>
+<li><a id="apliayapi" href="http://wiki.open.qq.com/wiki/%E9%A6%96%E9%A1%B5" target="_blank" rel="external nofollow">腾讯开发平台</a></li>
+<li><a id="wxapi" href="http://mp.weixin.qq.com/wiki/home/index.html" target="_blank" rel="external nofollow">微信公众平台开发文档</a></li>
+<li><a id="wxapi" href="http://mp.weixin.qq.com/wiki/11/74ad127cc054f6b80759c40f77ec03db.html" target="_blank" rel="external nofollow">微信JSSDK开发文档</a></li>
+<li><a id="wxapi" href="https://pay.weixin.qq.com/wiki/doc/api/index.html" target="_blank" rel="external nofollow">微信支付开发文档</a></li>
+<li role="separator" class="divider"></li>
+<li><a id="tbapi" href="http://open.taobao.com/api/api_list.htm?spm=a219a.7386789.1.27.Lf4YRD" target="_blank" rel="external nofollow">淘宝开发文档</a></li>
+<li><a id="apliayapi" href="https://open.alipay.com/platform/document.htm" target="_blank" rel="external nofollow">支付宝开发文档</a></li>
+<li role="separator" class="divider"></li>
+ 
+<li><a href="index.html" id="androidManifest">Android权限大全</a></li>
+<li role="separator" class="divider"></li>
+<li><a href="../../knownjson/aboutjson/index.html">什么是JSON</a></li>
+<li><a href="../../knownjson/demo/index.html">举个栗子</a></li>
+<li><a href="../../knownjson/webInterface/index.html">JSON API免费接口</a></li>
+<li><a href="../../knownjson/regexJiaocheng/index.html">正则表达式30分钟入门教程</a></li>
+<li><a href="../../knownjson/httpstate/index.html">HTTP状态码查询</a></li>
+</ul>
+</li>
+<li class="dropdown hide1">
+<a href="index.html#" class="dropdown-toggle" id="testtools" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">平台工具<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a rel="external nofollow" target="_blank" href="http://mp.weixin.qq.com/debug">微信公众平台调试工具</a></li>
+<li><a id="coupon" rel="external nofollow" target="_blank" href="http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=cardsign">微信卡券JSAPI签名校验工具</a></li>
+<li><a id="wxsign" rel="external nofollow" target="_blank" href="http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign">微信 JS 接口签名校验工具</a></li>
+<li><a rel="external nofollow" target="_blank" href="http://qy.weixin.qq.com/debug">微信企业号调试工具</a></li>
+<li><a rel="external nofollow" target="_blank" href="http://connect.qq.com/sdk/webtools/">QQ互联API调试工具</a></li>
+<li role="separator" class="divider"></li>
+<li><a rel="external nofollow" target="_blank" href="http://t.cn/R4617Pf">淘宝oauth2.0测试工具</a></li>
+<li><a rel="external nofollow" target="_blank" href="http://t.cn/R461ZZu">淘宝API测试工具</a></li>
+<li><a rel="external nofollow" target="_blank" href="http://t.cn/R461Zm2">淘宝错误码查询工具</a></li>
+<li><a rel="external nofollow" target="_blank" href="http://t.cn/R461wa7">淘宝商品属性工具</a></li>
+<li role="separator" class="divider"></li>
+<li><a rel="external nofollow" target="_blank" href="http://sandbox.alipaydev.com/home/apiTestTools.htm?method=alipay.security.risk.detect">支付宝API工具</a></li>
+<li role="separator" class="divider"></li>
+<li><a rel="external nofollow" target="_blank" href="http://open.weibo.com/tools/console">新浪微博API工具</a></li>
+</ul>
+</li>
+<li>
+<a href="http://www.hellojava.com/" style="color: red;" target="_blank">Java菜鸟社区</a>
+</li>
+<li class="dropdown">
+<a href="index.html#" class="dropdown-toggle" id="moret" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+更多<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li>
+<a href="../../soft/index.html">常用软件下载</a>
+</li>
+<li>
+<a href="../../robot/index.html" id="td" style="color: green;">我是泰迪</a>
+</li>
+<li>
+<a href="../../other/blogs/index.html">Blogs</a>
+</li>
+<li>
+<a href="../../knownjson/msg/index.html">留言</a>
+</li>
+<li>
+<a href="../../other/ads/index.html">广告招租</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+<script>
+							var showaban = true;
+								var storageKey = "newtools20170322";
+								if(window.localStorage.getItem(storageKey)==null){
+									$("#convertTools").after('<span class="newFeatureTip">●</span>');
+									
+									$("#tosvg").before('<span class="newItem">●</span>');
+									document.getElementById("tosvg").onmouseover = function(){
+										window.localStorage.setItem(storageKey,"has");
+										$(".newFeatureTip").text('');
+									}
+									
+								}
+								
+							</script>
+<div style="clear:both"></div>
+
+ 
+ 
+ 
+<blockquote class="layui-elem-quote layui-quote-nm" style='margin-bottom: 5px;display:none;padding: 4px 20px;font-size:13px;    text-align: left;'>
+您最近使用了：<span id="history"></span>
+</blockquote> <style>table.reference,table.tecspec{border-collapse:collapse;width:100%;margin-bottom:4px;margin-top:4px;}table.reference tr:nth-child(odd){background-color:#f6f4f0;}table.reference tr:nth-child(even){background-color:#fff;}table.reference td{border:1px solid #d4d4d4;padding:5px;padding-top:7px;padding-bottom:7px;vertical-align:top;}table.reference tr:hover{background-color:#F1D0D0;}</style>
+<div class="panel panel-default">
+<div class="panel-heading">
+<div class="media">
+<div class="media-body">
+<h4 class="media-heading">Android Manifest 权限描述大全</h4>
+<div id="desc1">安卓猿可以方便的查看安卓权限描述功能</div>
+</div>
+</div>
+</div>
+<div class="panel-body">
+ 
+<table class="reference"><tbody>
+<tr id="tit"><th style="width:25%;">权限</th><th style="width:12%;">名称</th><th style="width:60%;">描述</th></tr>
+<tr><td>android.permission.ACCESS_CHECKIN_PROPERTIES</td><td>访问登记属性</td><td>读取或写入登记check-in数据库属性表的权限</td></tr>
+<tr><td>android.permission.ACCESS_COARSE_LOCATION</td><td>获取错略位置</td><td>通过WiFi或移动基站的方式获取用户错略的经纬度信息,定位精度大概误差在30~1500米</td></tr>
+<tr><td>android.permission.ACCESS_FINE_LOCATION</td><td>获取精确位置</td><td>通过GPS芯片接收卫星的定位信息,定位精度达10米以内</td></tr>
+<tr><td>android.permission.ACCESS_LOCATION_EXTRA_COMMANDS</td><td>访问定位额外命令</td><td>允许程序访问额外的定位提供者指令</td></tr>
+<tr><td>android.permission.ACCESS_MOCK_LOCATION</td><td>获取模拟定位信息</td><td>获取模拟定位信息,一般用于帮助开发者调试应用</td></tr>
+<tr><td>android.permission.ACCESS_NETWORK_STATE</td><td>获取网络状态</td><td>获取网络信息状态,如当前的网络连接是否有效</td></tr>
+<tr><td>android.permission.ACCESS_SURFACE_FLINGER</td><td>访问Surface Flinger</td><td>Android平台上底层的图形显示支持,一般用于游戏或照相机预览界面和底层模式的屏幕截图</td></tr>
+<tr><td>android.permission.ACCESS_WIFI_STATE</td><td>获取WiFi状态</td><td>获取当前WiFi接入的状态以及WLAN热点的信息</td></tr>
+<tr><td>android.permission.ACCOUNT_MANAGER</td><td>账户管理</td><td>获取账户验证信息,主要为GMail账户信息,只有系统级进程才能访问的权限</td></tr>
+<tr><td>android.permission.AUTHENTICATE_ACCOUNTS</td><td>验证账户</td><td>允许一个程序通过账户验证方式访问账户管理ACCOUNT_MANAGER相关信息</td></tr>
+<tr><td>android.permission.BATTERY_STATS</td><td>电量统计</td><td>获取电池电量统计信息</td></tr>
+<tr><td>android.permission.BIND_APPWIDGET</td><td>绑定小插件</td><td>允许一个程序告诉appWidget服务需要访问小插件的数据库,只有非常少的应用才用到此权限</td></tr>
+<tr><td>android.permission.BIND_DEVICE_ADMIN</td><td>绑定设备管理</td><td>请求系统管理员接收者receiver,只有系统才能使用</td></tr>
+<tr><td>android.permission.BIND_INPUT_METHOD</td><td>绑定输入法</td><td>请求InputMethodService服务,只有系统才能使用</td></tr>
+<tr><td>android.permission.BIND_REMOTEVIEWS</td><td>绑定RemoteView</td><td>必须通过RemoteViewsService服务来请求,只有系统才能用</td></tr>
+<tr><td>android.permission.BIND_WALLPAPER</td><td>绑定壁纸</td><td>必须通过WallpaperService服务来请求,只有系统才能用</td></tr>
+<tr><td>android.permission.BLUETOOTH</td><td>使用蓝牙</td><td>允许程序连接配对过的蓝牙设备</td></tr>
+<tr><td>android.permission.BLUETOOTH_ADMIN</td><td>蓝牙管理</td><td>允许程序进行发现和配对新的蓝牙设备</td></tr>
+<tr><td>android.permission.BRICK</td><td>变成砖头</td><td>能够禁用手机,非常危险,顾名思义就是让手机变成砖头</td></tr>
+<tr><td>android.permission.BROADCAST_PACKAGE_REMOVED</td><td>应用删除时广播</td><td>当一个应用在删除时触发一个广播</td></tr>
+<tr><td>android.permission.BROADCAST_SMS</td><td>收到短信时广播</td><td>当收到短信时触发一个广播</td></tr>
+<tr><td>android.permission.BROADCAST_STICKY</td><td>连续广播</td><td>允许一个程序收到广播后快速收到下一个广播</td></tr>
+<tr><td>android.permission.BROADCAST_WAP_PUSH</td><td>WAP PUSH广播</td><td>WAP PUSH服务收到后触发一个广播</td></tr>
+<tr><td>android.permission.CALL_PHONE</td><td>拨打电话</td><td>允许程序从非系统拨号器里输入电话号码</td></tr>
+<tr><td>android.permission.CALL_PRIVILEGED</td><td>通话权限</td><td>允许程序拨打电话,替换系统的拨号器界面</td></tr>
+<tr><td>android.permission.CAMERA</td><td>拍照权限</td><td>允许访问摄像头进行拍照</td></tr>
+<tr><td>android.permission.CHANGE_COMPONENT_ENABLED_STATE</td><td>改变组件状态</td><td>改变组件是否启用状态</td></tr>
+<tr><td>android.permission.CHANGE_CONFIGURATION</td><td>改变配置</td><td>允许当前应用改变配置,如定位</td></tr>
+<tr><td>android.permission.CHANGE_NETWORK_STATE</td><td>改变网络状态</td><td>改变网络状态如是否能联网</td></tr>
+<tr><td>android.permission.CHANGE_WIFI_MULTICAST_STATE</td><td>改变WiFi多播状态</td><td>改变WiFi多播状态</td></tr>
+<tr><td>android.permission.CHANGE_WIFI_STATE</td><td>改变WiFi状态</td><td>改变WiFi状态</td></tr>
+<tr><td>android.permission.CLEAR_APP_CACHE</td><td>清除应用缓存</td><td>清除应用缓存</td></tr>
+<tr><td>android.permission.CLEAR_APP_USER_DATA</td><td>清除用户数据</td><td>清除应用的用户数据</td></tr>
+<tr><td>android.permission.CWJ_GROUP</td><td>底层访问权限</td><td>允许CWJ账户组访问底层信息</td></tr>
+<tr><td>android.permission.CELL_PHONE_MASTER_EX</td><td>手机优化大师扩展权限</td><td>手机优化大师扩展权限</td></tr>
+<tr><td>android.permission.CONTROL_LOCATION_UPDATES</td><td>控制定位更新</td><td>允许获得移动网络定位信息改变</td></tr>
+<tr><td>android.permission.DELETE_CACHE_FILES</td><td>删除缓存文件</td><td>允许应用删除缓存文件</td></tr>
+<tr><td>android.permission.DELETE_PACKAGES</td><td>删除应用</td><td>允许程序删除应用</td></tr>
+<tr><td>android.permission.DEVICE_POWER</td><td>电源管理</td><td>允许访问底层电源管理</td></tr>
+<tr><td>android.permission.DIAGNOSTIC</td><td>应用诊断</td><td>允许程序到RW到诊断资源</td></tr>
+<tr><td>android.permission.DISABLE_KEYGUARD</td><td>禁用键盘锁</td><td>允许程序禁用键盘锁</td></tr>
+<tr><td>android.permission.DUMP</td><td>转存系统信息</td><td>允许程序获取系统dump信息从系统服务</td></tr>
+<tr><td>android.permission.EXPAND_STATUS_BAR</td><td>状态栏控制</td><td>允许程序扩展或收缩状态栏</td></tr>
+<tr><td>android.permission.FACTORY_TEST</td><td>工厂测试模式</td><td>允许程序运行工厂测试模式</td></tr>
+<tr><td>android.permission.FLASHLIGHT</td><td>使用闪光灯</td><td>允许访问闪光灯</td></tr>
+<tr><td>android.permission.FORCE_BACK</td><td>强制后退</td><td>允许程序强制使用back后退按键,无论Activity是否在顶层</td></tr>
+<tr><td>android.permission.GET_ACCOUNTS</td><td>访问账户Gmail列表</td><td>访问GMail账户列表</td></tr>
+<tr><td>android.permission.GET_PACKAGE_SIZE</td><td>获取应用大小</td><td>获取应用的文件大小</td></tr>
+<tr><td>android.permission.GET_TASKS</td><td>获取任务信息</td><td>允许程序获取当前或最近运行的应用</td></tr>
+<tr><td>android.permission.GLOBAL_SEARCH</td><td>允许全局搜索</td><td>允许程序使用全局搜索功能</td></tr>
+<tr><td>android.permission.HARDWARE_TEST</td><td>硬件测试</td><td>访问硬件辅助设备,用于硬件测试</td></tr>
+<tr><td>android.permission.INJECT_EVENTS</td><td>注射事件</td><td>允许访问本程序的底层事件,获取按键、轨迹球的事件流</td></tr>
+<tr><td>android.permission.INSTALL_LOCATION_PROVIDER</td><td>安装定位提供</td><td>安装定位提供</td></tr>
+<tr><td>android.permission.INSTALL_PACKAGES</td><td>安装应用程序</td><td>允许程序安装应用</td></tr>
+<tr><td>android.permission.INTERNAL_SYSTEM_WINDOW</td><td>内部系统窗口</td><td>允许程序打开内部窗口,不对第三方应用程序开放此权限</td></tr>
+<tr><td>android.permission.INTERNET</td><td>访问网络</td><td>访问网络连接,可能产生GPRS流量</td></tr>
+<tr><td>android.permission.KILL_BACKGROUND_PROCESSES</td><td>结束后台进程</td><td>允许程序调用killBackgroundProcesses(String).方法结束后台进程</td></tr>
+<tr><td>android.permission.MANAGE_ACCOUNTS</td><td>管理账户</td><td>允许程序管理AccountManager中的账户列表</td></tr>
+<tr><td>android.permission.MANAGE_APP_TOKENS</td><td>管理程序引用</td><td>管理创建、摧毁、Z轴顺序,仅用于系统</td></tr>
+<tr><td>android.permission.MTWEAK_USER</td><td>高级权限</td><td>允许mTweak用户访问高级系统权限</td></tr>
+<tr><td>android.permission.MTWEAK_FORUM</td><td>社区权限</td><td>允许使用mTweak社区权限</td></tr>
+<tr><td>android.permission.MASTER_CLEAR</td><td>软格式化</td><td>允许程序执行软格式化,删除系统配置信息</td></tr>
+<tr><td>android.permission.MODIFY_AUDIO_SETTINGS</td><td>修改声音设置</td><td>修改声音设置信息</td></tr>
+<tr><td>android.permission.MODIFY_PHONE_STATE</td><td>修改电话状态</td><td>修改电话状态,如飞行模式,但不包含替换系统拨号器界面</td></tr>
+<tr><td>android.permission.MOUNT_FORMAT_FILESYSTEMS</td><td>格式化文件系统</td><td>格式化可移动文件系统,比如格式化清空SD卡</td></tr>
+<tr><td>android.permission.MOUNT_UNMOUNT_FILESYSTEMS</td><td>挂载文件系统</td><td>挂载、反挂载外部文件系统</td></tr>
+<tr><td>android.permission.NFC</td><td>允许NFC通讯</td><td>允许程序执行NFC近距离通讯操作,用于移动支持</td></tr>
+<tr><td>android.permission.PERSISTENT_ACTIVITY</td><td>永久Activity</td><td>创建一个永久的Activity,该功能标记为将来将被移除</td></tr>
+<tr><td>android.permission.PROCESS_OUTGOING_CALLS</td><td>处理拨出电话</td><td>允许程序监视,修改或放弃播出电话</td></tr>
+<tr><td>android.permission.READ_CALENDAR</td><td>读取日程提醒</td><td>允许程序读取用户的日程信息</td></tr>
+<tr><td>android.permission.READ_CONTACTS</td><td>读取联系人</td><td>允许应用访问联系人通讯录信息</td></tr>
+<tr><td>android.permission.READ_FRAME_BUFFER</td><td>屏幕截图</td><td>读取帧缓存用于屏幕截图</td></tr>
+<tr><td>com.android.browser.permission.READ_HISTORY_BOOKMARKS</td><td>读取收藏夹和历史记录</td><td>读取浏览器收藏夹和历史记录</td></tr>
+<tr><td>android.permission.READ_INPUT_STATE</td><td>读取输入状态</td><td>读取当前键的输入状态,仅用于系统</td></tr>
+<tr><td>android.permission.READ_LOGS</td><td>读取系统日志</td><td>读取系统底层日志</td></tr>
+<tr><td>android.permission.READ_PHONE_STATE</td><td>读取电话状态</td><td>访问电话状态</td></tr>
+<tr><td>android.permission.READ_SMS</td><td>读取短信内容</td><td>读取短信内容</td></tr>
+<tr><td>android.permission.READ_SYNC_SETTINGS</td><td>读取同步设置</td><td>读取同步设置,读取Google在线同步设置</td></tr>
+<tr><td>android.permission.READ_SYNC_STATS</td><td>读取同步状态</td><td>读取同步状态,获得Google在线同步状态</td></tr>
+<tr><td>android.permission.REBOOT</td><td>重启设备</td><td>允许程序重新启动设备</td></tr>
+<tr><td>android.permission.RECEIVE_BOOT_COMPLETED</td><td>开机自动允许</td><td>允许程序开机自动运行</td></tr>
+<tr><td>android.permission.RECEIVE_MMS</td><td>接收彩信</td><td>接收彩信</td></tr>
+<tr><td>android.permission.RECEIVE_SMS</td><td>接收短信</td><td>接收短信</td></tr>
+<tr><td>android.permission.RECEIVE_WAP_PUSH</td><td>接收Wap Push</td><td>接收WAP PUSH信息</td></tr>
+<tr><td>android.permission.RECORD_AUDIO</td><td>录音</td><td>录制声音通过手机或耳机的麦克</td></tr>
+<tr><td>android.permission.REORDER_TASKS</td><td>排序系统任务</td><td>重新排序系统Z轴运行中的任务</td></tr>
+<tr><td>android.permission.RESTART_PACKAGES</td><td>结束系统任务</td><td>结束任务通过restartPackage(String)方法,该方式将在外来放弃</td></tr>
+<tr><td>android.permission.SEND_SMS</td><td>发送短信</td><td>发送短信</td></tr>
+<tr><td>android.permission.SET_ACTIVITY_WATCHER</td><td>设置Activity观察其</td><td>设置Activity观察器一般用于monkey测试</td></tr>
+<tr><td>com.android.alarm.permission.SET_ALARM</td><td>设置闹铃提醒</td><td>设置闹铃提醒</td></tr>
+<tr><td>android.permission.SET_ALWAYS_FINISH</td><td>设置总是退出</td><td>设置程序在后台是否总是退出</td></tr>
+<tr><td>android.permission.SET_ANIMATION_SCALE</td><td>设置动画缩放</td><td>设置全局动画缩放</td></tr>
+<tr><td>android.permission.SET_DEBUG_APP</td><td>设置调试程序</td><td>设置调试程序,一般用于开发</td></tr>
+<tr><td>android.permission.SET_ORIENTATION</td><td>设置屏幕方向</td><td>设置屏幕方向为横屏或标准方式显示,不用于普通应用</td></tr>
+<tr><td>android.permission.SET_PREFERRED_APPLICATIONS</td><td>设置应用参数</td><td>设置应用的参数,已不再工作具体查看addPackageToPreferred(String)介绍</td></tr>
+<tr><td>android.permission.SET_PROCESS_LIMIT</td><td>设置进程限制</td><td>允许程序设置最大的进程数量的限制</td></tr>
+<tr><td>android.permission.SET_TIME</td><td>设置系统时间</td><td>设置系统时间</td></tr>
+<tr><td>android.permission.SET_TIME_ZONE</td><td>设置系统时区</td><td>设置系统时区</td></tr>
+<tr><td>android.permission.SET_WALLPAPER</td><td>设置桌面壁纸</td><td>设置桌面壁纸</td></tr>
+<tr><td>android.permission.SET_WALLPAPER_HINTS</td><td>设置壁纸建议</td><td>设置壁纸建议</td></tr>
+<tr><td>android.permission.SIGNAL_PERSISTENT_PROCESSES</td><td>发送永久进程信号</td><td>发送一个永久的进程信号</td></tr>
+<tr><td>android.permission.STATUS_BAR</td><td>状态栏控制</td><td>允许程序打开、关闭、禁用状态栏</td></tr>
+<tr><td>android.permission.SUBSCRIBED_FEEDS_READ</td><td>访问订阅内容</td><td>访问订阅信息的数据库</td></tr>
+<tr><td>android.permission.SUBSCRIBED_FEEDS_WRITE</td><td>写入订阅内容</td><td>写入或修改订阅内容的数据库</td></tr>
+<tr><td>android.permission.SYSTEM_ALERT_WINDOW</td><td>显示系统窗口</td><td>显示系统窗口</td></tr>
+<tr><td>android.permission.UPDATE_DEVICE_STATS</td><td>更新设备状态</td><td>更新设备状态</td></tr>
+<tr><td>android.permission.USE_CREDENTIALS</td><td>使用证书</td><td>允许程序请求验证从AccountManager</td></tr>
+<tr><td>android.permission.USE_SIP</td><td>使用SIP视频</td><td>允许程序使用SIP视频服务</td></tr>
+<tr><td>android.permission.VIBRATE</td><td>使用振动</td><td>允许振动</td></tr>
+<tr><td>android.permission.WAKE_LOCK</td><td>唤醒锁定</td><td>允许程序在手机屏幕关闭后后台进程仍然运行</td></tr>
+<tr><td>android.permission.WRITE_APN_SETTINGS</td><td>写入GPRS接入点设置</td><td>写入网络GPRS接入点设置</td></tr>
+<tr><td>android.permission.WRITE_CALENDAR</td><td>写入日程提醒</td><td>写入日程,但不可读取</td></tr>
+<tr><td>android.permission.WRITE_CONTACTS</td><td>写入联系人</td><td>写入联系人,但不可读取</td></tr>
+<tr><td>android.permission.WRITE_EXTERNAL_STORAGE</td><td>写入外部存储</td><td>允许程序写入外部存储,如SD卡上写文件</td></tr>
+<tr><td>android.permission.WRITE_GSERVICES</td><td>写入Google地图数据</td><td>允许程序写入Google Map服务数据</td></tr>
+<tr><td>com.android.browser.permission.WRITE_HISTORY_BOOKMARKS</td><td>写入收藏夹和历史记录</td><td>写入浏览器历史记录或收藏夹,但不可读取</td></tr>
+<tr><td>android.permission.WRITE_SECURE_SETTINGS</td><td>读写系统敏感设置</td><td>允许程序读写系统安全敏感的设置项</td></tr>
+<tr><td>android.permission.WRITE_SETTINGS</td><td>读写系统设置</td><td>允许读写系统设置项</td></tr>
+<tr><td>android.permission.WRITE_SMS</td><td>编写短信</td><td>允许编写短信</td></tr>
+</tbody></table>
+ 
+</div>
+<div class="panel-footer"></div>
+</div>
+ 
+</div></div></div></div></div>
+
+
+<script>
+		$(function(){
+			$("#top_menu a").click(function(){
+			
+				
+				if($(this).attr("href")!='javascript:;'){
+				
+					var history = localStorage.getItem('history');
+					var arr = new Array();
+					arr.push($(this).text()+"-"+$(this).attr("href"))	
+					console.log( localStorage.getItem('history'))
+					//alert(history)
+					if( localStorage.getItem('history')){
+						var history_arr = localStorage.getItem('history').split("|");
+						var nst = $(this).text()+"-"+$(this).attr("href");
+						var len = history_arr.length; 
+						if(len>4){
+							len = 4;	
+						}
+						for(var i=0;i<len;i++){
+							if(history_arr[i]!=nst){
+								arr.push(history_arr[i])
+							}
+						}
+						localStorage.setItem('history',arr.join("|")); 
+					}
+				
+					localStorage.setItem('history',arr.join("|")); 
+				}
+			
+			})
+			var str = '';
+		
+			var history_arr = localStorage.getItem('history').split("|");	
+			for (var i in history_arr) {
+			  var data = history_arr[i].split("-");
+			 // console.log(data)
+			  //var value = localStorage.getItem(key);
+			  str+='<a class="btn btn-success btn-xs" style="margin-left:5px" href="'+data[1]+'">'+ data[0]+'</a>';
+			}
+			if(str){
+				$("#history").parent().show();
+				$("#history").html(str)
+			}
+		
+		
+			
+		
+	})
+		
+	
+		
+	</script>
+ 
+</body></html>

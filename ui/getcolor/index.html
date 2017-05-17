@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <title>在线调色板 - 小蓝工具</title>
+    <meta name="keywords" content="小蓝工具,小蓝博客,在线调色板,取色工具"/>
+    <meta name="description" content="小蓝工具,小蓝博客,在线调色板,取色工具">
+    <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet"><link rel="icon" href="/static/image/浓云.png" sizes="32x32" />
+
+    <link rel="stylesheet" type="text/css" href="/static/css/common.css?v=1">
+    <script src="../../static/common/common.js"></script>
+
+</head>
+<body>
+<div class="aw-container-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="aw-content-wrap clearfix">
+                <div class=" aw-main-content" style="min-height:700px;max-height:2000px">
+                    <nav class="navbar navbar-default" id='top_menu'>
+                        <div class="container-fluid">
+                            <ul class="nav navbar-nav" style="width: 100%;">
+                                <li>
+                                    <a href="../../index.html">首页</a>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" class="dropdown-toggle" id="jsontools" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">JSON相关<span
+                                            class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../index.html">格式化校验</a>
+                                        </li>
+                                        <li><a href="../../zhuanyi/index.html" red>JSON压缩转义</a>
+                                        </li>
+                                        <li><a href="../../json2javapojo/new/index.html" red>JSON生成Java实体类</a>
+                                        </li>
+                                        <li><a href="../../convert/json2csharp/index.html" id="json2csharp">JSON生成C#实体类</a>
+                                        </li>
+                                        <li><a href="../../jsoneditoronline/index.html" red>JSON在线编辑器</a>
+                                        </li>
+                                        <li><a href="../../color/index.html">JSON着色</a></li>
+                                        <li><a href="../../xml2json/index.html" red>XML-JSON互转</a></li>
+                                        <li><a href="../../jsontools/json2get/index.html" id="json2get">JSON和GET请求字符串互转</a>
+                                        </li>
+                                        <li><a href="../../json/col2json/index.html" id="excel2json">Excel转Json</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" id="encTools" class="dropdown-toggle" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        编码/加密<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../enc/base64/index.html">Base64编码、解码</a></li>
+                                        <li><a href="../../enc/md5/index.html">MD5加密</a></li>
+                                        <li><a href="../../enc/aesdes/index.html" id="aes">DES,AES等对称加密解密</a></li>
+                                        <li><a href="../../enc/sha/index.html">SHA加密</a></li>
+                                        <li><a href="../../enc/escape/index.html">Escape编码</a></li>
+                                        <li><a href="../../enc/urlencode/index.html" id="urlEncode">URL编码</a></li>
+                                        <li><a href="../../enc/eval_package/index.html">Javascript Eval加密解密</a></li>
+                                        <li><a href="../../enc/morse/index.html">摩斯密码加密解密</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                       aria-haspopup="true" aria-expanded="false">格式化<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../jshtml_format/index.html">Javascript/HTML压缩、格式化</a></li>
+                                        <li><a href="../../otherformat/css/index.html">CSS压缩、格式化</a></li>
+                                        <li><a href="../../otherformat/xml/index.html">XML压缩、格式化</a></li>
+                                        <li><a href="../../otherformat/sql/index.html">SQL压缩、格式化</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" id="uitools" class="dropdown-toggle" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        前端<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../ui/tinypic/index.html" id="tinypic">图片在线压缩工具</a></li>
+                                        <li><a href="../../pages/cooleditor/index.html" id="simpleeidtor">在线代码编辑器</a></li>
+                                        <li><a href="../../ui/photoshop/index.html" target="_blank">在线photoshop</a></li>
+                                        <li><a href="http://h5.baidu.com/store" target="_blank" rel="external nofollow"
+                                               id="h5maker">H5模板在线制作</a></li>
+                                        <li><a href="http://runjs.cn/code" target="_blank" rel="external nofollow"
+                                               id="runjs">RunJS在线编辑器</a></li>
+                                        <li><a href="../../ui/ueditor/index.html" id="ueditor">ueditor在线代码编辑器</a></li>
+                                        <li><a href="../../ui/getcolor/index.html">在线调色板</a></li>
+                                        <li><a href="../../ui/safecolor/index.html" id="safecolor">WEB安全色</a></li>
+                                        <li><a href="../../ui/image2base64/index.html" id="img2base64">在线图片转Base64编码</a></li>
+                                        <li><a href="http://www.iconfont.cn/plus/collections/index" target="_blank"
+                                               rel="external nofollow">阿里巴巴矢量图标库</a></li>
+                                        <li><a href="http://fontawesome.io/icons/" target="_blank"
+                                               rel="external nofollow">fontawesome矢量图标库</a></li>
+                                        <li><a href="../../ui/svg_editor/index.html" id="svgedit">SVG代码编辑预览</a></li>
+                                        <li><a href="../../othertools/libcdn/index.html" id="libcdn">常用JS资源库</a></li>
+                                        <li><a href="../../ui/openweb/index.html" id="openweb">弹出窗口生成器</a></li>
+                                        <li><a href="../../ui/texteditor/index.html" id="texteditor">自动排版工具</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" id="convertTools" class="dropdown-toggle"
+                                       data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        转换<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../convert/map/index.html" id="mapdw">在线地图经纬度定位换算</a></li>
+                                        <li><a href="../../ui/px2em/index.html" id="px2em">px转em,em转px</a></li>
+                                        <li><a href="../../ui/image2base64/index.html" id="img2base64">在线图片转Base64编码</a></li>
+                                        <li><a id="unicodechinese"
+                                               href="convert/unicode_chinese/index.html">unicode中文互转</a></li>
+                                        <li><a href="../../convert/unix/index.html">Unix时间转换</a></li>
+                                        <li><a href="../../convert/jinzhi/index.html">进制转换</a></li>
+                                        <li><a href="../../convert/ox2str/index.html">16进制到文本字符串</a></li>
+                                        <li><a href="../../convert/uplowercase/index.html" id="uplowercase">字母大小写转换</a></li>
+                                        <li><a href="../../convert/rgbhex/index.html" id="rgbhex">RGB颜色和HEX互转</a></li>
+                                        <li><a href="../../convert/qrcode/index.html" id="qrtools">二维码生成与解码</a></li>
+                                        <li><a href="../../convert/numtohz/index.html" id="numtohz">数字转中文(人民币)</a></li>
+                                        <li><a href="../../convert/filesize/index.html" id="filesizehs">在线文件大小换算</a></li>
+                                        <li><a href="../../convert/nativeascii/index.html" id="navasc">NATIVE/ASCII编码互转工具</a>
+                                        </li>
+                                        <li><a href="../../othertools/sql2pojo/index.html" id="sql2pojo">数据库转实体类</a></li>
+                                        <li><a href="../../convert/htmlubb/index.html" id="htmlubb">Html与UBB代码互相转换工具</a></li>
+                                        <li><a href="../../convert/topinying/index.html" id="topinying">汉字转换拼音</a></li>
+                                        <li><a href="../../convert/fullhalf/index.html" id="fullhalf">全角半角转换</a></li>
+                                        <li><a href="../../convert/j2f/index.html" id="j2f">简繁体火星文互转</a></li>
+                                        <li><a href="../../convert/html2markdown/index.html" id="html2markdown">Html转换为MarkDown工具</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" class="dropdown-toggle" id="otherTools" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        其他<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../othertools/findelement/index.html" id="findbyxpath">寻找图片、链接或xpath寻找元素</a>
+                                        </li>
+                                        <li><a href="../../othertools/finddif/index.html">文字对比找不同处</a></li>
+                                        <li><a href="../../othertools/regex/index.html">正则表达式</a></li>
+                                        <li><a href="../../othertools/regex_create/index.html">正则表达式代码生成工具</a></li>
+                                        <li><a href="../../othertools/sqlAppend/index.html">SQL追加或去除双引号</a></li>
+                                        <li><a href="../../othertools/removeDuplicate/index.html">去除重复字符串</a></li>
+                                        <li><a href="../../chargeservice/ocr/index.html">在线文字识别</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="index.html#" class="dropdown-toggle" id="jsonapi" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        API<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../knownjson/webInterface/index.html" id="findbyxpath">免费JSON接口</a>
+                                        </li>
+                                        <li><a id="chargeapi" target="_blank" href="http://apistore.baidu.com/"
+                                               rel="external nofollow">收费JSON接口</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" class="dropdown-toggle" id="docs" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        文档<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a id="bootcssapi" href="http://v3.bootcss.com/components/" target="_blank"
+                                               rel="external nofollow">Bootstrap文档</a></li>
+                                        <li><a id="vueapi" href="https://cn.vuejs.org/v2/api/" target="_blank"
+                                               rel="external nofollow">VueJs文档</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a id="apliayapi" href="http://wiki.open.qq.com/wiki/%E9%A6%96%E9%A1%B5"
+                                               target="_blank" rel="external nofollow">腾讯开发平台</a></li>
+                                        <li><a id="wxapi" href="http://mp.weixin.qq.com/wiki/home/index.html"
+                                               target="_blank" rel="external nofollow">微信公众平台开发文档</a></li>
+                                        <li><a id="wxapi"
+                                               href="http://mp.weixin.qq.com/wiki/11/74ad127cc054f6b80759c40f77ec03db.html"
+                                               target="_blank" rel="external nofollow">微信JSSDK开发文档</a></li>
+                                        <li><a id="wxapi" href="https://pay.weixin.qq.com/wiki/doc/api/index.html"
+                                               target="_blank" rel="external nofollow">微信支付开发文档</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a id="tbapi"
+                                               href="http://open.taobao.com/api/api_list.htm?spm=a219a.7386789.1.27.Lf4YRD"
+                                               target="_blank" rel="external nofollow">淘宝开发文档</a></li>
+                                        <li><a id="apliayapi" href="https://open.alipay.com/platform/document.htm"
+                                               target="_blank" rel="external nofollow">支付宝开发文档</a></li>
+                                        <li role="separator" class="divider"></li>
+
+                                        <li><a href="../../doc/AndroidManifest/index.html"
+                                               id="androidManifest">Android权限大全</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="../../knownjson/webInterface/index.html">JSON API免费接口</a></li>
+                                        <li><a href="../../knownjson/regexJiaocheng/index.html">正则表达式30分钟入门教程</a></li>
+                                        <li><a href="../../knownjson/httpstate/index.html">HTTP状态码查询</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" class="dropdown-toggle" id="testtools" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">平台工具<span
+                                            class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a rel="external nofollow" target="_blank"
+                                               href="http://mp.weixin.qq.com/debug">微信公众平台调试工具</a></li>
+                                        <li><a id="coupon" rel="external nofollow" target="_blank"
+                                               href="http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=cardsign">微信卡券JSAPI签名校验工具</a>
+                                        </li>
+                                        <li><a id="wxsign" rel="external nofollow" target="_blank"
+                                               href="http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign">微信 JS
+                                            接口签名校验工具</a></li>
+                                        <li><a rel="external nofollow" target="_blank"
+                                               href="http://qy.weixin.qq.com/debug">微信企业号调试工具</a></li>
+                                        <li><a rel="external nofollow" target="_blank"
+                                               href="http://connect.qq.com/sdk/webtools/">QQ互联API调试工具</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a rel="external nofollow" target="_blank" href="http://t.cn/R4617Pf">淘宝oauth2.0测试工具</a>
+                                        </li>
+                                        <li><a rel="external nofollow" target="_blank" href="http://t.cn/R461ZZu">淘宝API测试工具</a>
+                                        </li>
+                                        <li><a rel="external nofollow" target="_blank" href="http://t.cn/R461Zm2">淘宝错误码查询工具</a>
+                                        </li>
+                                        <li><a rel="external nofollow" target="_blank" href="http://t.cn/R461wa7">淘宝商品属性工具</a>
+                                        </li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a rel="external nofollow" target="_blank"
+                                               href="http://sandbox.alipaydev.com/home/apiTestTools.htm?method=alipay.security.risk.detect">支付宝API工具</a>
+                                        </li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a rel="external nofollow" target="_blank"
+                                               href="http://open.weibo.com/tools/console">新浪微博API工具</a></li>
+                                    </ul>
+                                </li>
+                                <!--占位置-->
+                            </ul>
+                        </div>
+                    </nav>
+                    <script>
+                        var showaban = true;
+                        var storageKey = "newtools20170322";
+                        if (window.localStorage.getItem(storageKey) == null) {
+                            $("#convertTools").after('<span class="newFeatureTip">●</span>');
+
+                            $("#tosvg").before('<span class="newItem">●</span>');
+                            document.getElementById("tosvg").onmouseover = function () {
+                                window.localStorage.setItem(storageKey, "has");
+                                $(".newFeatureTip").text('');
+                            }
+
+                        }
+
+                    </script>
+                    <div style="clear:both"></div>
+
+
+                    <blockquote class="layui-elem-quote layui-quote-nm"
+                                style='margin-bottom: 5px;display:none;padding: 4px 20px;font-size:13px;    text-align: left;'>
+                        您最近使用了：<span id="history"></span>
+                    </blockquote>
+                    <link rel="stylesheet" href="http://www.bejson.com/static/bejson/ui/getcolor/tool_style.css"
+                          type="text/css"/>
+                    <link rel="stylesheet"
+                          href="http://www.bejson.com/static/bejson/ui/getcolor/onlinecolor.css?v=1334307136"
+                          type="text/css"/>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h4 class="media-heading">在线调色板</h4>
+                                    <div id="desc1">获取颜色的值</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="clear"></div>
+                            <div class="main"><h1>在线调色板</h1>
+                                <div class="result">
+                                    <div style="width:430px; margin: 0 auto;">
+                                        <div id="cont_body">
+                                            <div id="cont_left">
+                                                <div class="div border_blue" style="position: relative;width:460px;">
+                                                    <div id="Color" style="width:460px;height:264px">
+                                                        <div class="Color_left">
+                                                            <div class="Color_tr">
+                                                                <div class="Color_td_L select"
+                                                                     style="background-color:#FF0000;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#FF3300;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#FF6600;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#FF9900;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#FFCC00;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#FFFF00;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#CCFF00;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#99FF00;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#66FF00;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#33FF00;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#00FF00;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#00FF33;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#00FF66;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#00FF99;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#00FFCC;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#00FFFF;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#00CCFF;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#0099FF;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#0066FF;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#0033FF;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#0000FF;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#3300FF;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6600FF;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#9900FF;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#CC00FF;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#FF00FF;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#FF00CC;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#FF0099;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#FF0066;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#FF0033;"></div>
+                                                            </div>
+                                                            <div class="Color_tr">
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#F70909;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#F73809;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#F76809;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#F79709;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#F7C709;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#F7F709;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#C7F709;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#97F709;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#68F709;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#38F709;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#09F709;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#09F738;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#09F768;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#09F797;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#09F7C7;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#09F7F7;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#09C7F7;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#0997F7;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#0968F7;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#0938F7;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#0909F7;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#3809F7;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6809F7;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#9709F7;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#C709F7;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#F709F7;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#F709C7;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#F70997;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#F70968;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#F70938;"></div>
+                                                            </div>
+                                                            <div class="Color_tr">
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#EE1111;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#EE3D11;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#EE6911;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#EE9611;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#EEC211;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#EEEE11;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#C2EE11;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#96EE11;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#69EE11;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#3DEE11;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#11EE11;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#11EE3D;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#11EE69;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#11EE96;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#11EEC2;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#11EEEE;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#11C2EE;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#1196EE;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#1169EE;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#113DEE;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#1111EE;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#3D11EE;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6911EE;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#9611EE;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#C211EE;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#EE11EE;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#EE11C2;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#EE1196;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#EE1169;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#EE113D;"></div>
+                                                            </div>
+                                                            <div class="Color_tr">
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#E61A1A;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#E6421A;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#E66B1A;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#E6941A;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#E6BD1A;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#E6E61A;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#BDE61A;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#94E61A;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6BE61A;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#42E61A;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#1AE61A;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#1AE642;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#1AE66B;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#1AE694;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#1AE6BD;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#1AE6E6;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#1ABDE6;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#1A94E6;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#1A6BE6;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#1A42E6;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#1A1AE6;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#421AE6;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6B1AE6;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#941AE6;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#BD1AE6;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#E61AE6;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#E61ABD;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#E61A94;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#E61A6B;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#E61A42;"></div>
+                                                            </div>
+                                                            <div class="Color_tr">
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#DD2222;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#DD4822;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#DD6D22;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#DD9222;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#DDB822;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#DDDD22;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#B8DD22;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#92DD22;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6DDD22;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color: #48DD22; "></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#22DD22;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#22DD48;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#22DD6D;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#22DD92;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#22DDB8;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#22DDDD;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#22B8DD;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#2292DD;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#226DDD;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#2248DD;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#2222DD;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#4822DD;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6D22DD;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#9222DD;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#B822DD;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#DD22DD;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#DD22B8;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#DD2292;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#DD226D;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#DD2248;"></div>
+                                                            </div>
+                                                            <div class="Color_tr">
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#D52B2B;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#D54D2B;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#D56F2B;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#D5912B;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#D5B32B;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#D5D52B;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#B3D52B;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#91D52B;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6FD52B;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#4DD52B;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#2BD52B;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#2BD54D;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#2BD56F;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#2BD591;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#2BD5B3;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#2BD5D5;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#2BB3D5;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#2B91D5;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#2B6FD5;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#2B4DD5;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#2B2BD5;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#4D2BD5;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6F2BD5;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#912BD5;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#B32BD5;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#D52BD5;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#D52BB3;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#D52B91;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#D52B6F;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#D52B4D;"></div>
+                                                            </div>
+                                                            <div class="Color_tr">
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#CC3333;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#CC5233;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#CC7033;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#CC8F33;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#CCAE33;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#CCCC33;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#AECC33;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#8FCC33;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#70CC33;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#52CC33;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#33CC33;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#33CC52;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#33CC70;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#33CC8F;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#33CCAE;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#33CCCC;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#33AECC;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#338FCC;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#3370CC;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#3352CC;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#3333CC;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#5233CC;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#7033CC;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#8F33CC;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#AE33CC;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#CC33CC;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#CC33AE;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#CC338F;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#CC3370;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#CC3352;"></div>
+                                                            </div>
+                                                            <div class="Color_tr">
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#C43C3C;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#C4573C;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#C4723C;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#C48D3C;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#C4A93C;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#C4C43C;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#A9C43C;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#8DC43C;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#72C43C;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#57C43C;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#3CC43C;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#3CC457;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#3CC472;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#3CC48D;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#3CC4A9;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#3CC4C4;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#3CA9C4;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#3C8DC4;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#3C72C4;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#3C57C4;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#3C3CC4;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#573CC4;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#723CC4;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#8D3CC4;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#A93CC4;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#C43CC4;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#C43CA9;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#C43C8D;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#C43C72;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#C43C57;"></div>
+                                                            </div>
+                                                            <div class="Color_tr">
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#BB4444;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#BB5C44;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#BB7444;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#BB8C44;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#BBA344;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#BBBB44;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#A3BB44;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#8CBB44;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#74BB44;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#5CBB44;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#44BB44;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#44BB5C;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#44BB74;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#44BB8C;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#44BBA3;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#44BBBB;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#44A3BB;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#448CBB;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#4474BB;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#445CBB;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#4444BB;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#5C44BB;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#7444BB;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#8C44BB;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#A344BB;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#BB44BB;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#BB44A3;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#BB448C;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#BB4474;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#BB445C;"></div>
+                                                            </div>
+                                                            <div class="Color_tr">
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#B34D4D;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#B3614D;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#B3764D;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#B38A4D;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#B39E4D;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#B3B34D;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#9EB34D;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#8AB34D;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#76B34D;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#61B34D;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#4DB34D;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#4DB361;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#4DB376;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#4DB38A;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#4DB39E;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#4DB3B3;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#4D9EB3;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#4D8AB3;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#4D76B3;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#4D61B3;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#4D4DB3;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#614DB3;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#764DB3;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#8A4DB3;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#9E4DB3;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#B34DB3;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#B34D9E;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#B34D8A;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#B34D76;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#B34D61;"></div>
+                                                            </div>
+                                                            <div class="Color_tr">
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#AA5555;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#AA6655;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#AA7755;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#AA8855;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#AA9955;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#AAAA55;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#99AA55;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#88AA55;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#77AA55;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#66AA55;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#55AA55;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#55AA66;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#55AA77;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#55AA88;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#55AA99;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#55AAAA;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#5599AA;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#5588AA;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#5577AA;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#5566AA;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#5555AA;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6655AA;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#7755AA;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#8855AA;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#9955AA;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#AA55AA;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#AA5599;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#AA5588;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#AA5577;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#AA5566;"></div>
+                                                            </div>
+                                                            <div class="Color_tr">
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#A25E5E;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#A26B5E;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#A2795E;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#A2875E;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#A2945E;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#A2A25E;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#94A25E;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#87A25E;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#79A25E;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6BA25E;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#5EA25E;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#5EA26B;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#5EA279;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#5EA287;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#5EA294;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#5EA2A2;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#5E94A2;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#5E87A2;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#5E79A2;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#5E6BA2;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#5E5EA2;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6B5EA2;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#795EA2;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#875EA2;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#945EA2;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#A25EA2;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#A25E94;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#A25E87;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#A25E79;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#A25E6B;"></div>
+                                                            </div>
+                                                            <div class="Color_tr">
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#996666;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#997166;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#997B66;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#998566;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#998F66;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#999966;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#8F9966;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#859966;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#7B9966;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#719966;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#669966;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#669971;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#66997B;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#669985;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#66998F;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#669999;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#668F99;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#668599;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#667B99;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#667199;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#666699;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#716699;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#7B6699;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#856699;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#8F6699;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#996699;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#99668F;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#996685;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#99667B;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#996671;"></div>
+                                                            </div>
+                                                            <div class="Color_tr">
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#916F6F;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#91766F;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#917D6F;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#91836F;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#918A6F;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#91916F;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#8A916F;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#83916F;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#7D916F;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#76916F;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6F916F;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6F9176;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6F917D;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6F9183;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6F918A;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6F9191;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6F8A91;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6F8391;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6F7D91;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6F7691;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#6F6F91;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#766F91;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#7D6F91;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#836F91;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#8A6F91;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#916F91;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#916F8A;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#916F83;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#916F7D;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#916F76;"></div>
+                                                            </div>
+                                                            <div class="Color_tr">
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#887777;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#887B77;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#887E77;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#888277;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#888577;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#888877;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#858877;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#828877;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#7E8877;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#7B8877;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#778877;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#77887B;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#77887E;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#778882;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#778885;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#778888;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#778588;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#778288;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#777E88;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#777B88;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#777788;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#7B7788;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#7E7788;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#827788;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#857788;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#887788;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#887785;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#887782;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#88777E;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#88777B;"></div>
+                                                            </div>
+                                                            <div class="Color_tr">
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                                <div class="Color_td_L"
+                                                                     style="background-color:#808080;"></div>
+                                                            </div>
+                                                        </div>
+                                                        <div style="clear:both;"></div>
+                                                        <div style="float:right;">
+                                                            <div class="Color_back" id="colorDemo"
+                                                                 style="background-color:#FF0000;"></div>
+                                                            <input type="text" class="Color_text"
+                                                                   onmouseover="DAMY.loader.get_focu(this);"
+                                                                   value="#FF0000" id="colorText"/>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="desc">
+                                    <div class="desc_tit">在线调色板工具说明</div>
+                                    <p>在线调色板</p>
+                                    <p>
+                                    <div class="txt">以下是windows 中已经命名的颜色。设计网页时只要直接用 color=颜色的英文名就可以得到想要的颜色了。<br><br>
+                                        <font color="black">██████在线调色板 - bejson.com██████</font>【颜色值】#000000　【中文】黑色　　　【英文】black<br>
+                                        <font color="navy">██████在线调色板 - bejson.com██████</font>【颜色值】#000080　【中文】海军色　　【英文】navy<br><font
+                                                color="darkblue">██████在线调色板 - bejson.com██████</font>【颜色值】#00008B　【中文】暗蓝色　　【英文】darkblue<br><font
+                                                color="#0000cd">██████在线调色板 - bejson.com██████</font>【颜色值】#0000CD　【中文】间兰色　　【英文】mediumblue<br><font
+                                                color="#0000ff">██████在线调色板 - bejson.com██████</font>【颜色值】#0000FF　【中文】蓝色　　　【英文】blue<br><font
+                                                color="#006400">██████在线调色板 - bejson.com██████</font>【颜色值】#006400　【中文】暗绿色　　【英文】darkgreen<br><font
+                                                color="#008000">██████在线调色板 - bejson.com██████</font>【颜色值】#008000　【中文】绿色　　　【英文】green<br><font
+                                                color="#008080">██████在线调色板 - bejson.com██████</font>【颜色值】#008080　【中文】水鸭色　　【英文】teal<br><font
+                                                color="#008b8b">██████在线调色板 - bejson.com██████</font>【颜色值】#008B8B　【中文】暗青色　　【英文】darkcyan<br><font
+                                                color="#00bfff">██████在线调色板 - bejson.com██████</font>【颜色值】#00BFFF　【中文】深天蓝色　【英文】deepskyblue<br><font
+                                                color="#00ced1">██████在线调色板 - bejson.com██████</font>【颜色值】#00CED1　【中文】暗宝石绿　【英文】darkturquoise<br><font
+                                                color="#00fa9a">██████在线调色板 - bejson.com██████</font>【颜色值】#00FA9A　【中文】间春绿色　【英文】mediumspringgreen<br><font
+                                                color="#00ff00">██████在线调色板 - bejson.com██████</font>【颜色值】#00FF00　【中文】酸橙色　　【英文】lime<br><font
+                                                color="#00ff7f">██████在线调色板 - bejson.com██████</font>【颜色值】#00FF7F　【中文】春绿色　　【英文】springgreen<br><font
+                                                color="#00ffff">██████在线调色板 - bejson.com██████</font>【颜色值】#00FFFF　【中文】青色　　　【英文】cyan<br><font
+                                                color="#191970">██████在线调色板 - bejson.com██████</font>【颜色值】#191970　【中文】中灰兰色　【英文】midnightblue<br><font
+                                                color="#1e90ff">██████在线调色板 - bejson.com██████</font>【颜色值】#1E90FF　【中文】闪兰色　　【英文】dodgerblue<br><font
+                                                color="#20b2aa">██████在线调色板 - bejson.com██████</font>【颜色值】#20B2AA　【中文】亮海蓝色　【英文】lightseagreen<br><font
+                                                color="#228b22">██████在线调色板 - bejson.com██████</font>【颜色值】#228B22　【中文】森林绿　　【英文】forestgreen<br><font
+                                                color="#2e8b57">██████在线调色板 - bejson.com██████</font>【颜色值】#2E8B57　【中文】海绿色　　【英文】seagreen<br><font
+                                                color="#2f4f4f">██████在线调色板 - bejson.com██████</font>【颜色值】#2F4F4F　【中文】墨绿色　　【英文】darkslategray<br><font
+                                                color="#32cd32">██████在线调色板 - bejson.com██████</font>【颜色值】#32CD32　【中文】橙绿色　　【英文】limegreen<br><font
+                                                color="#3cb371">██████在线调色板 - bejson.com██████</font>【颜色值】#3CB371　【中文】间海蓝　　【英文】mediumseagreen<br><font
+                                                color="#40e0d0">██████在线调色板 - bejson.com██████</font>【颜色值】#40E0D0　【中文】青绿色　　【英文】turquoise<br><font
+                                                color="#4169e1">██████在线调色板 - bejson.com██████</font>【颜色值】#4169E1　【中文】皇家蓝　　【英文】royalblue<br><font
+                                                color="#4682b4">██████在线调色板 - bejson.com██████</font>【颜色值】#4682B4　【中文】钢兰色　　【英文】steelblue<br><font
+                                                color="#483d8b">██████在线调色板 - bejson.com██████</font>【颜色值】#483D8B　【中文】暗灰蓝色　【英文】darkslateblue<br><font
+                                                color="#48d1cc">██████在线调色板 - bejson.com██████</font>【颜色值】#48D1CC　【中文】间绿宝石　【英文】mediumturquoise<br><font
+                                                color="#4b0082">██████在线调色板 - bejson.com██████</font>【颜色值】#4B0082　【中文】靛青色　　【英文】indigo<br><font
+                                                color="#556b2f">██████在线调色板 - bejson.com██████</font>【颜色值】#556B2F　【中文】暗橄榄绿　【英文】darkolivegreen<br><font
+                                                color="#5f9ea0">██████在线调色板 - bejson.com██████</font>【颜色值】#5F9EA0　【中文】军兰色　　【英文】cadetblue<br><font
+                                                color="#6495ed">██████在线调色板 - bejson.com██████</font>【颜色值】#6495ED　【中文】菊兰色　　【英文】cornflowerblue<br><font
+                                                color="#66cdaa">██████在线调色板 - bejson.com██████</font>【颜色值】#66CDAA　【中文】间绿色　　【英文】mediumaquamarine<br><font
+                                                color="#696969">██████在线调色板 - bejson.com██████</font>【颜色值】#696969　【中文】暗灰色　　【英文】dimgray<br><font
+                                                color="#6a5acd">██████在线调色板 - bejson.com██████</font>【颜色值】#6A5ACD　【中文】石蓝色　　【英文】slateblue<br><font
+                                                color="#6b8e23">██████在线调色板 - bejson.com██████</font>【颜色值】#6B8E23　【中文】深绿褐色　【英文】olivedrab<br><font
+                                                color="#708090">██████在线调色板 - bejson.com██████</font>【颜色值】#708090　【中文】灰石色　　【英文】slategray<br><font
+                                                color="#778899">██████在线调色板 - bejson.com██████</font>【颜色值】#778899　【中文】亮蓝灰　　【英文】lightslategray<br><font
+                                                color="#7b68ee">██████在线调色板 - bejson.com██████</font>【颜色值】#7B68EE　【中文】间暗蓝色　【英文】mediumslateblue<br><font
+                                                color="#7cfc00">██████在线调色板 - bejson.com██████</font>【颜色值】#7CFC00　【中文】草绿色　　【英文】lawngreen<br><font
+                                                color="#7fff00">██████在线调色板 - bejson.com██████</font>【颜色值】#7FFF00　【中文】黄绿色　　【英文】chartreuse<br><font
+                                                color="#7fffd4">██████在线调色板 - bejson.com██████</font>【颜色值】#7FFFD4　【中文】碧绿色　　【英文】aquamarine<br><font
+                                                color="#800000">██████在线调色板 - bejson.com██████</font>【颜色值】#800000　【中文】粟色　　　【英文】maroon<br><font
+                                                color="#800080">██████在线调色板 - bejson.com██████</font>【颜色值】#800080　【中文】紫色　　　【英文】purple<br><font
+                                                color="#808000">██████在线调色板 - bejson.com██████</font>【颜色值】#808000　【中文】橄榄色　　【英文】olive<br><font
+                                                color="#808080">██████在线调色板 - bejson.com██████</font>【颜色值】#808080　【中文】灰色　　　【英文】gray<br><font
+                                                color="#87ceeb">██████在线调色板 - bejson.com██████</font>【颜色值】#87CEEB　【中文】天蓝色　　【英文】skyblue<br><font
+                                                color="#87cefa">██████在线调色板 - bejson.com██████</font>【颜色值】#87CEFA　【中文】亮天蓝色　【英文】lightskyblue<br><font
+                                                color="#8a2be2">██████在线调色板 - bejson.com██████</font>【颜色值】#8A2BE2　【中文】紫罗兰色　【英文】blueviolet<br><font
+                                                color="#8b0000">██████在线调色板 - bejson.com██████</font>【颜色值】#8B0000　【中文】暗红色　　【英文】darkred<br><font
+                                                color="#8b008b">██████在线调色板 - bejson.com██████</font>【颜色值】#8B008B　【中文】暗洋红　　【英文】darkmagenta<br><font
+                                                color="#8b4513">██████在线调色板 - bejson.com██████</font>【颜色值】#8B4513　【中文】重褐色　　【英文】saddlebrown<br><font
+                                                color="#8fbc8f">██████在线调色板 - bejson.com██████</font>【颜色值】#8FBC8F　【中文】暗海兰色　【英文】darkseagreen<br><font
+                                                color="#90ee90">██████在线调色板 - bejson.com██████</font>【颜色值】#90EE90　【中文】亮绿色　　【英文】lightgreen<br><font
+                                                color="#9370db">██████在线调色板 - bejson.com██████</font>【颜色值】#9370DB　【中文】间紫色　　【英文】mediumpurple<br><font
+                                                color="#9400d3">██████在线调色板 - bejson.com██████</font>【颜色值】#9400D3　【中文】暗紫罗兰色【英文】darkviolet<br><font
+                                                color="#98fb98">██████在线调色板 - bejson.com██████</font>【颜色值】#98FB98　【中文】苍绿色　　【英文】palegreen<br><font
+                                                color="#9932cc">██████在线调色板 - bejson.com██████</font>【颜色值】#9932CC　【中文】暗紫色　　【英文】darkorchid<br><font
+                                                color="#9acd32">██████在线调色板 - bejson.com██████</font>【颜色值】#9ACD32　【中文】黄绿色　　【英文】yellowgreen<br><font
+                                                color="#a0522d">██████在线调色板 - bejson.com██████</font>【颜色值】#A0522D　【中文】赭色　　　【英文】sienna<br><font
+                                                color="#a52a2a">██████在线调色板 - bejson.com██████</font>【颜色值】#A52A2A　【中文】褐色　　　【英文】brown<br><font
+                                                color="#a9a9a9">██████在线调色板 - bejson.com██████</font>【颜色值】#A9A9A9　【中文】暗灰色　　【英文】darkgray<br><font
+                                                color="#add8e6">██████在线调色板 - bejson.com██████</font>【颜色值】#ADD8E6　【中文】亮蓝色　　【英文】lightblue<br><font
+                                                color="#adff2f">██████在线调色板 - bejson.com██████</font>【颜色值】#ADFF2F　【中文】黄绿色　　【英文】greenyellow<br><font
+                                                color="#afeeee">██████在线调色板 - bejson.com██████</font>【颜色值】#AFEEEE　【中文】苍宝石绿　【英文】paleturquoise<br><font
+                                                color="#b0c4de">██████在线调色板 - bejson.com██████</font>【颜色值】#B0C4DE　【中文】亮钢兰色　【英文】lightsteelblue<br><font
+                                                color="#b0e0e6">██████在线调色板 - bejson.com██████</font>【颜色值】#B0E0E6　【中文】粉蓝色　　【英文】powderblue<br><font
+                                                color="#b22222">██████在线调色板 - bejson.com██████</font>【颜色值】#B22222　【中文】火砖色　　【英文】firebrick<br><font
+                                                color="#b8860b">██████在线调色板 - bejson.com██████</font>【颜色值】#B8860B　【中文】暗金黄色　【英文】darkgoldenrod<br><font
+                                                color="#ba55d3">██████在线调色板 - bejson.com██████</font>【颜色值】#BA55D3　【中文】间紫色　　【英文】mediumorchid<br><font
+                                                color="#bc8f8f">██████在线调色板 - bejson.com██████</font>【颜色值】#BC8F8F　【中文】褐玫瑰红　【英文】rosybrown<br><font
+                                                color="#bdb76b">██████在线调色板 - bejson.com██████</font>【颜色值】#BDB76B　【中文】暗黄褐色　【英文】darkkhaki<br><font
+                                                color="#c0c0c0">██████在线调色板 - bejson.com██████</font>【颜色值】#C0C0C0　【中文】银色　　　【英文】silver<br><font
+                                                color="#c71585">██████在线调色板 - bejson.com██████</font>【颜色值】#C71585　【中文】间紫罗兰色【英文】mediumvioletred<br><font
+                                                color="#cd5c5c">██████在线调色板 - bejson.com██████</font>【颜色值】#CD5C5C　【中文】印第安红　【英文】indianred<br><font
+                                                color="#cd853f">██████在线调色板 - bejson.com██████</font>【颜色值】#CD853F　【中文】秘鲁色　　【英文】peru<br><font
+                                                color="#d2691e">██████在线调色板 - bejson.com██████</font>【颜色值】#D2691E　【中文】巧可力色　【英文】chocolate<br><font
+                                                color="#d2b48c">██████在线调色板 - bejson.com██████</font>【颜色值】#D2B48C　【中文】茶色　　　【英文】tan<br><font
+                                                color="#d3d3d3">██████在线调色板 - bejson.com██████</font>【颜色值】#D3D3D3　【中文】亮灰色　　【英文】lightgrey<br><font
+                                                color="#d8bfd8">██████在线调色板 - bejson.com██████</font>【颜色值】#D8BFD8　【中文】蓟色　　　【英文】thistle<br><font
+                                                color="#da70d6">██████在线调色板 - bejson.com██████</font>【颜色值】#DA70D6　【中文】淡紫色　　【英文】orchid<br><font
+                                                color="#daa520">██████在线调色板 - bejson.com██████</font>【颜色值】#DAA520　【中文】金麒麟色　【英文】goldenrod<br><font
+                                                color="#db7093">██████在线调色板 - bejson.com██████</font>【颜色值】#DB7093　【中文】苍紫罗兰色【英文】palevioletred<br><font
+                                                color="#dc143c">██████在线调色板 - bejson.com██████</font>【颜色值】#DC143C　【中文】暗深红色　【英文】crimson<br><font
+                                                color="#dcdcdc">██████在线调色板 - bejson.com██████</font>【颜色值】#DCDCDC　【中文】淡灰色　　【英文】gainsboro<br><font
+                                                color="#dda0dd">██████在线调色板 - bejson.com██████</font>【颜色值】#DDA0DD　【中文】洋李色　　【英文】plum<br><font
+                                                color="#deb887">██████在线调色板 - bejson.com██████</font>【颜色值】#DEB887　【中文】实木色　　【英文】burlywood<br><font
+                                                color="#e0ffff">██████在线调色板 - bejson.com██████</font>【颜色值】#E0FFFF　【中文】亮青色　　【英文】lightcyan<br><font
+                                                color="#e6e6fa">██████在线调色板 - bejson.com██████</font>【颜色值】#E6E6FA　【中文】淡紫色　　【英文】lavender<br><font
+                                                color="#e9967a">██████在线调色板 - bejson.com██████</font>【颜色值】#E9967A　【中文】暗肉色　　【英文】darksalmon<br><font
+                                                color="#ee82ee">██████在线调色板 - bejson.com██████</font>【颜色值】#EE82EE　【中文】紫罗兰色　【英文】violet<br><font
+                                                color="#eee8aa">██████在线调色板 - bejson.com██████</font>【颜色值】#EEE8AA　【中文】苍麒麟色　【英文】palegoldenrod<br><font
+                                                color="#f08080">██████在线调色板 - bejson.com██████</font>【颜色值】#F08080　【中文】亮珊瑚色　【英文】lightcoral<br><font
+                                                color="#f0e68c">██████在线调色板 - bejson.com██████</font>【颜色值】#F0E68C　【中文】黄褐色　　【英文】khaki<br><font
+                                                color="#f0f8ff">██████在线调色板 - bejson.com██████</font>【颜色值】#F0F8FF　【中文】艾利斯兰　【英文】aliceblue<br><font
+                                                color="#f0fff0">██████在线调色板 - bejson.com██████</font>【颜色值】#F0FFF0　【中文】蜜色　　　【英文】honeydew<br><font
+                                                color="#f0ffff">██████在线调色板 - bejson.com██████</font>【颜色值】#F0FFFF　【中文】天蓝色　　【英文】azure<br><font
+                                                color="#f4a460">██████在线调色板 - bejson.com██████</font>【颜色值】#F4A460　【中文】沙褐色　　【英文】sandybrown<br><font
+                                                color="#f5deb3">██████在线调色板 - bejson.com██████</font>【颜色值】#F5DEB3　【中文】浅黄色　　【英文】wheat<br><font
+                                                color="#f5f5dc">██████在线调色板 - bejson.com██████</font>【颜色值】#F5F5DC　【中文】米色　　　【英文】beige<br><font
+                                                color="#f5f5f5">██████在线调色板 - bejson.com██████</font>【颜色值】#F5F5F5　【中文】烟白色　　【英文】whitesmoke<br><font
+                                                color="#f5fffa">██████在线调色板 - bejson.com██████</font>【颜色值】#F5FFFA　【中文】薄荷色　　【英文】mintcream<br><font
+                                                color="#f8f8ff">██████在线调色板 - bejson.com██████</font>【颜色值】#F8F8FF　【中文】幽灵白　　【英文】ghostwhite<br><font
+                                                color="#fa8072">██████在线调色板 - bejson.com██████</font>【颜色值】#FA8072　【中文】鲜肉色　　【英文】salmon<br><font
+                                                color="#faebd7">██████在线调色板 - bejson.com██████</font>【颜色值】#FAEBD7　【中文】古董白　　【英文】antiquewhite<br><font
+                                                color="#faf0e6">██████在线调色板 - bejson.com██████</font>【颜色值】#FAF0E6　【中文】亚麻色　　【英文】linen<br><font
+                                                color="#fafad2">██████在线调色板 - bejson.com██████</font>【颜色值】#FAFAD2　【中文】亮金黄色　【英文】lightgoldenrodyellow<br><font
+                                                color="#fdf5e6">██████在线调色板 - bejson.com██████</font>【颜色值】#FDF5E6　【中文】老花色　　【英文】oldlace<br><font
+                                                color="#ff0000">██████在线调色板 - bejson.com██████</font>【颜色值】#FF0000　【中文】红色　　　【英文】red<br><font
+                                                color="#ff00ff">██████在线调色板 - bejson.com██████</font>【颜色值】#FF00FF　【中文】紫红色　　【英文】fuchsia<br><font
+                                                color="#ff1493">██████在线调色板 - bejson.com██████</font>【颜色值】#FF1493　【中文】深粉红色　【英文】deeppink<br><font
+                                                color="#ff4500">██████在线调色板 - bejson.com██████</font>【颜色值】#FF4500　【中文】红橙色　　【英文】orangered<br><font
+                                                color="#ff6347">██████在线调色板 - bejson.com██████</font>【颜色值】#FF6347　【中文】西红柿色　【英文】tomato<br><font
+                                                color="#ff69b4">██████在线调色板 - bejson.com██████</font>【颜色值】#FF69B4　【中文】热粉红色　【英文】hotpink<br><font
+                                                color="#ff7f50">██████在线调色板 - bejson.com██████</font>【颜色值】#FF7F50　【中文】珊瑚色　　【英文】coral<br><font
+                                                color="#ff8c00">██████在线调色板 - bejson.com██████</font>【颜色值】#FF8C00　【中文】暗桔黄色　【英文】darkorange<br><font
+                                                color="#ffa07a">██████在线调色板 - bejson.com██████</font>【颜色值】#FFA07A　【中文】亮肉色　　【英文】lightsalmon<br><font
+                                                color="#ffa500">██████在线调色板 - bejson.com██████</font>【颜色值】#FFA500　【中文】橙色　　　【英文】orange<br><font
+                                                color="#ffb6c1">██████在线调色板 - bejson.com██████</font>【颜色值】#FFB6C1　【中文】亮粉红色　【英文】lightpink<br><font
+                                                color="#ffc0cb">██████在线调色板 - bejson.com██████</font>【颜色值】#FFC0CB　【中文】粉红色　　【英文】pink<br><font
+                                                color="#ffd700">██████在线调色板 - bejson.com██████</font>【颜色值】#FFD700　【中文】金色　　　【英文】gold<br><font
+                                                color="#ffdab9">██████在线调色板 - bejson.com██████</font>【颜色值】#FFDAB9　【中文】桃色　　　【英文】peachpuff<br><font
+                                                color="#ffdead">██████在线调色板 - bejson.com██████</font>【颜色值】#FFDEAD　【中文】纳瓦白　　【英文】navajowhite<br><font
+                                                color="#ffe4b5">██████在线调色板 - bejson.com██████</font>【颜色值】#FFE4B5　【中文】鹿皮色　　【英文】moccasin<br><font
+                                                color="#ffe4c4">██████在线调色板 - bejson.com██████</font>【颜色值】#FFE4C4　【中文】桔黄色　　【英文】bisque<br><font
+                                                color="#ffe4e1">██████在线调色板 - bejson.com██████</font>【颜色值】#FFE4E1　【中文】浅玫瑰色　【英文】mistyrose<br><font
+                                                color="#ffebcd">██████在线调色板 - bejson.com██████</font>【颜色值】#FFEBCD　【中文】白杏色　　【英文】blanchedalmond<br><font
+                                                color="#ffefd5">██████在线调色板 - bejson.com██████</font>【颜色值】#FFEFD5　【中文】番木色　　【英文】papayawhip<br><font
+                                                color="#fff0f5">██████在线调色板 - bejson.com██████</font>【颜色值】#FFF0F5　【中文】淡紫红　　【英文】lavenderblush<br><font
+                                                color="#fff5ee">██████在线调色板 - bejson.com██████</font>【颜色值】#FFF5EE　【中文】海贝色　　【英文】seashell<br><font
+                                                color="#fff8dc">██████在线调色板 - bejson.com██████</font>【颜色值】#FFF8DC　【中文】米绸色　　【英文】cornsilk<br><font
+                                                color="#fffacd">██████在线调色板 - bejson.com██████</font>【颜色值】#FFFACD　【中文】柠檬绸色　【英文】lemonchiffon<br><font
+                                                color="#fffaf0">██████在线调色板 - bejson.com██████</font>【颜色值】#FFFAF0　【中文】花白色　　【英文】floralwhite<br><font
+                                                color="#fffafa">██████在线调色板 - bejson.com██████</font>【颜色值】#FFFAFA　【中文】雪白色　　【英文】snow<br><font
+                                                color="#ffff00">██████在线调色板 - bejson.com██████</font>【颜色值】#FFFF00　【中文】黄色　　　【英文】yellow<br><font
+                                                color="#ffffe0">██████在线调色板 - bejson.com██████</font>【颜色值】#FFFFE0　【中文】亮黄色　　【英文】lightyellow<br><font
+                                                color="#fffff0">██████在线调色板 - bejson.com██████</font>【颜色值】#FFFFF0　【中文】象牙色　　【英文】ivory<br><font
+                                                color="#ffffff">██████在线调色板 - bejson.com██████</font>【颜色值】#FFFFFF　【中文】精白　　　【英文】white
+                                    </div>
+                                    </p>
+                                </div>
+                            </div>
+                            <script type="text/javascript"
+                                    src="http://www.bejson.com/static/bejson/ui/getcolor/color.js?v=1334379720"></script>
+
+                        </div>
+                        <div class="panel-footer"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(function () {
+        $("#top_menu a").click(function () {
+
+
+            if ($(this).attr("href") != 'javascript:;') {
+
+                var history = localStorage.getItem('history');
+                var arr = new Array();
+                arr.push($(this).text() + "-" + $(this).attr("href"))
+                console.log(localStorage.getItem('history'))
+                //alert(history)
+                if (localStorage.getItem('history')) {
+                    var history_arr = localStorage.getItem('history').split("|");
+                    var nst = $(this).text() + "-" + $(this).attr("href");
+                    var len = history_arr.length;
+                    if (len > 4) {
+                        len = 4;
+                    }
+                    for (var i = 0; i < len; i++) {
+                        if (history_arr[i] != nst) {
+                            arr.push(history_arr[i])
+                        }
+                    }
+                    localStorage.setItem('history', arr.join("|"));
+                }
+
+                localStorage.setItem('history', arr.join("|"));
+            }
+
+        })
+        var str = '';
+
+        var history_arr = localStorage.getItem('history').split("|");
+        for (var i in history_arr) {
+            var data = history_arr[i].split("-");
+            // console.log(data)
+            //var value = localStorage.getItem(key);
+            str += '<a class="btn btn-success btn-xs" style="margin-left:5px" href="' + data[1] + '">' + data[0] + '</a>';
+        }
+        if (str) {
+            $("#history").parent().show();
+            $("#history").html(str)
+        }
+
+
+    })
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+    <title>AES加密,DES加密,RC4加密,Rabbit加密,TripleDes加密 - 小蓝工具</title>
+    <meta name="keywords" content="小蓝工具,小蓝博客,AES加密,DES加密,RC4加密,Rabbit加密,TripleDes加密"/>
+    <meta name="description" content="小蓝工具,小蓝博客,AES加密,DES加密,RC4加密,Rabbit加密,TripleDes加密">
+    <script src="http://cdn.bootcss.com/jquery/1.9.1/jquery.min.js"></script>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet"><link rel="icon" href="/static/image/浓云.png" sizes="32x32" />
+
+    <link rel="stylesheet" type="text/css" href="/static/css/common.css?v=1">
+    <script src="../../static/common/common.js"></script>
+
+</head>
+<body>
+<div class="aw-container-wrap">
+    <div class="container">
+        <div class="row">
+            <div class="aw-content-wrap clearfix">
+                <div class=" aw-main-content" style="min-height:700px;max-height:2000px">
+                    <nav class="navbar navbar-default" id='top_menu'>
+                        <div class="container-fluid">
+                            <ul class="nav navbar-nav" style="width: 100%;">
+                                <li>
+                                    <a href="../../index.html">首页</a>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" class="dropdown-toggle" id="jsontools" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">JSON相关<span
+                                            class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../index.html">格式化校验</a>
+                                        </li>
+                                        <li><a href="../../zhuanyi/index.html" red>JSON压缩转义</a>
+                                        </li>
+                                        <li><a href="../../json2javapojo/new/index.html" red>JSON生成Java实体类</a>
+                                        </li>
+                                        <li><a href="../../convert/json2csharp/index.html" id="json2csharp">JSON生成C#实体类</a>
+                                        </li>
+                                        <li><a href="../../jsoneditoronline/index.html" red>JSON在线编辑器</a>
+                                        </li>
+                                        <li><a href="../../color/index.html">JSON着色</a></li>
+                                        <li><a href="../../xml2json/index.html" red>XML-JSON互转</a></li>
+                                        <li><a href="../../jsontools/json2get/index.html" id="json2get">JSON和GET请求字符串互转</a>
+                                        </li>
+                                        <li><a href="../../json/col2json/index.html" id="excel2json">Excel转Json</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" id="encTools" class="dropdown-toggle" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        编码/加密<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../enc/base64/index.html">Base64编码、解码</a></li>
+                                        <li><a href="../../enc/md5/index.html">MD5加密</a></li>
+                                        <li><a href="../../enc/aesdes/index.html" id="aes">DES,AES等对称加密解密</a></li>
+                                        <li><a href="../../enc/sha/index.html">SHA加密</a></li>
+                                        <li><a href="../../enc/escape/index.html">Escape编码</a></li>
+                                        <li><a href="../../enc/urlencode/index.html" id="urlEncode">URL编码</a></li>
+                                        <li><a href="../../enc/eval_package/index.html">Javascript Eval加密解密</a></li>
+                                        <li><a href="../../enc/morse/index.html">摩斯密码加密解密</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                                       aria-haspopup="true" aria-expanded="false">格式化<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../jshtml_format/index.html">Javascript/HTML压缩、格式化</a></li>
+                                        <li><a href="../../otherformat/css/index.html">CSS压缩、格式化</a></li>
+                                        <li><a href="../../otherformat/xml/index.html">XML压缩、格式化</a></li>
+                                        <li><a href="../../otherformat/sql/index.html">SQL压缩、格式化</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" id="uitools" class="dropdown-toggle" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        前端<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../ui/tinypic/index.html" id="tinypic">图片在线压缩工具</a></li>
+                                        <li><a href="../../pages/cooleditor/index.html" id="simpleeidtor">在线代码编辑器</a></li>
+                                        <li><a href="../../ui/photoshop/index.html" target="_blank">在线photoshop</a></li>
+                                        <li><a href="http://h5.baidu.com/store" target="_blank" rel="external nofollow"
+                                               id="h5maker">H5模板在线制作</a></li>
+                                        <li><a href="http://runjs.cn/code" target="_blank" rel="external nofollow"
+                                               id="runjs">RunJS在线编辑器</a></li>
+                                        <li><a href="../../ui/ueditor/index.html" id="ueditor">ueditor在线代码编辑器</a></li>
+                                        <li><a href="../../ui/getcolor/index.html">在线调色板</a></li>
+                                        <li><a href="../../ui/safecolor/index.html" id="safecolor">WEB安全色</a></li>
+                                        <li><a href="../../ui/image2base64/index.html" id="img2base64">在线图片转Base64编码</a></li>
+                                        <li><a href="http://www.iconfont.cn/plus/collections/index" target="_blank"
+                                               rel="external nofollow">阿里巴巴矢量图标库</a></li>
+                                        <li><a href="http://fontawesome.io/icons/" target="_blank"
+                                               rel="external nofollow">fontawesome矢量图标库</a></li>
+                                        <li><a href="../../ui/svg_editor/index.html" id="svgedit">SVG代码编辑预览</a></li>
+                                        <li><a href="../../othertools/libcdn/index.html" id="libcdn">常用JS资源库</a></li>
+                                        <li><a href="../../ui/openweb/index.html" id="openweb">弹出窗口生成器</a></li>
+                                        <li><a href="../../ui/texteditor/index.html" id="texteditor">自动排版工具</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" id="convertTools" class="dropdown-toggle"
+                                       data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        转换<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../convert/map/index.html" id="mapdw">在线地图经纬度定位换算</a></li>
+                                        <li><a href="../../ui/px2em/index.html" id="px2em">px转em,em转px</a></li>
+                                        <li><a href="../../ui/image2base64/index.html" id="img2base64">在线图片转Base64编码</a></li>
+                                        <li><a id="unicodechinese"
+                                               href="convert/unicode_chinese/index.html">unicode中文互转</a></li>
+                                        <li><a href="../../convert/unix/index.html">Unix时间转换</a></li>
+                                        <li><a href="../../convert/jinzhi/index.html">进制转换</a></li>
+                                        <li><a href="../../convert/ox2str/index.html">16进制到文本字符串</a></li>
+                                        <li><a href="../../convert/uplowercase/index.html" id="uplowercase">字母大小写转换</a></li>
+                                        <li><a href="../../convert/rgbhex/index.html" id="rgbhex">RGB颜色和HEX互转</a></li>
+                                        <li><a href="../../convert/qrcode/index.html" id="qrtools">二维码生成与解码</a></li>
+                                        <li><a href="../../convert/numtohz/index.html" id="numtohz">数字转中文(人民币)</a></li>
+                                        <li><a href="../../convert/filesize/index.html" id="filesizehs">在线文件大小换算</a></li>
+                                        <li><a href="../../convert/nativeascii/index.html" id="navasc">NATIVE/ASCII编码互转工具</a>
+                                        </li>
+                                        <li><a href="../../othertools/sql2pojo/index.html" id="sql2pojo">数据库转实体类</a></li>
+                                        <li><a href="../../convert/htmlubb/index.html" id="htmlubb">Html与UBB代码互相转换工具</a></li>
+                                        <li><a href="../../convert/topinying/index.html" id="topinying">汉字转换拼音</a></li>
+                                        <li><a href="../../convert/fullhalf/index.html" id="fullhalf">全角半角转换</a></li>
+                                        <li><a href="../../convert/j2f/index.html" id="j2f">简繁体火星文互转</a></li>
+                                        <li><a href="../../convert/html2markdown/index.html" id="html2markdown">Html转换为MarkDown工具</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" class="dropdown-toggle" id="otherTools" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        其他<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../othertools/findelement/index.html" id="findbyxpath">寻找图片、链接或xpath寻找元素</a>
+                                        </li>
+                                        <li><a href="../../othertools/finddif/index.html">文字对比找不同处</a></li>
+                                        <li><a href="../../othertools/regex/index.html">正则表达式</a></li>
+                                        <li><a href="../../othertools/regex_create/index.html">正则表达式代码生成工具</a></li>
+                                        <li><a href="../../othertools/sqlAppend/index.html">SQL追加或去除双引号</a></li>
+                                        <li><a href="../../othertools/removeDuplicate/index.html">去除重复字符串</a></li>
+                                        <li><a href="../../chargeservice/ocr/index.html">在线文字识别</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="index.html#" class="dropdown-toggle" id="jsonapi" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        API<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="../../knownjson/webInterface/index.html" id="findbyxpath">免费JSON接口</a>
+                                        </li>
+                                        <li><a id="chargeapi" target="_blank" href="http://apistore.baidu.com/"
+                                               rel="external nofollow">收费JSON接口</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" class="dropdown-toggle" id="docs" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">
+                                        文档<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a id="bootcssapi" href="http://v3.bootcss.com/components/" target="_blank"
+                                               rel="external nofollow">Bootstrap文档</a></li>
+                                        <li><a id="vueapi" href="https://cn.vuejs.org/v2/api/" target="_blank"
+                                               rel="external nofollow">VueJs文档</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a id="apliayapi" href="http://wiki.open.qq.com/wiki/%E9%A6%96%E9%A1%B5"
+                                               target="_blank" rel="external nofollow">腾讯开发平台</a></li>
+                                        <li><a id="wxapi" href="http://mp.weixin.qq.com/wiki/home/index.html"
+                                               target="_blank" rel="external nofollow">微信公众平台开发文档</a></li>
+                                        <li><a id="wxapi"
+                                               href="http://mp.weixin.qq.com/wiki/11/74ad127cc054f6b80759c40f77ec03db.html"
+                                               target="_blank" rel="external nofollow">微信JSSDK开发文档</a></li>
+                                        <li><a id="wxapi" href="https://pay.weixin.qq.com/wiki/doc/api/index.html"
+                                               target="_blank" rel="external nofollow">微信支付开发文档</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a id="tbapi"
+                                               href="http://open.taobao.com/api/api_list.htm?spm=a219a.7386789.1.27.Lf4YRD"
+                                               target="_blank" rel="external nofollow">淘宝开发文档</a></li>
+                                        <li><a id="apliayapi" href="https://open.alipay.com/platform/document.htm"
+                                               target="_blank" rel="external nofollow">支付宝开发文档</a></li>
+                                        <li role="separator" class="divider"></li>
+
+                                        <li><a href="../../doc/AndroidManifest/index.html"
+                                               id="androidManifest">Android权限大全</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="../../knownjson/webInterface/index.html">JSON API免费接口</a></li>
+                                        <li><a href="../../knownjson/regexJiaocheng/index.html">正则表达式30分钟入门教程</a></li>
+                                        <li><a href="../../knownjson/httpstate/index.html">HTTP状态码查询</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown hide1">
+                                    <a href="index.html#" class="dropdown-toggle" id="testtools" data-toggle="dropdown"
+                                       role="button" aria-haspopup="true" aria-expanded="false">平台工具<span
+                                            class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a rel="external nofollow" target="_blank"
+                                               href="http://mp.weixin.qq.com/debug">微信公众平台调试工具</a></li>
+                                        <li><a id="coupon" rel="external nofollow" target="_blank"
+                                               href="http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=cardsign">微信卡券JSAPI签名校验工具</a>
+                                        </li>
+                                        <li><a id="wxsign" rel="external nofollow" target="_blank"
+                                               href="http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign">微信 JS
+                                            接口签名校验工具</a></li>
+                                        <li><a rel="external nofollow" target="_blank"
+                                               href="http://qy.weixin.qq.com/debug">微信企业号调试工具</a></li>
+                                        <li><a rel="external nofollow" target="_blank"
+                                               href="http://connect.qq.com/sdk/webtools/">QQ互联API调试工具</a></li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a rel="external nofollow" target="_blank" href="http://t.cn/R4617Pf">淘宝oauth2.0测试工具</a>
+                                        </li>
+                                        <li><a rel="external nofollow" target="_blank" href="http://t.cn/R461ZZu">淘宝API测试工具</a>
+                                        </li>
+                                        <li><a rel="external nofollow" target="_blank" href="http://t.cn/R461Zm2">淘宝错误码查询工具</a>
+                                        </li>
+                                        <li><a rel="external nofollow" target="_blank" href="http://t.cn/R461wa7">淘宝商品属性工具</a>
+                                        </li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a rel="external nofollow" target="_blank"
+                                               href="http://sandbox.alipaydev.com/home/apiTestTools.htm?method=alipay.security.risk.detect">支付宝API工具</a>
+                                        </li>
+                                        <li role="separator" class="divider"></li>
+                                        <li><a rel="external nofollow" target="_blank"
+                                               href="http://open.weibo.com/tools/console">新浪微博API工具</a></li>
+                                    </ul>
+                                </li>
+                                <!--占位置-->
+                            </ul>
+                        </div>
+                    </nav>
+                    <script>
+                        var showaban = true;
+                        var storageKey = "newtools20170322";
+                        if (window.localStorage.getItem(storageKey) == null) {
+                            $("#convertTools").after('<span class="newFeatureTip">●</span>');
+
+                            $("#tosvg").before('<span class="newItem">●</span>');
+                            document.getElementById("tosvg").onmouseover = function () {
+                                window.localStorage.setItem(storageKey, "has");
+                                $(".newFeatureTip").text('');
+                            }
+
+                        }
+
+                    </script>
+                    <div style="clear:both"></div>
+
+
+                    <blockquote class="layui-elem-quote layui-quote-nm"
+                                style='margin-bottom: 5px;display:none;padding: 4px 20px;font-size:13px;    text-align: left;'>
+                        您最近使用了：<span id="history"></span>
+                    </blockquote>
+                    <script type="text/javascript" src="http://www.bejson.com/static/bejson/enc/core-min.js"></script>
+                    <script type="text/javascript" src="http://www.bejson.com/static/bejson/enc/aes.js"></script>
+                    <script type="text/javascript" src="http://www.bejson.com/static/bejson/enc/tripledes.js"></script>
+                    <script type="text/javascript" src="http://www.bejson.com/static/bejson/enc/rabbit.js"></script>
+                    <script type="text/javascript" src="http://www.bejson.com/static/bejson/enc/rc4.js"></script>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h4 class="media-heading">对称加密、解密</h4>
+                                    <div id="desc1">AES加密,DES加密,RC4加密,Rabbit加密,TripleDes加密</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+
+                            <div>
+                                <textarea id="content" name="RawJson" class="json_input" rows="10" style="width: 100%;"
+                                          spellcheck="false" placeholder="请输入需要对称加密的字符串"></textarea>
+                            </div>
+                            <div class="row"></div>
+                            <div>
+                                <div class="btn-group" role="group" style="float: left;">
+                                    <button id="sels" type="button" class="btn btn-default dropdown-toggle"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        AES<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="javascript:;" onclick="enc('aes',this)">AES</a></li>
+                                        <li><a href="javascript:;" onclick="enc('des',this)">DES</a></li>
+                                        <li><a href="javascript:;" onclick="enc('rc4',this)">RC4</a></li>
+                                        <li><a href="javascript:;" onclick="enc('rabbit',this)">Rabbit</a></li>
+                                        <li><a href="javascript:;" onclick="enc('tripledes',this)">TripleDes</a></li>
+                                    </ul>
+                                </div>
+                                <input type="text" style="float: left; width:326px;margin-left:10px"
+                                       class="form-control" id="pwd" placeholder="请输入秘钥"
+                                       aria-describedby="sizing-addon3">
+                                <div class="left" style="float:left;margin-left:10px">
+                                    <div class="btn-group" role="group" aria-label="...">
+                                        <button name="validate" id="btnEnc" onclick="encrypt()" value="Validate"
+                                                class="btn btn-primary">加密
+                                        </button>
+                                        <button name="validate" id="validate" onclick="decrypt()" value="Validate"
+                                                class="btn btn-primary">解密
+                                        </button>
+                                        <input name="validate" class="btn btn-danger" onclick="Empty(); " type="reset"
+                                               value="清空">
+                                    </div>
+                                </div>
+                                <input type="hidden" id="enctype" value="aes"/>
+                            </div>
+                            <div class="row"></div>
+                            <div style="margin-top: 10px;">
+                                <textarea id="result" name="RawJson" class="json_input" rows="10" style="width: 100%;"
+                                          spellcheck="false" placeholder="加密或解密后的密文"></textarea>
+                            </div>
+
+                        </div>
+                        <input type="hidden" id="encode" value="1"/>
+                        <div class="panel-footer"></div>
+                    </div>
+                    <script type="text/javascript">
+                        function enc(s, obj) {
+                            $("#enctype").val(s);
+                            $("#sels").text($(obj).text());
+                        }
+
+
+                        function encrypt() {
+                            switch ($("#enctype").val()) {
+                                case "aes":
+                                    $("#result").val(CryptoJS.AES.encrypt($("#content").val(), $("#pwd").val()));
+                                    break;
+                                case "des":
+                                    $("#result").val(CryptoJS.DES.encrypt($("#content").val(), $("#pwd").val()));
+                                    break;
+                                case "rabbit":
+                                    $("#result").val(CryptoJS.Rabbit.encrypt($("#content").val(), $("#pwd").val()));
+                                    break;
+                                case "rc4":
+                                    $("#result").val(CryptoJS.RC4.encrypt($("#content").val(), $("#pwd").val()));
+                                    break;
+                                case "tripledes":
+                                    $("#result").val(CryptoJS.TripleDES.encrypt($("#content").val(), $("#pwd").val()));
+                                    break;
+                            }
+                        }
+                        function decrypt() {
+                            switch ($("#enctype").val()) {
+                                case "aes":
+                                    $("#result").val(CryptoJS.AES.decrypt($("#content").val(), $("#pwd").val()).toString(CryptoJS.enc.Utf8));
+                                    break;
+                                case "des":
+                                    $("#result").val(CryptoJS.DES.decrypt($("#content").val(), $("#pwd").val()).toString(CryptoJS.enc.Utf8));
+                                    break;
+                                case "rabbit":
+                                    $("#result").val(CryptoJS.Rabbit.decrypt($("#content").val(), $("#pwd").val()).toString(CryptoJS.enc.Utf8));
+                                    break;
+                                case "rc4":
+                                    $("#result").val(CryptoJS.RC4.decrypt($("#content").val(), $("#pwd").val()).toString(CryptoJS.enc.Utf8));
+                                    break;
+                                case "tripledes":
+                                    $("#result").val(CryptoJS.TripleDES.decrypt($("#content").val(), $("#pwd").val()).toString(CryptoJS.enc.Utf8));
+                                    break;
+                            }
+                        }
+
+                        function Empty() {
+                            document.getElementById('content').value = '';
+                            document.getElementById('result').value = '';
+                            document.getElementById('content').select();
+                        }
+
+                        function GetFocus() {
+                            document.getElementById('content').focus();
+                        }
+                    </script>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(function () {
+        $("#top_menu a").click(function () {
+
+
+            if ($(this).attr("href") != 'javascript:;') {
+
+                var history = localStorage.getItem('history');
+                var arr = new Array();
+                arr.push($(this).text() + "-" + $(this).attr("href"))
+                console.log(localStorage.getItem('history'))
+                //alert(history)
+                if (localStorage.getItem('history')) {
+                    var history_arr = localStorage.getItem('history').split("|");
+                    var nst = $(this).text() + "-" + $(this).attr("href");
+                    var len = history_arr.length;
+                    if (len > 4) {
+                        len = 4;
+                    }
+                    for (var i = 0; i < len; i++) {
+                        if (history_arr[i] != nst) {
+                            arr.push(history_arr[i])
+                        }
+                    }
+                    localStorage.setItem('history', arr.join("|"));
+                }
+
+                localStorage.setItem('history', arr.join("|"));
+            }
+
+        })
+        var str = '';
+
+        var history_arr = localStorage.getItem('history').split("|");
+        for (var i in history_arr) {
+            var data = history_arr[i].split("-");
+            // console.log(data)
+            //var value = localStorage.getItem(key);
+            str += '<a class="btn btn-success btn-xs" style="margin-left:5px" href="' + data[1] + '">' + data[0] + '</a>';
+        }
+        if (str) {
+            $("#history").parent().show();
+            $("#history").html(str)
+        }
+
+
+    })
+
+
+</script>
+
+</body>
+</html>
